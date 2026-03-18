@@ -1,13 +1,6 @@
-p {
-  width: 90px;
-  height: 100px;
-  padding: 20px;
-  border: 1px solid;
+a img.yt-thumb {
+  width: 200px;
+  height: auto;
+  display: block;
 }
-​
-/* Presentational styles */
-body {
-  font-family: sans-serif;
-  padding: 2em;
-}
-​
+

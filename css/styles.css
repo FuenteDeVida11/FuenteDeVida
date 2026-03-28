@@ -345,15 +345,28 @@ section.bg-light {
 }
 
 .contacto-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--teal-light);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--teal);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  color: #fff;
   flex-shrink: 0;
+}
+
+.contacto-icon--phone {
+  background: #1a8a3a;
+}
+
+.contacto-icon--whatsapp {
+  background: #25D366;
+}
+
+.contacto-icon--email {
+  background: #EA4335;
 }
 
 .contacto-item strong { display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }

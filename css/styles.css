@@ -387,14 +387,21 @@ section.bg-light {
 .registro-form {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 36px 32px;
+  padding: 36px 40px;
   box-shadow: var(--shadowa);
-  max-width: 600px;
+  max-width: 900px;
   margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
 }
 
 .form-group {
   margin-bottom: 22px;
+}
+
+.form-group--full {
+  grid-column: 1 / -1;
 }
 
 .form-group label {
@@ -505,6 +512,7 @@ section.bg-light {
 @media (max-width: 640px) {
   .registro-form {
     padding: 24px 16px;
+    grid-template-columns: 1fr;
   }
 
   .horario-opciones {

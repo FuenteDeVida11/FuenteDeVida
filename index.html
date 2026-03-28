@@ -104,11 +104,13 @@
         <input type="email" id="reg-gmail" name="gmail" placeholder="tucorreo@gmail.com" required />
       </div>
 
-      <div id="reg-error" class="reg-error" role="alert" hidden></div>
+      <div id="reg-error" class="reg-error form-group--full" role="alert" hidden></div>
 
-      <button type="submit" class="btn btn-primary reg-submit">
-        Enviar Registro 📲
-      </button>
+      <div class="form-group--full">
+        <button type="submit" class="btn btn-primary reg-submit">
+          Enviar Registro 📲
+        </button>
+      </div>
     </form>
   </section>
 
@@ -298,7 +300,7 @@
         var nombre   = document.getElementById('reg-nombre').value.trim();
         var red      = document.getElementById('reg-red').value.trim();
         var invito   = document.getElementById('reg-invito').value.trim();
-        var horario  = (form.querySelector('input[name="horario"]:checked') || {}).value || '';
+        var horario  = form.querySelector('input[name="horario"]:checked')?.value || '';
         var telefono = document.getElementById('reg-telefono').value.trim();
         var gmail    = document.getElementById('reg-gmail').value.trim();
         var errorEl  = document.getElementById('reg-error');

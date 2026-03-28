@@ -348,13 +348,16 @@ section.bg-light {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: var(--teal-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
+  color: white;
 }
+.contacto-icon-phone    { background: #34A853; }
+.contacto-icon-whatsapp { background: #25D366; }
+.contacto-icon-email    { background: #EA4335; }
 
 .contacto-item strong { display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
 .contacto-item span { font-weight: 600; font-size: 0.95rem; }
@@ -414,6 +417,32 @@ footer strong {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
 }
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.footer-contact a:hover { transform: translateY(-2px); opacity: 0.85; }
+
+.footer-contact .fc-phone    { background: #34A853; }
+.footer-contact .fc-whatsapp { background: #25D366; }
+.footer-contact .fc-email    { background: #EA4335; }
 
 /* ---- Divisor decorativo ---- */
 .divider {

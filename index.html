@@ -7,6 +7,8 @@
     <link rel="icon" href="jpg/logo-sin-fondo2.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- EmailJS – envío automático del formulario de registro -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -55,6 +57,66 @@
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
     </div>
+
+    <!-- Registro de Visita -->
+    <h2 style="margin-top:48px;">Regístrate Para Visitarnos</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom:24px;">
+      ¡Nos da mucho gusto que quieras visitarnos! Llena el formulario y uno de nuestros líderes se pondrá en contacto contigo.
+    </p>
+
+    <form id="registro-form" class="registro-form" novalidate>
+
+      <div class="form-group">
+        <label for="reg-nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="reg-nombre" name="nombre" placeholder="Tu nombre" required />
+      </div>
+
+      <div class="form-group">
+        <label for="reg-red">Red <span class="req">*</span></label>
+        <input type="text" id="reg-red" name="red" placeholder="¿A qué red perteneces o te interesa?" required />
+      </div>
+
+      <div class="form-group">
+        <label for="reg-invito">¿Quién te invitó? <span class="req">*</span></label>
+        <input type="text" id="reg-invito" name="invito" placeholder="Nombre de quien te invitó" required />
+      </div>
+
+      <div class="form-group form-group--full">
+        <label>¿En qué horario quieres ir? <span class="req">*</span></label>
+        <div class="horario-opciones">
+          <label class="horario-opcion">
+            <input type="radio" name="horario" value="Mañana (Domingo 12:00 – 2:00 pm)" required />
+            <span>🌅 Mañana<br /><small>Domingo 12:00 – 2:00 pm</small></span>
+          </label>
+          <label class="horario-opcion">
+            <input type="radio" name="horario" value="Tarde (Domingo 5:30 – 7:30 pm)" required />
+            <span>🌇 Tarde<br /><small>Domingo 5:30 – 7:30 pm</small></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-telefono">Número de teléfono <span class="req">*</span></label>
+        <input type="tel" id="reg-telefono" name="telefono" placeholder="(608) 000-0000" required />
+      </div>
+
+      <div class="form-group">
+        <label for="reg-gmail">Gmail <span class="req">*</span></label>
+        <input type="email" id="reg-gmail" name="gmail" placeholder="tucorreo@gmail.com" required />
+      </div>
+
+      <div id="reg-error" class="reg-error form-group--full" role="alert" hidden></div>
+      <div id="reg-success" class="reg-success form-group--full" role="status" hidden>
+        ✅ ¡Registro enviado con éxito! Uno de nuestros líderes se pondrá en contacto contigo pronto. 🙏
+      </div>
+
+      <div class="form-group--full">
+        <button type="submit" class="btn btn-primary reg-submit">
+          Enviar Registro 📲
+        </button>
+      </div>
+    </form>
   </section>
 
   <!-- ===== HORARIOS ===== -->
@@ -159,48 +221,34 @@
   </section>
 
   <!-- ===== LECTURA BÍBLICA ===== -->
-  <div class="container">
-  <h2>Lectura Bíblica</h2>
-  <div class="divider"></div>
-  <p>Lee la Palabra de Dios en diferentes versiones.</p>
-  <br />
-  <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 24px;">
-    <select id="bible-version" style="padding: 8px; border-radius: 4px; border: 1px solid var(--muted);">
-      <option value="RVR1960">Reina Valera 1960</option>
-      <option value="KJV">King James Version</option>
-    </select>
-    <input type="text" id="bible-passage" placeholder="Ej: Juan 3:16" style="padding: 8px; border-radius: 4px; border: 1px solid var(--muted); flex: 1; min-width: 200px;" />
-    <button onclick="loadBibleVerse()" class="btn btn-primary" style="padding: 8px 16px;">Buscar</button>
-  </div>
+  <section>
+    <h2>Lectura Bíblica</h2>
+    <div class="divider"></div>
+    <p>Lee la Palabra de Dios en diferentes versiones.</p>
+    <br />
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 24px;">
+      <select id="bible-version" style="padding: 8px; border-radius: 4px; border: 1px solid var(--muted);">
+        <option value="RVR1960">Reina Valera 1960</option>
+        <option value="KJV">King James Version</option>
+      </select>
+      <input type="text" id="bible-passage" placeholder="Ej: Juan 3:16" style="padding: 8px; border-radius: 4px; border: 1px solid var(--muted); flex: 1; min-width: 200px;" />
+      <button onclick="loadBibleVerse()" class="btn btn-primary" style="padding: 8px 16px;">Buscar</button>
+    </div>
 
-  <!-- Iframe con botón de pantalla completa -->
-  <div style="position: relative;">
-    <button onclick="expandirBiblia()" 
-      style="position: absolute; top: 8px; right: 8px; z-index: 10; background: var(--teal); color: white; border: none; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem;">
-      ⛶ Pantalla completa
-    </button>
-    <iframe id="bible-iframe" 
-      src="https://www.biblegateway.com/passage/?search=Juan%203:16&version=RVR1960" 
-      width="100%" 
-      height="400" 
-      style="border: none; border-radius: var(--radius); box-shadow: var(--shadow);">
-    </iframe>
-  </div>
-</div>
-</section>
-
-<script>
-  function expandirBiblia() {
-    const iframe = document.getElementById("bible-iframe");
-    if (iframe.requestFullscreen) {
-      iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) {
-      iframe.webkitRequestFullscreen();
-    } else if (iframe.mozRequestFullScreen) {
-      iframe.mozRequestFullScreen();
-    }
-  }
-</script>
+    <!-- Iframe con botón de pantalla completa -->
+    <div style="position: relative;">
+      <button onclick="expandirBiblia()"
+        style="position: absolute; top: 8px; right: 8px; z-index: 10; background: var(--teal); color: white; border: none; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem;">
+        ⛶ Pantalla completa
+      </button>
+      <iframe id="bible-iframe"
+        src="https://www.biblegateway.com/passage/?search=Juan%203:16&version=RVR1960"
+        width="100%"
+        height="400"
+        style="border: none; border-radius: var(--radius); box-shadow: var(--shadow);">
+      </iframe>
+    </div>
+  </section>
 
   <!-- ===== TE ESPERAMOS ===== -->
   <section class="bg-teal">
@@ -226,12 +274,110 @@
   </footer>
 
   <script>
+    function expandirBiblia() {
+      const iframe = document.getElementById('bible-iframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      }
+    }
+
     function loadBibleVerse() {
       const version = document.getElementById('bible-version').value;
       const passage = encodeURIComponent(document.getElementById('bible-passage').value);
       const iframe = document.getElementById('bible-iframe');
       iframe.src = `https://www.biblegateway.com/passage/?search=${passage}&version=${version}`;
     }
+
+    (function () {
+      /*
+       * ── CONFIGURACIÓN DE EMAILJS ──────────────────────────────────────────
+       * 1. Crea una cuenta gratis en https://www.emailjs.com (200 correos/mes).
+       * 2. Agrega un servicio de correo (p. ej. Gmail) y copia el Service ID.
+       * 3. Crea una plantilla de correo con las variables:
+       *      {{nombre}}, {{red}}, {{invito}}, {{horario}}, {{telefono}}, {{gmail}}
+       *    y copia el Template ID.
+       * 4. En Account → API Keys copia tu Public Key.
+       * 5. Reemplaza los tres valores de abajo con tus IDs reales.
+       * ─────────────────────────────────────────────────────────────────────
+       */
+      var EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';   // ← reemplaza
+      var EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';   // ← reemplaza
+      var EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';  // ← reemplaza
+
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      var form      = document.getElementById('registro-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var nombre    = document.getElementById('reg-nombre').value.trim();
+        var red       = document.getElementById('reg-red').value.trim();
+        var invito    = document.getElementById('reg-invito').value.trim();
+        var horario   = form.querySelector('input[name="horario"]:checked')?.value || '';
+        var telefono  = document.getElementById('reg-telefono').value.trim();
+        var gmail     = document.getElementById('reg-gmail').value.trim();
+        var errorEl   = document.getElementById('reg-error');
+        var successEl = document.getElementById('reg-success');
+        var btn       = form.querySelector('.reg-submit');
+
+        // ── Validación ──────────────────────────────────────────────────────
+        successEl.hidden = true;
+        if (!nombre || !red || !invito || !horario || !telefono || !gmail) {
+          errorEl.textContent = 'Por favor completa todos los campos antes de enviar.';
+          errorEl.hidden = false;
+          return;
+        }
+        if (!/^[^\s@]+@gmail\.com$/i.test(gmail)) {
+          errorEl.textContent = 'Por favor ingresa una dirección de Gmail válida (ejemplo@gmail.com).';
+          errorEl.hidden = false;
+          return;
+        }
+        errorEl.hidden = true;
+
+        // ── Estado de carga ──────────────────────────────────────────────────
+        btn.disabled = true;
+        btn.textContent = 'Enviando… ⏳';
+
+        // ── Envío automático vía EmailJS ────────────────────────────────────
+        if (EMAILJS_PUBLIC_KEY === 'TU_PUBLIC_KEY' ||
+            EMAILJS_SERVICE_ID  === 'TU_SERVICE_ID' ||
+            EMAILJS_TEMPLATE_ID === 'TU_TEMPLATE_ID') {
+          errorEl.textContent = 'El formulario no está configurado aún. Contacta al administrador del sitio.';
+          errorEl.hidden = false;
+          btn.disabled = false;
+          btn.textContent = 'Enviar Registro 📲';
+          return;
+        }
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          nombre:   nombre,
+          red:      red,
+          invito:   invito,
+          horario:  horario,
+          telefono: telefono,
+          gmail:    gmail
+        })
+        .then(function () {
+          successEl.hidden = false;
+          form.reset();
+          btn.disabled = false;
+          btn.textContent = 'Enviar Registro 📲';
+        })
+        .catch(function (err) {
+          console.error('EmailJS error:', err);
+          errorEl.textContent = 'Hubo un error al enviar el registro. Por favor intenta de nuevo.';
+          errorEl.hidden = false;
+          btn.disabled = false;
+          btn.textContent = 'Enviar Registro 📲';
+        });
+      });
+    })();
   </script>
 
 </body>

@@ -502,6 +502,17 @@ section.bg-light {
   margin-bottom: 18px;
 }
 
+.reg-success {
+  background: #f0fff4;
+  color: #276749;
+  border: 1px solid #9ae6b4;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
 .reg-submit {
   border: none;
   width: 100%;

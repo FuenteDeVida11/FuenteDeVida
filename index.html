@@ -52,9 +52,12 @@
     <!--Registro de visitas-->
 
     <!-- Ubicación -->
-    <h2 id="horarios" style="margin-top: 0">Ubicación</h2>
-    <div class="divider"></div>
+     <section class="bg-light">
+      <div class="container">
+        <h2>Ubicacion</h2>
+        <div class="divider"></div>
     <div class="ubicacion-box">
+      </div>
       <a
         href="https://www.google.com/maps/place/Iglesia+Fuente+de+Vida/@43.120351,-89.31647,20.08z"
         target="_blank"
@@ -332,59 +335,7 @@
         </div>
       </div>
     </section>
-
-    <script>
-      (function () {
-        var form = document.getElementById("registro-form");
-        if (!form) return;
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var nombre = document.getElementById("reg-nombre").value.trim();
-          var red = document.getElementById("reg-red").value.trim();
-          var invito = document.getElementById("reg-invito").value.trim();
-          var horario =
-            (form.querySelector('input[name="horario"]:checked') || {}).value ||
-            "";
-          var telefono = document.getElementById("reg-telefono").value.trim();
-          var gmail = document.getElementById("reg-gmail").value.trim();
-          var errorEl = document.getElementById("reg-error");
-          if (!nombre || !red || !invito || !horario || !telefono || !gmail) {
-            errorEl.textContent =
-              "Por favor completa todos los campos antes de enviar.";
-            errorEl.hidden = false;
-            return;
-          }
-          if (!/^[^\s@]+@gmail\.com$/i.test(gmail)) {
-            errorEl.textContent =
-              "Por favor ingresa una dirección de Gmail válida (ejemplo@gmail.com).";
-            errorEl.hidden = false;
-            return;
-          }
-          errorEl.hidden = true;
-          var mensaje =
-            "🌊 *Registro de Visita – Fuente de Vida*\n\n" +
-            "👤 *Nombre:* " +
-            nombre +
-            "\n" +
-            "🔗 *Red:* " +
-            red +
-            "\n" +
-            "🤝 *¿Quién lo invitó?:* " +
-            invito +
-            "\n" +
-            "🕐 *Horario:* " +
-            horario +
-            "\n" +
-            "📞 *Teléfono:* " +
-            telefono +
-            "\n" +
-            "✉️ *Gmail:* " +
-            gmail;
-          var url = `https://wa.me/16086957063?text=${encodeURIComponent(mensaje)}`;
-          window.open(url, "_blank", "noopener,noreferrer");
-        });
-      })();
-    </script>
+             
     <!-- ===== FOOTER ===== -->
     <footer>
       <strong>Fuente De Vida</strong>

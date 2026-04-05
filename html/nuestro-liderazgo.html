@@ -123,6 +123,55 @@
           max-height: 400px;
         }
       }
+
+      header .redes {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 28px;
+      }
+
+      header .red-social {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
+
+      header .red-social:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      header .red-facebook {
+        background: #1877f2;
+        color: white;
+      }
+
+      header .red-instagram {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+      }
+
+      header .red-youtube {
+        background: #ff0000;
+        color: white;
+      }
     </style>
   </head>
 
@@ -143,6 +192,17 @@
       <img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
       <h1>Nuestro Liderazgo</h1>
       <h3>Conoce a quienes guían nuestra iglesia</h3>
+      <div class="redes">
+        <a href="https://facebook.com" target="_blank" class="red-social red-facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://instagram.com" target="_blank" class="red-social red-instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://youtube.com" target="_blank" class="red-social red-youtube">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+      </div>
     </header>
 
     <section>

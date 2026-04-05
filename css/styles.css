@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", Arial;
   background-color: var(--cream);
   color: var(--text);
   line-height: 1.7;
@@ -36,7 +36,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Arial;
   color: var(--dark);
   line-height: 1.2;
 }
@@ -196,7 +196,7 @@ header h3 {
   display: inline-block;
   padding: 14px 32px;
   border-radius: 50px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", Arial;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
@@ -482,7 +482,7 @@ section.bg-light {
   padding: 12px 16px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", Arial;
   font-size: 1rem;
   color: var(--text);
   background: var(--cream);
@@ -595,7 +595,7 @@ footer strong {
   color: var(--white);
   display: block;
   margin-bottom: 6px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Arial;
   font-size: 1.1rem;
 }
 

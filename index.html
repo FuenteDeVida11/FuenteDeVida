@@ -61,6 +61,70 @@
     </header>
 
     <!--Registro de visitas-->
+    <section class="bg-light">
+      <div class="container">
+        <h2>Registro de Visitas</h2>
+        <div class="divider"></div>
+        <p>
+          ¡Nos alegra que estés interesado en visitarnos! Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
+        </p>
+        <br />
+        <div class="registro-container">
+          <form id="registroForm" class="registro-form">
+            <div class="form-group form-group--full">
+              <label for="nombre">Nombre <span class="req">*</span></label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+            </div>
+
+            <div class="form-group form-group--full">
+              <label>Hora en la que asistirás <span class="req">*</span></label>
+              <div class="horario-opciones">
+                <label class="horario-opcion">
+                  <input type="radio" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
+                  <div>
+                    <span>Mañana</span>
+                    <small>12:00 pm (Bilingüe)</small>
+                  </div>
+                </label>
+                <label class="horario-opcion">
+                  <input type="radio" name="horario" value="Tarde 5:30 pm (Español)" required />
+                  <div>
+                    <span>Tarde</span>
+                    <small>5:30 pm (Español)</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="invitado">¿Quién lo/la invitó? <span class="req">*</span></label>
+              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+1 (608) 123-4567" />
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 12px;">
+                Registrarme
+              </button>
+            </div>
+
+            <div id="statusMessage" class="form-message form-group--full" style="display: none;"></div>
+          </form>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: var(--muted); margin-top: 20px;">
+          Tus datos serán tratados con confidencialidad y solo se utilizarán para mejorar tu experiencia en nuestra iglesia.
+        </p>
+      </div>
+    </section>
 
     <!-- Ubicación -->
      <section class="bg-light">
@@ -349,7 +413,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
       <strong>Fuente De Vida</strong>
-      2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI
+      <span data-i18n="footer">2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
 
       <div class="footer-contact">
         <a href="tel:+16082176835" class="fc-phone" title="Llamar"
@@ -379,6 +443,66 @@
         const iframe = document.getElementById("bible-iframe");
         iframe.src = `https://www.biblegateway.com/passage/?search=${passage}&version=${version}`;
       }
+
+      // Inicializar EmailJS
+      emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pública
+
+      // Manejar el formulario de registro
+      document.getElementById("registroForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        
+        const statusDiv = document.getElementById("statusMessage");
+        const botonEnvio = e.target.querySelector('button[type="submit"]');
+        const textoOriginal = botonEnvio.textContent;
+        
+        // Desabilitar botón y mostrar estado
+        botonEnvio.disabled = true;
+        botonEnvio.textContent = "Enviando...";
+        statusDiv.style.display = "none";
+        
+        const nombre = document.getElementById("nombre").value;
+        const horario = document.querySelector('input[name="horario"]:checked').value;
+        const invitado = document.getElementById("invitado").value;
+        const email = document.getElementById("email").value;
+        const telefono = document.getElementById("telefono").value;
+
+        try {
+          // Enviar email con EmailJS
+          await emailjs.send("service_svti20s", "template_sr378qp", {
+            nombre: nombre,
+            invitado: invitado,
+            email: email,
+            telefono: telefono || "No proporcionado",
+            horario: horario,
+            fecha: new Date().toLocaleDateString("es-ES")
+          });
+
+          // Mostrar mensaje de éxito
+          statusDiv.textContent = "✓ ¡Registro enviado correctamente! Te esperamos.";
+          statusDiv.className = "form-message form-message--success";
+          statusDiv.style.display = "block";
+          
+          // Limpiar formulario
+          document.getElementById("registroForm").reset();
+          
+          // Ocultar mensaje después de 5 segundos
+          setTimeout(() => {
+            statusDiv.style.display = "none";
+            botonEnvio.disabled = false;
+            botonEnvio.textContent = textoOriginal;
+          }, 5000);
+
+        } catch (error) {
+          console.error("Error al enviar:", error);
+          statusDiv.textContent = "⚠ Error al enviar. Intenta de nuevo o contactanos directamente.";
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          
+          // Reabilitar botón
+          botonEnvio.disabled = false;
+          botonEnvio.textContent = textoOriginal;
+        }
+      });
     </script>
   </body>
 </html>

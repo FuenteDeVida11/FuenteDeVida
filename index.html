@@ -37,15 +37,15 @@
         <a href="html/eventos.html" class="btn btn-primary">Ver Eventos</a>
         <a href="html/ultimo-sermon.html" class="btn btn-outline">Último Sermón</a>
       </div>
-      <div class="redes">
-        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" class="red-social red-facebook">
-          <i class="fab fa-facebook"></i> Facebook
+      <div class="redes" role="list">
+        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="Síguenos en Facebook">
+          <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
         </a>
-        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" class="red-social red-instagram">
-          <i class="fab fa-instagram"></i> Instagram
+        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="Síguenos en Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
         </a>
-        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" class="red-social red-youtube">
-          <i class="fab fa-youtube"></i> YouTube
+        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="Síguenos en YouTube">
+          <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
         </a>
       </div>
     </header>
@@ -102,7 +102,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 12px;">
+              <button type="submit" class="btn btn-primary form-btn-submit">
                 Registrarme
               </button>
             </div>
@@ -110,7 +110,7 @@
             <div id="statusMessage" class="form-message form-group--full" style="display: none;"></div>
           </form>
         </div>
-        <p style="text-align: center; font-size: 0.9rem; color: var(--muted); margin-top: 20px;">
+        <p class="form-confidential">
           Tus datos serán tratados con confidencialidad y solo se utilizarán para mejorar tu experiencia en nuestra iglesia.
         </p>
       </div>
@@ -126,6 +126,7 @@
       <a
         href="https://www.google.com/maps/place/Iglesia+Fuente+de+Vida/@43.120351,-89.31647,20.08z"
         target="_blank"
+        rel="noopener noreferrer"
       >
         📍 3939 Lien Road, Madison, WI 53704
       </a>
@@ -133,15 +134,17 @@
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus"
         width="100%"
         height="200"
-        style="border: 0"
+        class="maps-iframe"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación de Iglesia Fuente de Vida en Google Maps"
+        aria-label="Mapa mostrando la ubicación de la iglesia en 3939 Lien Road, Madison, WI"
       ></iframe>
     </div>
 
     <!-- ===== HORARIOS ===== -->
-    <section class="bg-light">
+    <section id="horarios" class="bg-light">
       <div class="container">
         <h2>Horarios de Servicios</h2>
         <div class="divider"></div>
@@ -216,6 +219,7 @@
         <a
           href="https://wa.me/16086181831"
           target="_blank"
+          rel="noopener noreferrer"
           class="contacto-item"
         >
           <i class="fab fa-whatsapp"></i>
@@ -240,27 +244,33 @@
       <!-- Redes sociales -->
       <br />
       <h3>Síguenos en Redes Sociales</h3>
-      <div class="redes">
+      <div class="redes" role="list">
         <a
           href="https://www.facebook.com/profile.php?id=100064671460385"
           target="_blank"
+          rel="noopener noreferrer"
           class="red-social red-facebook"
+          aria-label="Síguenos en Facebook"
         >
-          <i class="fab fa-facebook-f"></i> Facebook
+          <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
         </a>
         <a
           href="https://www.instagram.com/ia.fuentedevida/"
           target="_blank"
+          rel="noopener noreferrer"
           class="red-social red-instagram"
+          aria-label="Síguenos en Instagram"
         >
-          <i class="fab fa-instagram"></i> Instagram
+          <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
         </a>
         <a
           href="https://www.youtube.com/@fdvmadison7681"
           target="_blank"
+          rel="noopener noreferrer"
           class="red-social red-youtube"
+          aria-label="Síguenos en YouTube"
         >
-          <i class="fab fa-youtube"></i> YouTube
+          <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
         </a>
       </div>
     </section>
@@ -271,22 +281,10 @@
       <div class="divider"></div>
       <p>Lee la Palabra de Dios en diferentes versiones.</p>
       <br />
-      <div
-        style="
-          display: flex;
-          gap: 16px;
-          flex-wrap: wrap;
-          align-items: center;
-          margin-bottom: 24px;
-        "
-      >
+      <div class="bible-controls">
         <select
           id="bible-version"
-          style="
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--muted);
-          "
+          class="bible-select"
         >
           <option value="RVR1960">Reina Valera 1960</option>
           <option value="KJV">King James Version</option>
@@ -295,40 +293,21 @@
           type="text"
           id="bible-passage"
           placeholder="Ej: Juan 3:16"
-          style="
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--muted);
-            flex: 1;
-            min-width: 200px;
-          "
+          class="bible-input"
         />
         <button
           onclick="loadBibleVerse()"
-          class="btn btn-primary"
-          style="padding: 8px 16px"
+          class="btn btn-primary bible-btn"
         >
           Buscar
         </button>
       </div>
 
       <!-- Iframe con botón de pantalla completa -->
-      <div style="position: relative">
+      <div class="bible-container">
         <button
           onclick="expandirBiblia()"
-          style="
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            z-index: 10;
-            background: var(--teal);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 6px 12px;
-            cursor: pointer;
-            font-size: 0.85rem;
-          "
+          class="bible-fullscreen-btn"
         >
           ⛶ Pantalla completa
         </button>
@@ -337,28 +316,11 @@
           src="https://www.biblegateway.com/passage/?search=Juan%203:16&version=RVR1960"
           width="100%"
           height="400"
-          style="
-            border: none;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-          "
+          class="bible-iframe"
         >
         </iframe>
       </div>
     </section>
-
-    <script>
-      function expandirBiblia() {
-        var iframe = document.getElementById("bible-iframe");
-        if (iframe.requestFullscreen) {
-          iframe.requestFullscreen();
-        } else if (iframe.webkitRequestFullscreen) {
-          iframe.webkitRequestFullscreen();
-        } else if (iframe.mozRequestFullScreen) {
-          iframe.mozRequestFullScreen();
-        }
-      }
-    </script>
 
     <script>
       function expandirBiblia() {
@@ -375,22 +337,15 @@
 
     <!-- ===== TE ESPERAMOS ===== -->
     <section class="bg-teal">
-      <div class="container" style="text-align: center">
+      <div class="container cta-container">
         <h2>Te Esperamos</h2>
-        <div class="divider" style="margin: 16px auto 28px"></div>
-        <p style="max-width: 55ch; margin: 0 auto; font-size: 1.1rem">
+        <div class="divider cta-divider"></div>
+        <p class="cta-text">
           Las puertas están abiertas para ti y tu familia. Ven tal como eres y
           vive una experiencia con Dios.
         </p>
         <br /><br />
-        <div
-          style="
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-          "
-        >
+        <div class="cta-buttons">
           <a href="html/nuestra-historia.html" class="btn btn-primary"
             >Nuestra Historia</a
           >
@@ -403,25 +358,30 @@
     <!-- ===== FOOTER ===== -->
     <footer>
       <strong>Fuente De Vida</strong>
-      <span data-i18n="footer">2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
+      <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
 
-      <div class="footer-contact">
-        <a href="tel:+16082176835" class="fc-phone" title="Llamar"
-          ><i class="fas fa-phone"></i
-        ></a>
+      <div class="footer-contact" role="list">
+        <a href="tel:+16082176835" class="fc-phone" title="Llamar" aria-label="Llamar por teléfono">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+        </a>
         <a
           href="https://wa.me/16086181831"
           target="_blank"
+          rel="noopener noreferrer"
           class="fc-whatsapp"
           title="WhatsApp"
-          ><i class="fab fa-whatsapp"></i
-        ></a>
+          aria-label="Enviar mensaje por WhatsApp"
+        >
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
         <a
           href="mailto:pastorfdvjacobocastillo@gmail.com"
           class="fc-email"
           title="Email"
-          ><i class="fas fa-envelope"></i
-        ></a>
+          aria-label="Enviar correo electrónico"
+        >
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
       </div>
     </footer>
     <script>

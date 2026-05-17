@@ -10,22 +10,77 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/styles.css" />
-    <style>
-      .lider-grande {
-        display: grid;
-        grid-template-columns: 1fr 1.4fr;
-        gap: 40px;
-        align-items: center;
-        background: var(--white);
-        border-radius: var(--radius);
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        margin: 32px auto;
-        max-width: 960px;
-        width: 100%;
-        padding: 16px;
-      }
-      .lider-grande img {
+  </head>
+
+  <body>
+    <nav>
+      <a href="../index.html"><img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
+      <ul>
+        <li><a href="../index.html#visitar">Visitanos</a></li>
+        <li><a href="../index.html#horarios">Horarios</a></li>
+        <li><a href="../index.html#liderazgo">Liderazgo</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
+      <h1>Nuestro Liderazgo</h1>
+      <h3>Conoce a quienes guían nuestra iglesia</h3>
+      <div class="redes">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="red-social red-facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="red-social red-instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="red-social red-youtube">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Liderazgo</h2>
+      <div class="divider"></div>
+
+      <div class="lider-grande">
+        <img src="../jpg/JacoboYCarla.jpg" alt="Pastor Jacobo Castillo y Carla Rosales" />
+        <div class="lider-grande-info">
+          <h3>Jacobo Castillo</h3>
+          <span class="lider-rol">Pastor General</span>
+          <p>
+            Con amor y pasión por el evangelio, el Pastor Jacobo lidera la Iglesia Fuente de Vida con un corazón de servicio. Su visión es alcanzar a cada familia de Madison con el mensaje de esperanza y salvación de Jesucristo.
+          </p>
+          <div class="contact-line">
+            <a href="https://wa.me/16082176835" target="_blank" rel="noopener noreferrer" class="contact-card-link contact-wpp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:pastorfdvjacobocastillo@gmail.com" class="contact-card-link contact-email">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-teal">
+      <div class="container cta-container">
+        <h2>¿Quieres conocer a nuestro liderazgo?</h2>
+        <div class="divider cta-divider"></div>
+        <p class="cta-text">
+          Visitanos cualquier domingo para conocer personalmente a nuestro liderazgo y ser parte de nuestra familia espiritual.
+        </p>
+        <a href="../index.html#horarios" class="btn btn-primary">Ver Horarios</a>
+      </div>
+    </section>
+
+    <footer>
+      <strong>Fuente De Vida</strong>
+      <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
+    </footer>
+  </body>
+</html>
         width: 100%;
         height: 380px;
         object-fit: cover;

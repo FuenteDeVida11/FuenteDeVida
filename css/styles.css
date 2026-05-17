@@ -701,6 +701,8 @@ header a       { animation-delay: 0.55s; }
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 .sermon-info {
@@ -732,6 +734,373 @@ header a       { animation-delay: 0.55s; }
   margin: 0;
 }
 
+.sermon-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  margin-bottom: 32px;
+}
+
+.sermon-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Maps & Forms ---- */
+.maps-iframe {
+  border: 0;
+}
+
+.form-btn-submit {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.form-confidential {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+/* ---- Bible Section ---- */
+.bible-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.bible-select,
+.bible-input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--muted);
+}
+
+.bible-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bible-btn {
+  padding: 8px 16px;
+}
+
+.bible-container {
+  position: relative;
+}
+
+.bible-fullscreen-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.bible-iframe {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---- CTA Section ---- */
+.cta-container {
+  text-align: center;
+}
+
+.cta-divider {
+  margin: 16px auto 28px;
+}
+
+.cta-text {
+  max-width: 55ch;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Eventos Page ---- */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.evento-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.evento-card:hover {
+  transform: translateY(-4px);
+}
+
+.evento-fecha {
+  background: var(--teal);
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.evento-fecha .dia {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.evento-fecha .mes {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.evento-info {
+  padding: 20px;
+}
+
+.evento-info h3 {
+  margin-bottom: 8px;
+}
+
+.evento-info p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.evento-tag {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+/* ---- Creencias Page ---- */
+.creencias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.creencia-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--teal);
+  transition: transform 0.2s;
+}
+
+.creencia-card:hover {
+  transform: translateY(-4px);
+}
+
+.creencia-icono {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.creencia-card h3 {
+  margin-bottom: 10px;
+  color: var(--teal-dark);
+}
+
+.creencia-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.versiculo {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 12px;
+  display: block;
+}
+
+/* ---- Historia Page ---- */
+.timeline {
+  position: relative;
+  margin-top: 40px;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--teal-light);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--teal);
+}
+
+.timeline-anio {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+.timeline-item h3 {
+  margin-bottom: 6px;
+}
+
+.timeline-item p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---- Liderazgo Page ---- */
+.lider-grande {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin: 32px auto;
+  max-width: 960px;
+  width: 100%;
+  padding: 16px;
+}
+
+.lider-grande img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: top;
+  aspect-ratio: 4 / 5;
+}
+
+.lider-grande-info {
+  padding: 36px 36px 36px 0;
+}
+
+.lider-grande-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.lider-rol {
+  color: var(--teal);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.lider-grande-info p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.contact-line {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.contact-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.contact-card-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.contact-wpp {
+  background: #25d366;
+}
+
+.contact-email {
+  background: #d44638;
+}
+
+@media (max-width: 640px) {
+  .lider-grande {
+    grid-template-columns: 1fr;
+  }
+  .lider-grande-info {
+    padding: 24px;
+  }
+  .lider-grande img {
+    height: auto;
+    max-height: 400px;
+  }
+}
 
 @media (max-width: 768px) {
   .sermon-list {

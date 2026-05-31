@@ -14,6 +14,7 @@
   --shadowa: 0 4px 24px rgba(26, 122, 138, 0.12);
 }
 
+
 *, *::before,
 *::after {
   margin: 0;
@@ -1216,4 +1217,39 @@ header a       { animation-delay: 0.55s; }
   .sermon-thumbnail {
     height: 140px;
   }
+}
+
+.contact-celulas-rosa {
+  background-color: #e91e8c;
+  color: #fff;
+}
+
+.contact-celulas-morada {
+  background-color: #900ac1c2;
+  color: #fff;
+}
+
+.contact-celulas-roja {
+  background-color: #e91e1e;
+  color: #fff;
+}
+
+.contact-celulas-guinda {
+  background-color: #6b111c;
+  color: #fff;
+}
+
+.contact-celulas-azul {
+  background-color: #3707c7;
+  color: #fff;
+}
+
+.contact-celulas-verde {
+  background-color: #08b105;
+  color: #fff;
+}
+
+.contact-celulas-general {
+  background-color: #060105;
+  color: #fff;
 }

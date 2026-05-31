@@ -12,11 +12,17 @@
   <body>
     <nav>
       <a href="../index.html"><img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
-      <ul>
+      <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="navMenu" class="nav-menu">
         <li><a href="../index.html#visitar">Visítanos</a></li>
         <li><a href="../index.html#horarios">Horarios</a></li>
         <li><a href="../index.html#liderazgo">Liderazgo</a></li>
         <li><a href="../index.html#contacto">Contacto</a></li>
+        <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Ofrendas</a></li>
       </ul>
     </nav>
 
@@ -776,6 +782,35 @@
         document.querySelectorAll(".sermon-list li").forEach((item) => {
           item.style.display = item.textContent.toLowerCase().includes(query) ? "" : "none";
         });
+      });
+    </script>
+
+    <script>
+      // Menu Hamburguesa
+      const menuBtn = document.getElementById('menuBtn');
+      const navMenu = document.getElementById('navMenu');
+
+      menuBtn.addEventListener('click', function() {
+        menuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        menuBtn.setAttribute('aria-expanded', menuBtn.classList.contains('active'));
+      });
+
+      const menuLinks = navMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          menuBtn.classList.remove('active');
+          navMenu.classList.remove('active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('nav')) {
+          menuBtn.classList.remove('active');
+          navMenu.classList.remove('active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
       });
     </script>
 

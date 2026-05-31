@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Células - Fuente de Vida</title>
+  <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <style>
+    /* Células Section Styles */
+    .celulas-section {
+      padding: 80px 32px;
+      background-color: var(--white);
+    }
+
+    .celulas-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .celulas-header h2 {
+      margin-bottom: 12px;
+    }
+
+    .celulas-header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, var(--teal), var(--gold));
+      margin: 24px auto;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .toggle-btn {
+      padding: 12px 32px;
+      border: 2px solid var(--teal);
+      background-color: var(--white);
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--teal-light);
+    }
+
+    .toggle-btn.active {
+      background-color: var(--teal);
+      color: var(--white);
+    }
+
+    /* Map View */
+    #mapView {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    #mapView.hidden {
+      display: none;
+    }
+
+    #map {
+      height: 500px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    /* List View */
+    #listView {
+      display: none;
+    }
+
+    #listView.active {
+      display: block;
+    }
+
+    .red-group {
+      margin-bottom: 48px;
+    }
+
+    .red-group-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .red-color-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cells-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .cell-card {
+      background-color: var(--white);
+      border: 1px solid #e0e0e0;
+      border-left: 4px solid;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .cell-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .cell-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .cell-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .cell-info {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .cell-info strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .cell-address {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+    }
+
+    .cell-address i {
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 16px;
+      background-color: #25D366;
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #20ba5a;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .popup-content {
+      font-size: 0.9rem;
+      max-width: 250px;
+    }
+
+    .popup-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+
+    .popup-info {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .popup-info strong {
+      color: var(--dark);
+    }
+
+    .popup-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background-color: #25D366;
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-whatsapp:hover {
+      background-color: #20ba5a;
+    }
+
+    @media (max-width: 768px) {
+      .celulas-section {
+        padding: 60px 16px;
+      }
+
+      .toggle-buttons {
+        flex-direction: column;
+      }
+
+      .toggle-btn {
+        width: 100%;
+      }
+
+      #map {
+        height: 350px;
+      }
+
+      .cells-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .red-group-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVEGACIÓN ===== -->
+  <nav>
+    <img src="../jpg/logo-sin-fondo.png" alt="Fuente de Vida church logo" />
+    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="../index.html#visitar">Visítanos</a></li>
+      <li><a href="../index.html#horarios">Horarios</a></li>
+      <li><a href="../index.html#liderazgo">Liderazgo</a></li>
+      <li><a href="../index.html#contacto">Contacto</a></li>
+      <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Ofrendas</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CÉLULAS SECTION ===== -->
+  <section class="celulas-section">
+    <div class="container">
+      <div class="celulas-header">
+        <h2>Conéctate en tu comunidad</h2>
+        <div class="divider"></div>
+        <p>Únete a una célula y crece espiritualmente con tu comunidad de fe</p>
+      </div>
+
+      <!-- Toggle Buttons -->
+      <div class="toggle-buttons">
+        <button class="toggle-btn active" id="mapToggle" data-view="map">
+          <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Mapa
+        </button>
+        <button class="toggle-btn" id="listToggle" data-view="list">
+          <i class="fas fa-list" style="margin-right: 8px;"></i>Lista
+        </button>
+      </div>
+
+      <!-- Map View -->
+      <div id="mapView">
+        <div id="map"></div>
+      </div>
+
+      <!-- List View -->
+      <div id="listView">
+        <div id="listContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+   <footer>
+      <strong>Fuente De Vida</strong>
+      2026 Iglesia Apostolica de la Fe en Cristo Jesús en Madison, WI
+    <div class="footer-contact">
+      <a href="tel:+16082176835" class="fc-phone" title="Llamar"><i class="fas fa-phone"></i></a>
+      <a href="https://wa.me/16086181831" target="_blank" class="fc-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:pastorfdvjacobocastillo@gmail.com" class="fc-email" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    </footer>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Network Colors
+    const NETWORK_COLORS = {
+      'Red Rosa': '#D4537E',
+      'Red Morada': '#7F77DD',
+      'Red Roja': '#E24B4A',
+      'Red Guinda': '#7B2D3E',
+      'Red Azul': '#378ADD',
+      'Red Verde': '#639922'
+    };
+
+    // Cell Data
+    const cellsData = [
+      {
+        id: 1,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Rebeca Macias',
+        timoteo: 'Alicia/Dexi',
+        address: '4546 Thurston Ln',
+        lat: 43.03165559214676,
+        lng: -89.4559427751398,
+        dia: 'Martes',
+        hora: '7:30 pm'
+      },
+        {
+        id: 2,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Lino',
+        timoteo: 'N/A',
+        address: '2405 Chalet Gardens',
+        lat: 43.028689729518284,
+        lng: -89.46306619048313,
+        dia: 'Viernes',
+        hora: '8:00 pm'
+      },
+        {
+        id: 3,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Aaron Rea',
+        timoteo: 'Sofia Sanches',
+        address: '6823 Park Edge Madison',
+        lat: 43.05009633055052,
+        lng: -89.49820707036066,
+        dia: 'Viernes',
+        hora: '7:00 pm'
+      },
+       {
+        id: 4,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Raymundo Bautista',
+        timoteo: 'Mario',
+        address: '2202 Post Roas Fitchburg',
+        lat: 43.02723109013108,
+        lng: -89.41738659233376,
+        dia: 'Martes',
+        hora: '7:00 pm'
+      },
+       {
+        id: 5,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Raymundo Bautista',
+        timoteo: 'N/A',
+        address: '1907 Eggum Rd Mount Horeb',
+        lat: 43.00155866687463,
+        lng: -89.71155674630592,
+        dia: 'Lunes',
+        hora: '7:00 pm'
+      },
+       {
+        id: 6,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Raymundo Bautista',
+        timoteo: 'Luiz Lopez',
+        address: '4910 Marvin Ave',
+        lat: 43.03668611575562,
+        lng: -89.46181993281105,
+        dia: 'Viernes',
+        hora: '7:00 pm'
+      },
+      
+       {
+        id: 7,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Raymundo Bautista',
+        timoteo: 'N/A',
+        address: '2106 Red Trail Apt 7',
+        dia: 'Sabado',
+        hora: '2:30 pm'
+      },
+        {
+        id: 8,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Ramon',
+        timoteo: 'Marcelino',
+        address: 'Fish Hatcehry',
+        dia: 'Lunes',
+        hora: '7:00 pm'
+      },
+      {
+        id: 9,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Carlos Barrera',
+        timoteo: 'Yaquelin Acuna',
+        address: 'Comercial Ave',
+        dia: 'Viernes',
+        hora: '7:00 pm'
+      },
+      {
+        id: 10,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Carlos Barrera',
+        timoteo: 'N/A',
+        address: 'Sun Praire',
+        dia: 'Sabado',
+        hora: '7:00 pm'
+      },
+      {
+        id: 11,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Carlos Barrera',
+        timoteo: 'Yaquelin Acuna',
+        address: 'Fish Hatchery',
+        dia: 'Sabado',
+        hora: '5:00 pm'
+      },
+      {
+        id: 12,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Carlos Barrera',
+        timoteo: 'N/A',
+        address: 'Greenways Cross',
+        dia: 'Jueves',
+        hora: '7:00 pm'
+      },
+      {
+        id: 13,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Daniel Mota',
+        timoteo: 'N/A',
+        address: 'West',
+        dia: 'Viernes',
+        hora: '6:30 am'
+      },
+      {
+        id: 14,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Osmara Macias',
+        timoteo: 'N/A',
+        address: 'West',
+        dia: 'Martes',
+        hora: '6:30 pm'
+      },
+      {
+        id: 15,
+        red: 'Red Morada',
+        pastorDeRed: 'Omar Robles',
+        lideresDecelula: 'Omar Robles',
+        timoteo: 'Daniel',
+        address: 'Stougthon',
+        dia: 'Jueves',
+        hora: '8:30 pm'
+      },
+      
+    ];
+
+    let map;
+    let markers = [];
+    let currentView = 'map';
+
+    // Initialize Map
+    function initMap() {
+      map = L.map('map').setView([43.0731, -89.4012], 11);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(map);
+
+      // Add markers for each cell
+      cellsData.forEach(cell => {
+        const color = NETWORK_COLORS[cell.red] || '#1a7a8a';
+        const marker = L.circleMarker([cell.lat, cell.lng], {
+          radius: 12,
+          fillColor: color,
+          color: color,
+          weight: 2,
+          opacity: 1,
+          fillOpacity: 0.8
+        }).addTo(map);
+
+        const popupContent = `
+          <div class="popup-content">
+            <div class="popup-badge" style="background-color: ${color};">${cell.red}</div>
+            <div class="popup-info">
+              <strong>Pastor de red:</strong> ${cell.pastorDeRed}
+            </div>
+            <div class="popup-info">
+              <strong>Líderes de célula:</strong> ${cell.lideresDecelula}
+            </div>
+            <div class="popup-info">
+              <strong>Timoteo:</strong> ${cell.timoteo}
+            </div>
+            <div class="popup-info">
+              <i class="fas fa-map-pin"></i> ${cell.address}
+            </div>
+          </div>
+        `;
+
+        marker.bindPopup(popupContent);
+        markers.push(marker);
+      });
+    }
+
+    // Render List View
+    function renderListView() {
+      const listContainer = document.getElementById('listContainer');
+      listContainer.innerHTML = '';
+
+      // Group cells by red (network)
+      const groupedByRed = {};
+      cellsData.forEach(cell => {
+        if (!groupedByRed[cell.red]) {
+          groupedByRed[cell.red] = [];
+        }
+        groupedByRed[cell.red].push(cell);
+      });
+
+      // Render each red group
+      Object.entries(groupedByRed).forEach(([red, cells]) => {
+        const color = NETWORK_COLORS[red] || '#1a7a8a';
+        const redGroupHTML = `
+          <div class="red-group">
+            <div class="red-group-title">
+              <div class="red-color-badge" style="background-color: ${color};"></div>
+              ${red}
+            </div>
+            <div class="cells-grid">
+              ${cells.map(cell => `
+                <div class="cell-card" style="border-left-color: ${color};">
+                  <div class="cell-badge" style="background-color: ${color};">${cell.red}</div>
+                  <h3>Célula ${cell.id}</h3>
+                  <div class="cell-info">
+                    <strong>Pastor de red:</strong><br>${cell.pastorDeRed}
+                  </div>
+                  <div class="cell-info">
+                    <strong>Líderes de célula:</strong><br>${cell.lideresDecelula}
+                  </div>
+                  <div class="cell-info">
+                    <strong>Timoteo:</strong><br>${cell.timoteo}
+                  </div>
+                  <div class="cell-info">
+                    <strong>Día:</strong> ${cell.dia}
+                  </div>
+                  <div class="cell-info">
+                    <strong>Hora:</strong> ${cell.hora}
+                  </div>
+                  <div class="cell-address">
+                    <i class="fas fa-map-pin"></i>
+                    <span>${cell.address}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        listContainer.innerHTML += redGroupHTML;
+      });
+    }
+
+    // Toggle View
+    function toggleView(view) {
+      currentView = view;
+      const mapView = document.getElementById('mapView');
+      const listView = document.getElementById('listView');
+      const mapToggle = document.getElementById('mapToggle');
+      const listToggle = document.getElementById('listToggle');
+
+      if (view === 'map') {
+        mapView.classList.remove('hidden');
+        listView.classList.remove('active');
+        mapToggle.classList.add('active');
+        listToggle.classList.remove('active');
+        setTimeout(() => map.invalidateSize(), 100);
+      } else {
+        mapView.classList.add('hidden');
+        listView.classList.add('active');
+        mapToggle.classList.remove('active');
+        listToggle.classList.add('active');
+        renderListView();
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('mapToggle').addEventListener('click', () => toggleView('map'));
+    document.getElementById('listToggle').addEventListener('click', () => toggleView('list'));
+
+    // Menu Hamburguesa
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    menuBtn.addEventListener('click', function() {
+      menuBtn.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', menuBtn.classList.contains('active'));
+    });
+
+    const menuLinks = navMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('nav')) {
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      initMap();
+      renderListView();
+    });
+  </script>
+</body>
+</html>

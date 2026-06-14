@@ -1259,15 +1259,15 @@ header a       { animation-delay: 0.55s; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 24px;
+  bottom: 8px;
   margin: 0 auto;
-  width: min(100%, 720px);
-  max-width: 720px;
-  padding: 0 24px 32px;
+  width: min(100%, 760px);
+  max-width: 760px;
+  padding: 0 24px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .hero-header h1,

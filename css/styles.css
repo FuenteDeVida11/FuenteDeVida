@@ -1257,16 +1257,17 @@ header a       { animation-delay: 0.55s; }
 
 .hero-header-content {
   position: absolute;
-  left: 50%;
-  top: auto !important;
-  bottom: 4px !important;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   margin: 0 auto;
   width: min(100%, 760px);
   max-width: 760px;
-  padding: 0 24px 12px;
+  padding: 0 24px 24px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   gap: 14px;
 }

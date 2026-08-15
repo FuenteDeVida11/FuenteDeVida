@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -24,13 +24,16 @@
     <nav>
       <img
         src="jpg/logo-sin-fondo.png"
-        alt="Fuente de Vida church logo featuring the organization name in a modern design"
+        alt="Logo Fuente de Vida"
+       
       />
-      <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="menu-hamburguesa" id="menuBtn" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       <ul id="navMenu" class="nav-menu">
         <li><a href="#visitar">Visítanos</a></li>
         <li><a href="#horarios">Horarios</a></li>
@@ -41,7 +44,7 @@
     </nav>
 
     <!-- ===== HEADER ===== -->
-    <header style="background-image: url('jpg/templo.JPG'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 70vh;">
+     <header style="background-image: url('jpg/templo.JPG'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 70vh;">
       <img src="jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
       <h1>Fuente De Vida</h1>
       <h3>Iglesia Cristiana</h3>
@@ -75,12 +78,12 @@
         <div class="registro-container">
           <form id="registroForm" class="registro-form">
             <div class="form-group form-group--full">
-              <label for="nombre">Nombre <span class="req">*</span></label>
+              <label for="nombre"><span>Nombre</span> <span class="req">*</span></label>
               <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
             </div>
 
             <div class="form-group form-group--full">
-              <label>Hora en la que asistirás <span class="req">*</span></label>
+              <label><span>Hora en la que asistirás</span> <span class="req">*</span></label>
               <div class="horario-opciones">
                 <label class="horario-opcion">
                   <input type="radio" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
@@ -100,17 +103,17 @@
             </div>
 
             <div class="form-group">
-              <label for="invitado">¿Quién lo/la invitó? <span class="req">*</span></label>
+              <label for="invitado"><span>¿Quién lo/la invitó?</span> <span class="req">*</span></label>
               <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" required />
             </div>
 
             <div class="form-group">
-              <label for="email">Correo Electrónico <span class="req">*</span></label>
+              <label for="email"><span>Correo Electrónico</span> <span class="req">*</span></label>
               <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
             </div>
 
             <div class="form-group">
-              <label for="telefono">Teléfono</label>
+              <label for="telefono"><span>Teléfono</span></label>
               <input type="tel" id="telefono" name="telefono" placeholder="+1 (608) 123-4567" />
             </div>
 
@@ -142,8 +145,7 @@
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Ubicación de Iglesia Fuente de Vida en Google Maps"
-        aria-label="Mapa mostrando la ubicación de la iglesia en 3939 Lien Road, Madison, WI"
+       
       ></iframe>
     </div>
 
@@ -173,8 +175,7 @@
       <h2>¿Qué es Fuente de Vida?</h2>
       <div class="divider"></div>
       <p>
-        Somos un grupo de personas redimidos por el amor de JESUCRISTO,
-        dispuestos a servir con amor y pasión para la gloria de Dios.
+        <span>Somos un grupo de personas redimidos por el amor de JESUCRISTO, dispuestos a servir con amor y pasión para la gloria de Dios.</span>
         <strong>¡Bienvenidos a Fuente de Vida!</strong>
       </p>
       <br />
@@ -192,6 +193,7 @@
           <img
             src="jpg/jacobo-carla.JPG"
             alt="Jacobo Castillo y Carla Rosales"
+           
           />
           <div class="lider-info">
             <h3>Jacobo Castillo + Carla Rosales</h3>
@@ -254,27 +256,27 @@
           target="_blank"
           rel="noopener noreferrer"
           class="red-social red-facebook"
-          aria-label="Síguenos en Facebook"
+         
         >
-          <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+          <i class="fab fa-facebook-f" aria-hidden="true"></i> <span>Facebook</span>
         </a>
         <a
           href="https://www.instagram.com/ia.fuentedevida/"
           target="_blank"
           rel="noopener noreferrer"
           class="red-social red-instagram"
-          aria-label="Síguenos en Instagram"
+         
         >
-          <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+          <i class="fab fa-instagram" aria-hidden="true"></i> <span>Instagram</span>
         </a>
         <a
           href="https://www.youtube.com/@fdvmadison7681"
           target="_blank"
           rel="noopener noreferrer"
           class="red-social red-youtube"
-          aria-label="Síguenos en YouTube"
+         
         >
-          <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
+          <i class="fab fa-youtube" aria-hidden="true"></i> <span>YouTube</span>
         </a>
       </div>
     </section>
@@ -286,10 +288,7 @@
       <p>Lee la Palabra de Dios en diferentes versiones.</p>
       <br />
       <div class="bible-controls">
-        <select
-          id="bible-version"
-          class="bible-select"
-        >
+        <select id="bible-version" class="bible-select">
           <option value="RVR1960">Reina Valera 1960</option>
           <option value="KJV">King James Version</option>
         </select>
@@ -298,46 +297,15 @@
           id="bible-passage"
           placeholder="Ej: Juan 3:16"
           class="bible-input"
+         
         />
-        <button
-          onclick="loadBibleVerse()"
-          class="btn btn-primary bible-btn"
-        >
-          Buscar
-        </button>
+        <button id="bible-search-btn" class="btn btn-primary bible-btn">Buscar</button>
       </div>
 
-      <!-- Iframe con botón de pantalla completa -->
       <div class="bible-container">
-        <button
-          onclick="expandirBiblia()"
-          class="bible-fullscreen-btn"
-        >
-          ⛶ Pantalla completa
-        </button>
-        <iframe
-          id="bible-iframe"
-          src="https://www.biblegateway.com/passage/?search=Juan%203:16&version=RVR1960"
-          width="100%"
-          height="400"
-          class="bible-iframe"
-        >
-        </iframe>
+        <!-- El resultado se inyecta aquí vía JavaScript -->
       </div>
     </section>
-
-    <script>
-      function expandirBiblia() {
-        const iframe = document.getElementById("bible-iframe");
-        if (iframe.requestFullscreen) {
-          iframe.requestFullscreen();
-        } else if (iframe.webkitRequestFullscreen) {
-          iframe.webkitRequestFullscreen();
-        } else if (iframe.mozRequestFullScreen) {
-          iframe.mozRequestFullScreen();
-        }
-      }
-    </script>
 
     <!-- ===== TE ESPERAMOS ===== -->
     <section class="bg-teal">
@@ -365,7 +333,7 @@
       <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
 
       <div class="footer-contact" role="list">
-        <a href="tel:+16082176835" class="fc-phone" title="Llamar" aria-label="Llamar por teléfono">
+        <a href="tel:+16082176835" class="fc-phone">
           <i class="fas fa-phone" aria-hidden="true"></i>
         </a>
         <a
@@ -373,30 +341,206 @@
           target="_blank"
           rel="noopener noreferrer"
           class="fc-whatsapp"
-          title="WhatsApp"
-          aria-label="Enviar mensaje por WhatsApp"
+         
         >
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
         <a
           href="mailto:pastorfdvjacobocastillo@gmail.com"
           class="fc-email"
-          title="Email"
-          aria-label="Enviar correo electrónico"
+         
         >
           <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
       </div>
     </footer>
     <script>
-      function loadBibleVerse() {
-        const version = document.getElementById("bible-version").value;
-        const passage = encodeURIComponent(
-          document.getElementById("bible-passage").value,
-        );
-        const iframe = document.getElementById("bible-iframe");
-        iframe.src = `https://www.biblegateway.com/passage/?search=${passage}&version=${version}`;
-      }
+// Mapeo de nombres de libros en español -> código de 3 letras que usa biblia-api.qhar.in
+const LIBROS_ES = {
+  "genesis": "GEN", "génesis": "GEN",
+  "exodo": "EXO", "éxodo": "EXO",
+  "levitico": "LEV", "levítico": "LEV",
+  "numeros": "NUM", "números": "NUM",
+  "deuteronomio": "DEU",
+  "josue": "JOS", "josué": "JOS",
+  "jueces": "JDG",
+  "rut": "RUT",
+  "1 samuel": "1SA", "2 samuel": "2SA",
+  "1 reyes": "1KI", "2 reyes": "2KI",
+  "1 cronicas": "1CH", "1 crónicas": "1CH",
+  "2 cronicas": "2CH", "2 crónicas": "2CH",
+  "esdras": "EZR",
+  "nehemias": "NEH", "nehemías": "NEH",
+  "ester": "EST",
+  "job": "JOB",
+  "salmos": "PSA", "salmo": "PSA",
+  "proverbios": "PRO",
+  "eclesiastes": "ECC", "eclesiastés": "ECC",
+  "cantares": "SNG", "cantar de los cantares": "SNG",
+  "isaias": "ISA", "isaías": "ISA",
+  "jeremias": "JER", "jeremías": "JER",
+  "lamentaciones": "LAM",
+  "ezequiel": "EZK",
+  "daniel": "DAN",
+  "oseas": "HOS",
+  "joel": "JOL",
+  "amos": "AMO", "amós": "AMO",
+  "abdias": "OBA", "abdías": "OBA",
+  "jonas": "JON", "jonás": "JON",
+  "miqueas": "MIC",
+  "nahum": "NAM", "nahúm": "NAM",
+  "habacuc": "HAB",
+  "sofonias": "ZEP", "sofonías": "ZEP",
+  "hageo": "HAG",
+  "zacarias": "ZEC", "zacarías": "ZEC",
+  "malaquias": "MAL", "malaquías": "MAL",
+  "mateo": "MAT",
+  "marcos": "MRK",
+  "lucas": "LUK",
+  "juan": "JHN",
+  "hechos": "ACT",
+  "romanos": "ROM",
+  "1 corintios": "1CO", "2 corintios": "2CO",
+  "galatas": "GAL", "gálatas": "GAL",
+  "efesios": "EPH",
+  "filipenses": "PHP",
+  "colosenses": "COL",
+  "1 tesalonicenses": "1TH", "2 tesalonicenses": "2TH",
+  "1 timoteo": "1TI", "2 timoteo": "2TI",
+  "tito": "TIT",
+  "filemon": "PHM", "filemón": "PHM",
+  "hebreos": "HEB",
+  "santiago": "JAS",
+  "1 pedro": "1PE", "2 pedro": "2PE",
+  "1 juan": "1JN", "2 juan": "2JN", "3 juan": "3JN",
+  "judas": "JUD",
+  "apocalipsis": "REV"
+};
+
+// Mapeo para la API en inglés (wldeh) - nombres completos en minúsculas
+const LIBROS_EN = {
+  "genesis": "genesis", "génesis": "genesis",
+  "exodo": "exodus", "éxodo": "exodus",
+  "levitico": "leviticus", "levítico": "leviticus",
+  "numeros": "numbers", "números": "numbers",
+  "deuteronomio": "deuteronomy",
+  "josue": "joshua", "josué": "joshua",
+  "jueces": "judges",
+  "rut": "ruth",
+  "1 samuel": "1samuel", "2 samuel": "2samuel",
+  "1 reyes": "1kings", "2 reyes": "2kings",
+  "salmos": "psalms", "salmo": "psalms",
+  "proverbios": "proverbs",
+  "mateo": "matthew",
+  "marcos": "mark",
+  "lucas": "luke",
+  "juan": "john",
+  "hechos": "acts",
+  "romanos": "romans",
+  "apocalipsis": "revelation"
+};
+
+function normalizarTexto(str) {
+  return str.toLowerCase().trim();
+}
+
+// Convierte "juan 3:16", "juan 3 16", "juan 3,16" o "juan3:16" en {libro, capitulo, versiculo}
+function parsearReferencia(input, mapaLibros) {
+  const texto = normalizarTexto(input);
+  const match = texto.match(/^(\d?\s?[a-záéíóúñ]+)\s*(\d+)\s*[:,]?\s*(\d+)?(?:-(\d+))?$/i);
+  if (!match) return null;
+
+  const nombreLibro = match[1].trim();
+  const capitulo = match[2];
+  const versiculo = match[3] || null;
+  const versiculoFin = match[4] || null;
+
+  const libroId = mapaLibros[nombreLibro];
+  if (!libroId) return null;
+
+  return { libro: libroId, capitulo, versiculo, versiculoFin };
+}
+
+async function buscarEnEspanol(ref, inputTexto) {
+  let url;
+  if (ref.versiculo) {
+    url = `https://biblia-api.qhar.in/book/${ref.libro}/chapter/${ref.capitulo}/verse/${ref.versiculo}`;
+  } else {
+    url = `https://biblia-api.qhar.in/book/${ref.libro}/chapter/${ref.capitulo}/verse`;
+  }
+
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("No encontrado");
+  const data = await response.json();
+
+  if (!data || data.length === 0) throw new Error("Vacío");
+
+  const textoFinal = `<p><strong>${inputTexto}</strong></p>` +
+    data.map(v => `<p>${v.content}</p>`).join("");
+
+  return textoFinal;
+}
+
+async function buscarEnIngles(ref, inputTexto) {
+  let url;
+  if (ref.versiculo) {
+    url = `https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/${ref.libro}/chapters/${ref.capitulo}/verses/${ref.versiculo}.json`;
+  } else {
+    url = `https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/${ref.libro}/chapters/${ref.capitulo}.json`;
+  }
+
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("No encontrado");
+  const data = await response.json();
+
+  let textoFinal = "";
+  if (ref.versiculo) {
+    textoFinal = `<p><strong>${inputTexto}</strong></p><p>${data.text}</p>`;
+  } else if (data.verses) {
+    textoFinal = `<p><strong>${inputTexto}</strong></p>` +
+      data.verses.map(v => `<p><sup>${v.verse}</sup> ${v.text}</p>`).join("");
+  }
+  return textoFinal;
+}
+
+async function loadBibleVerse() {
+  const versionSelect = document.getElementById("bible-version").value;
+  const inputTexto = document.getElementById("bible-passage").value;
+  const esEspanol = versionSelect === "RVR1960";
+
+  const mapaLibros = esEspanol ? LIBROS_ES : LIBROS_EN;
+  const ref = parsearReferencia(inputTexto, mapaLibros);
+
+  if (!ref) {
+    mostrarErrorBiblia(window.t('bible_error_invalid_ref', "No pude entender la referencia. Intenta algo como 'Juan 3 16' o 'Juan 3:16'."));
+    return;
+  }
+
+  try {
+    const textoFinal = esEspanol
+      ? await buscarEnEspanol(ref, inputTexto)
+      : await buscarEnIngles(ref, inputTexto);
+
+    mostrarResultadoBiblia(textoFinal);
+  } catch (error) {
+    console.error("Error al buscar pasaje:", error);
+    mostrarErrorBiblia(window.t('bible_error_fetch', "No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde."));
+  }
+}
+
+function mostrarResultadoBiblia(html) {
+  const contenedor = document.querySelector(".bible-container");
+  contenedor.innerHTML = `<div class="bible-resultado">${html}</div>`;
+}
+
+function mostrarErrorBiblia(mensaje) {
+  const contenedor = document.querySelector(".bible-container");
+  contenedor.innerHTML = `<div class="form-message form-message--error">${mensaje}</div>`;
+}
+
+document.getElementById('bible-search-btn').addEventListener('click', loadBibleVerse);
+document.getElementById('bible-passage').addEventListener('keydown', function(e){ if(e.key==='Enter') loadBibleVerse(); });
+
 
       // Inicializar EmailJS
       emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pública
@@ -411,7 +555,7 @@
         
         // Desabilitar botón y mostrar estado
         botonEnvio.disabled = true;
-        botonEnvio.textContent = "Enviando...";
+        botonEnvio.textContent = window.t('form_sending', 'Enviando...');
         statusDiv.style.display = "none";
         
         const nombre = document.getElementById("nombre").value;
@@ -432,7 +576,7 @@
           });
 
           // Mostrar mensaje de éxito
-          statusDiv.textContent = "✓ ¡Registro enviado correctamente! Te esperamos.";
+          statusDiv.textContent = window.t('form_success', '✓ ¡Registro enviado correctamente! Te esperamos.');
           statusDiv.className = "form-message form-message--success";
           statusDiv.style.display = "block";
           
@@ -448,7 +592,7 @@
 
         } catch (error) {
           console.error("Error al enviar:", error);
-          statusDiv.textContent = "⚠ Error al enviar. Intenta de nuevo o contactanos directamente.";
+          statusDiv.textContent = window.t('form_error', '⚠ Error al enviar. Intenta de nuevo o contactanos directamente.');
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
           
@@ -459,7 +603,6 @@
       });
     </script>
     
-    <!-- Menu Hamburguesa -->
     <script>
       const menuBtn = document.getElementById('menuBtn');
       const navMenu = document.getElementById('navMenu');

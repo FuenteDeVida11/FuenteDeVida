@@ -133,21 +133,21 @@
     </section>
 
     <!-- Ubicación -->
-     <section class="bg-light">
+    <section class="bg-light">
       <div class="container">
         <h2>Ubicación</h2>
         <div class="divider"></div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus"
-        width="100%"
-        height="200"
-        class="maps-iframe"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-       
-      ></iframe>
-    </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus"
+          width="100%"
+          height="200"
+          class="maps-iframe"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
 
     <!-- ===== HORARIOS ===== -->
     <section id="horarios" class="bg-light">
@@ -355,6 +355,10 @@
       </div>
     </footer>
     <script>
+      window.t = window.t || function (key, fallback) {
+        return fallback !== undefined ? fallback : key;
+      };
+
 // Mapeo de nombres de libros en español -> código de 3 letras que usa biblia-api.qhar.in
 const LIBROS_ES = {
   "genesis": "GEN", "génesis": "GEN",
@@ -542,30 +546,82 @@ document.getElementById('bible-search-btn').addEventListener('click', loadBibleV
 document.getElementById('bible-passage').addEventListener('keydown', function(e){ if(e.key==='Enter') loadBibleVerse(); });
 
 
-      // Inicializar EmailJS
-      emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pública
+      // Inicializar EmailJS con seguridad (no fallar si la librería no está disponible)
+      try {
+        if (window.emailjs && typeof emailjs.init === 'function') {
+          emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pública
+        } else {
+          console.warn('EmailJS no está disponible en este entorno.');
+        }
+      } catch (err) {
+        console.error('Error inicializando EmailJS:', err);
+      }
 
-      // Manejar el formulario de registro
+      // Manejar el formulario de registro con validaciones básicas y mejor manejo de errores
       document.getElementById("registroForm").addEventListener("submit", async function(e) {
         e.preventDefault();
-        
+
         const statusDiv = document.getElementById("statusMessage");
         const botonEnvio = e.target.querySelector('button[type="submit"]');
         const textoOriginal = botonEnvio.textContent;
-        
-        // Desabilitar botón y mostrar estado
+
+        // Deshabilitar botón y mostrar estado
         botonEnvio.disabled = true;
         botonEnvio.textContent = window.t('form_sending', 'Enviando...');
         statusDiv.style.display = "none";
-        
-        const nombre = document.getElementById("nombre").value;
-        const horario = document.querySelector('input[name="horario"]:checked').value;
-        const invitado = document.getElementById("invitado").value;
-        const email = document.getElementById("email").value;
-        const telefono = document.getElementById("telefono").value;
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const horarioElem = document.querySelector('input[name="horario"]:checked');
+        const invitado = document.getElementById("invitado").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+
+        // Validaciones básicas
+        if (!nombre || !invitado || !email) {
+          statusDiv.textContent = window.t('form_error_required', 'Por favor completa los campos obligatorios.');
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          botonEnvio.disabled = false;
+          botonEnvio.textContent = textoOriginal;
+          return;
+        }
+
+        if (!horarioElem) {
+          statusDiv.textContent = window.t('form_error_horario', 'Selecciona la hora en la que asistirás.');
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          botonEnvio.disabled = false;
+          botonEnvio.textContent = textoOriginal;
+          return;
+        }
+
+        // Validación simple de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          statusDiv.textContent = window.t('form_error_email', 'Ingresa un correo electrónico válido.');
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          botonEnvio.disabled = false;
+          botonEnvio.textContent = textoOriginal;
+          return;
+        }
+
+        if (!navigator.onLine) {
+          statusDiv.textContent = window.t('form_error_offline', 'No estás conectado a internet. Intenta de nuevo cuando tengas conexión.');
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          botonEnvio.disabled = false;
+          botonEnvio.textContent = textoOriginal;
+          return;
+        }
+
+        const horario = horarioElem ? horarioElem.value : '';
 
         try {
-          // Enviar email con EmailJS
+          if (!window.emailjs || typeof emailjs.send !== 'function') {
+            throw new Error('Email service unavailable');
+          }
+
           await emailjs.send("service_svti20s", "template_sr378qp", {
             nombre: nombre,
             invitado: invitado,
@@ -579,10 +635,10 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
           statusDiv.textContent = window.t('form_success', '✓ ¡Registro enviado correctamente! Te esperamos.');
           statusDiv.className = "form-message form-message--success";
           statusDiv.style.display = "block";
-          
+
           // Limpiar formulario
           document.getElementById("registroForm").reset();
-          
+
           // Ocultar mensaje después de 5 segundos
           setTimeout(() => {
             statusDiv.style.display = "none";
@@ -592,11 +648,24 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
 
         } catch (error) {
           console.error("Error al enviar:", error);
-          statusDiv.textContent = window.t('form_error', '⚠ Error al enviar. Intenta de nuevo o contactanos directamente.');
+          const friendly = window.t('form_error', '⚠ Error al enviar. Intenta de nuevo o contactanos directamente.');
+          const detail = (error && (error.text || error.message)) ? ` (${error.text || error.message})` : '';
+          const statusInfo = error && error.status ? ` [status:${error.status}]` : '';
+
+          // Detectar error específico de EmailJS sobre "non-browser environments"
+          const errMsg = (error && (error.text || error.message)) ? (error.text || error.message) : '';
+          const isNonBrowser = /non-browser/i.test(errMsg) || (error && error.status === 403);
+
+          if (isNonBrowser) {
+            statusDiv.innerHTML = `${friendly} ${window.t('emailjs_nonbrowser', 'API access from non-browser environments is currently disabled.')}<br><a href="https://dashboard.emailjs.com/admin/account/security" target="_blank" rel="noopener">${window.t('open_emailjs_security','Abrir configuración de seguridad en EmailJS')}</a><br>${window.t('or_host','O sirve el sitio desde HTTP (ej. Live Server o `python -m http.server`) para evitar el bloqueo.')}`;
+          } else {
+            statusDiv.textContent = friendly + detail + statusInfo;
+          }
+
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
-          
-          // Reabilitar botón
+
+          // Rehabilitar botón
           botonEnvio.disabled = false;
           botonEnvio.textContent = textoOriginal;
         }

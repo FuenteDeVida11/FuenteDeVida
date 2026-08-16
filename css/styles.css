@@ -869,6 +869,13 @@ header a       { animation-delay: 0.55s; }
   height: 100%;
 }
 
+/* Responsive para móviles - Sermones */
+@media (max-width: 640px) {
+  .sermon-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- Maps & Forms ---- */
 .maps-iframe {
   border: 0;

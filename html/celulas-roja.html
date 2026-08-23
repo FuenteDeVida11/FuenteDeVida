@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Células - Fuente de Vida</title>
+  <title>CÃ©lulas - Fuente de Vida</title>
   <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   
   <style>
-    /* Células Section Styles */
+    /* CÃ©lulas Section Styles */
     .celulas-section {
       padding: 80px 32px;
       background-color: var(--white);
@@ -317,16 +317,16 @@
   gtag('config', 'G-71PNQ7G8RJ');
 </script></head>
 <body>
-  <!-- ===== NAVEGACIÓN ===== -->
+  <!-- ===== NAVEGACIÃ“N ===== -->
   <nav>
      <a href="../index.html"><img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
-    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menÃº de navegaciÃ³n" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <ul id="navMenu" class="nav-menu">
-      <li><a href="../index.html#visitar">Visítanos</a></li>
+      <li><a href="../index.html#visitar">VisÃ­tanos</a></li>
       <li><a href="../index.html#horarios">Horarios</a></li>
       <li><a href="../index.html#liderazgo">Liderazgo</a></li>
       <li><a href="../index.html#contacto">Contacto</a></li>
@@ -334,13 +334,13 @@
     </ul>
   </nav>
 
-  <!-- ===== CÉLULAS SECTION ===== -->
+  <!-- ===== CÃ‰LULAS SECTION ===== -->
   <section class="celulas-section">
     <div class="container">
       <div class="celulas-header">
-        <h2>Conéctate en tu comunidad</h2>
+        <h2>ConÂ¿ctate en tu comunidad</h2>
         <div class="divider"></div>
-        <p>Únete a una célula y crece espiritualmente con tu comunidad de fe</p>
+        <p>Â¿nete a una cÃ©lula y crece espiritualmente con tu comunidad de fe</p>
       </div>
 
       <!-- Toggle Buttons -->
@@ -368,7 +368,7 @@
   <!-- ===== FOOTER ===== -->
    <footer>
       <strong>Fuente De Vida</strong>
-      2026 Iglesia Apostolica de la Fe en Cristo Jesús en Madison, WI
+      2026 Iglesia Apostolica de la Fe en Cristo JesÃºs en Madison, WI
     <div class="footer-contact">
       <a href="tel:+16082176835" class="fc-phone" title="Llamar"><i class="fas fa-phone"></i></a>
       <a href="https://wa.me/16086181831" target="_blank" class="fc-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -512,7 +512,7 @@
       map = L.map('map').setView([43.0731, -89.4012], 11);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
+        attribution: 'Â¿ OpenStreetMap contributors',
         maxZoom: 19
       }).addTo(map);
 
@@ -535,7 +535,7 @@
               <strong>Pastor de red:</strong> ${cell.pastorDeRed}
             </div>
             <div class="popup-info">
-              <strong>Líderes de célula:</strong> ${cell.lideresDecelula}
+              <strong>LÃ­deres de cÃ©lula:</strong> ${cell.lideresDecelula}
             </div>
             <div class="popup-info">
               <strong>Timoteo:</strong> ${cell.timoteo}
@@ -578,18 +578,18 @@
               ${cells.map(cell => `
                 <div class="cell-card" style="border-left-color: ${color};">
                   <div class="cell-badge" style="background-color: ${color};">${cell.red}</div>
-                  <h3>Célula ${cell.id}</h3>
+                  <h3>CÃ©lula ${cell.id}</h3>
                   <div class="cell-info">
                     <strong>Pastor de red:</strong><br>${cell.pastorDeRed}
                   </div>
                   <div class="cell-info">
-                    <strong>Líderes de célula:</strong><br>${cell.lideresDecelula}
+                    <strong>LÃ­deres de cÃ©lula:</strong><br>${cell.lideresDecelula}
                   </div>
                   <div class="cell-info">
                     <strong>Timoteo:</strong><br>${cell.timoteo}
                   </div>
                   <div class="cell-info">
-                    <strong>Día:</strong> ${cell.dia}
+                    <strong>DÃ­a:</strong> ${cell.dia}
                   </div>
                   <div class="cell-info">
                     <strong>Hora:</strong> ${cell.hora}

@@ -1,4 +1,4 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,34 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- Google tag (gtag.js) -->
+<script>
+  window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
+  window.GA_DISABLE_STORAGE_KEY = 'fdv_disable_ga';
+
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('noanalytics') === '1') {
+      localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+    } else if (params.get('noanalytics') === '0') {
+      localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+    }
+
+    if (localStorage.getItem(window.GA_DISABLE_STORAGE_KEY) === '1') {
+      window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+    }
+  })();
+
+  window.disableAnalyticsTracking = function () {
+    localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+    window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+  };
+
+  window.enableAnalyticsTracking = function () {
+    localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+    window['ga-disable-' + window.GA_MEASUREMENT_ID] = false;
+  };
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71PNQ7G8RJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,7 +48,7 @@
   gtag('config', 'G-71PNQ7G8RJ');
 </script></head>
   <body>
-    <!-- ===== NAVEGACIÃ“N ===== -->
+    <!-- ===== NAVEGACIÓN ===== -->
     <nav>
       <img
         src="jpg/logo-sin-fondo.png"
@@ -35,7 +63,7 @@
         </button>
       </div>
       <ul id="navMenu" class="nav-menu">
-        <li><a href="#visitar">VisÃ­tanos</a></li>
+        <li><a href="#visitar">Visítanos</a></li>
         <li><a href="#horarios">Horarios</a></li>
         <li><a href="#liderazgo">Liderazgo</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -49,16 +77,16 @@
      
       <div class="header-actions">
         <a href="html/eventos.html" class="btn btn-primary">Ver Eventos</a>
-        <a href="html/ultimo-sermon.html" class="btn btn-outline">Ãšltimo SermÃ³n</a>
+        <a href="html/ultimo-sermon.html" class="btn btn-outline">Último Sermón</a>
       </div>
       <div class="redes" role="list">
-        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="SÃ­guenos en Facebook">
+        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="Síguenos en Facebook">
           <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
         </a>
-        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="SÃ­guenos en Instagram">
+        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="Síguenos en Instagram">
           <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
         </a>
-        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="SÃ­guenos en YouTube">
+        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="Síguenos en YouTube">
           <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
         </a>
       </div>
@@ -70,7 +98,7 @@
         <h2>Registro de Visitas</h2>
         <div class="divider"></div>
         <p>
-          Â¡Nos alegra que estÃ©s interesado en visitarnos! RegÃ­strate aquÃ­ para que podamos darte la bienvenida y prepararnos para recibirte.
+          ¡Nos alegra que estés interesado en visitarnos! Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
         </p>
         <br />
         <div class="registro-container">
@@ -81,37 +109,37 @@
             </div>
 
             <div class="form-group form-group--full">
-              <label><span>Hora en la que asistirÃ¡s</span> <span class="req">*</span></label>
+              <label><span>Hora en la que asistirás</span> <span class="req">*</span></label>
               <div class="horario-opciones">
                 <label class="horario-opcion">
-                  <input type="radio" name="horario" value="MaÃ±ana 12:00 pm (BilingÃ¼e)" required />
+                  <input type="radio" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
                   <div>
-                    <span>MaÃ±ana</span>
-                    <small>12:00 pm (BilingÃ¼e)</small>
+                    <span>Mañana</span>
+                    <small>12:00 pm (Bilingüe)</small>
                   </div>
                 </label>
                 <label class="horario-opcion">
-                  <input type="radio" name="horario" value="Tarde 5:30 pm (EspaÃ±ol)" required />
+                  <input type="radio" name="horario" value="Tarde 5:30 pm (Español)" required />
                   <div>
                     <span>Tarde</span>
-                    <small>5:30 pm (EspaÃ±ol)</small>
+                    <small>5:30 pm (Español)</small>
                   </div>
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="invitado"><span>Â¿QuiÃ©n lo/la invitÃ³?</span> <span class="req">*</span></label>
-              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitÃ³" required />
+              <label for="invitado"><span>¿Quién lo/la invitó?</span> <span class="req">*</span></label>
+              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" required />
             </div>
 
             <div class="form-group">
-              <label for="email"><span>Correo ElectrÃ³nico</span> <span class="req">*</span></label>
+              <label for="email"><span>Correo Electrónico</span> <span class="req">*</span></label>
               <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
             </div>
 
             <div class="form-group">
-              <label for="telefono"><span>TelÃ©fono</span></label>
+              <label for="telefono"><span>Teléfono</span></label>
               <input type="tel" id="telefono" name="telefono" placeholder="+1 (608) 123-4567" />
             </div>
 
@@ -125,15 +153,15 @@
           </form>
         </div>
         <p class="form-confidential">
-          Tus datos serÃ¡n tratados con confidencialidad y solo se utilizarÃ¡n para mejorar tu experiencia en nuestra iglesia.
+          Tus datos serán tratados con confidencialidad y solo se utilizarán para mejorar tu experiencia en nuestra iglesia.
         </p>
       </div>
     </section>
 
-    <!-- UbicaciÃ³n -->
+    <!-- Ubicación -->
     <section class="bg-light">
       <div class="container">
-        <h2>UbicaciÃ³n</h2>
+        <h2>Ubicación</h2>
         <div class="divider"></div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus"
@@ -156,29 +184,29 @@
           <div class="horario-card">
             <h3>Domingo</h3>
             <p>12:00 pm</p>
-            <span>Servicio BilingÃ¼e</span>
+            <span>Servicio Bilingüe</span>
           </div>
 
           <div class="horario-card">
             <h3>Domingo</h3>
             <p>5:30 pm</p>
-            <span>Servicio en EspaÃ±ol</span>
+            <span>Servicio en Español</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== QUÃ‰ ES FUENTE DE VIDA ===== -->
+    <!-- ===== QUÉ ES FUENTE DE VIDA ===== -->
     <section>
-      <h2>Â¿QuÃ© es Fuente de Vida?</h2>
+      <h2>¿Qué es Fuente de Vida?</h2>
       <div class="divider"></div>
       <p>
-        <span>Somos un grupo de personas redimidos por el amor de JESUCRISTO, dispuestos a servir con amor y pasiÃ³n para la gloria de Dios.</span>
-        <strong>Â¡Bienvenidos a Fuente de Vida!</strong>
+        <span>Somos un grupo de personas redimidos por el amor de JESUCRISTO, dispuestos a servir con amor y pasión para la gloria de Dios.</span>
+        <strong>¡Bienvenidos a Fuente de Vida!</strong>
       </p>
       <br />
       <a href="html/nuestra-historia.html" class="btn btn-primary"
-        >Aprende MÃ¡s</a
+        >Aprende Más</a
       >
     </section>
 
@@ -207,7 +235,7 @@
 
     <!-- ===== CONTACTO ===== -->
     <section id="contacto">
-      <h2>InformaciÃ³n de Contacto</h2>
+      <h2>Información de Contacto</h2>
       <div class="divider"></div>
       <div class="contacto-grid">
         <a href="tel:+16082176835" class="contacto-item">
@@ -215,7 +243,7 @@
             <i class="fas fa-phone"></i>
           </div>
           <div>
-            <strong>TelÃ©fono</strong>
+            <strong>Teléfono</strong>
             <span>+1 (608) 217-6835</span>
           </div>
         </a>
@@ -229,7 +257,7 @@
           <i class="fab fa-whatsapp"></i>
           <div>
             <strong>WhatsApp</strong>
-            <span>EscrÃ­benos</span>
+            <span>Escríbenos</span>
           </div>
         </a>
 
@@ -247,7 +275,7 @@
 
       <!-- Redes sociales -->
       <br />
-      <h3>SÃ­guenos en Redes Sociales</h3>
+      <h3>Síguenos en Redes Sociales</h3>
       <div class="redes" role="list">
         <a
           href="https://www.facebook.com/profile.php?id=100064671460385"
@@ -279,9 +307,9 @@
       </div>
     </section>
 
-    <!-- ===== LECTURA BÃBLICA ===== -->
+    <!-- ===== LECTURA BÍBLICA ===== -->
     <section>
-      <h2>Lectura BÃ­blica</h2>
+      <h2>Lectura Bíblica</h2>
       <div class="divider"></div>
       <p>Lee la Palabra de Dios en diferentes versiones.</p>
       <br />
@@ -301,7 +329,7 @@
       </div>
 
       <div class="bible-container">
-        <!-- El resultado se inyecta aquÃ­ vÃ­a JavaScript -->
+        <!-- El resultado se inyecta aquí vía JavaScript -->
       </div>
     </section>
 
@@ -311,7 +339,7 @@
         <h2>Te Esperamos</h2>
         <div class="divider cta-divider"></div>
         <p class="cta-text">
-          Las puertas estÃ¡n abiertas para ti y tu familia. Ven tal como eres y
+          Las puertas están abiertas para ti y tu familia. Ven tal como eres y
           vive una experiencia con Dios.
         </p>
         <br /><br />
@@ -328,7 +356,7 @@
     <!-- ===== FOOTER ===== -->
     <footer>
       <strong>Fuente De Vida</strong>
-      <span>2026 Iglesia ApostÃ³lica de la Fe en Cristo JesÃºs â€” Madison, WI</span>
+      <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús — Madison, WI</span>
 
       <div class="footer-contact" role="list">
         <a href="tel:+16082176835" class="fc-phone">
@@ -357,45 +385,45 @@
         return fallback !== undefined ? fallback : key;
       };
 
-// Mapeo de nombres de libros en espaÃ±ol -> cÃ³digo de 3 letras que usa biblia-api.qhar.in
+// Mapeo de nombres de libros en español -> código de 3 letras que usa biblia-api.qhar.in
 const LIBROS_ES = {
-  "genesis": "GEN", "gÃ©nesis": "GEN",
-  "exodo": "EXO", "Ã©xodo": "EXO",
-  "levitico": "LEV", "levÃ­tico": "LEV",
-  "numeros": "NUM", "nÃºmeros": "NUM",
+  "genesis": "GEN", "génesis": "GEN",
+  "exodo": "EXO", "éxodo": "EXO",
+  "levitico": "LEV", "levítico": "LEV",
+  "numeros": "NUM", "números": "NUM",
   "deuteronomio": "DEU",
-  "josue": "JOS", "josuÃ©": "JOS",
+  "josue": "JOS", "josué": "JOS",
   "jueces": "JDG",
   "rut": "RUT",
   "1 samuel": "1SA", "2 samuel": "2SA",
   "1 reyes": "1KI", "2 reyes": "2KI",
-  "1 cronicas": "1CH", "1 crÃ³nicas": "1CH",
-  "2 cronicas": "2CH", "2 crÃ³nicas": "2CH",
+  "1 cronicas": "1CH", "1 crónicas": "1CH",
+  "2 cronicas": "2CH", "2 crónicas": "2CH",
   "esdras": "EZR",
-  "nehemias": "NEH", "nehemÃ­as": "NEH",
+  "nehemias": "NEH", "nehemías": "NEH",
   "ester": "EST",
   "job": "JOB",
   "salmos": "PSA", "salmo": "PSA",
   "proverbios": "PRO",
-  "eclesiastes": "ECC", "eclesiastÃ©s": "ECC",
+  "eclesiastes": "ECC", "eclesiastés": "ECC",
   "cantares": "SNG", "cantar de los cantares": "SNG",
-  "isaias": "ISA", "isaÃ­as": "ISA",
-  "jeremias": "JER", "jeremÃ­as": "JER",
+  "isaias": "ISA", "isaías": "ISA",
+  "jeremias": "JER", "jeremías": "JER",
   "lamentaciones": "LAM",
   "ezequiel": "EZK",
   "daniel": "DAN",
   "oseas": "HOS",
   "joel": "JOL",
-  "amos": "AMO", "amÃ³s": "AMO",
-  "abdias": "OBA", "abdÃ­as": "OBA",
-  "jonas": "JON", "jonÃ¡s": "JON",
+  "amos": "AMO", "amós": "AMO",
+  "abdias": "OBA", "abdías": "OBA",
+  "jonas": "JON", "jonás": "JON",
   "miqueas": "MIC",
-  "nahum": "NAM", "nahÃºm": "NAM",
+  "nahum": "NAM", "nahúm": "NAM",
   "habacuc": "HAB",
-  "sofonias": "ZEP", "sofonÃ­as": "ZEP",
+  "sofonias": "ZEP", "sofonías": "ZEP",
   "hageo": "HAG",
-  "zacarias": "ZEC", "zacarÃ­as": "ZEC",
-  "malaquias": "MAL", "malaquÃ­as": "MAL",
+  "zacarias": "ZEC", "zacarías": "ZEC",
+  "malaquias": "MAL", "malaquías": "MAL",
   "mateo": "MAT",
   "marcos": "MRK",
   "lucas": "LUK",
@@ -403,14 +431,14 @@ const LIBROS_ES = {
   "hechos": "ACT",
   "romanos": "ROM",
   "1 corintios": "1CO", "2 corintios": "2CO",
-  "galatas": "GAL", "gÃ¡latas": "GAL",
+  "galatas": "GAL", "gálatas": "GAL",
   "efesios": "EPH",
   "filipenses": "PHP",
   "colosenses": "COL",
   "1 tesalonicenses": "1TH", "2 tesalonicenses": "2TH",
   "1 timoteo": "1TI", "2 timoteo": "2TI",
   "tito": "TIT",
-  "filemon": "PHM", "filemÃ³n": "PHM",
+  "filemon": "PHM", "filemón": "PHM",
   "hebreos": "HEB",
   "santiago": "JAS",
   "1 pedro": "1PE", "2 pedro": "2PE",
@@ -419,14 +447,14 @@ const LIBROS_ES = {
   "apocalipsis": "REV"
 };
 
-// Mapeo para la API en inglÃ©s (wldeh) - nombres completos en minÃºsculas
+// Mapeo para la API en inglés (wldeh) - nombres completos en minúsculas
 const LIBROS_EN = {
-  "genesis": "genesis", "gÃ©nesis": "genesis",
-  "exodo": "exodus", "Ã©xodo": "exodus",
-  "levitico": "leviticus", "levÃ­tico": "leviticus",
-  "numeros": "numbers", "nÃºmeros": "numbers",
+  "genesis": "genesis", "génesis": "genesis",
+  "exodo": "exodus", "éxodo": "exodus",
+  "levitico": "leviticus", "levítico": "leviticus",
+  "numeros": "numbers", "números": "numbers",
   "deuteronomio": "deuteronomy",
-  "josue": "joshua", "josuÃ©": "joshua",
+  "josue": "joshua", "josué": "joshua",
   "jueces": "judges",
   "rut": "ruth",
   "1 samuel": "1samuel", "2 samuel": "2samuel",
@@ -449,7 +477,7 @@ function normalizarTexto(str) {
 // Convierte "juan 3:16", "juan 3 16", "juan 3,16" o "juan3:16" en {libro, capitulo, versiculo}
 function parsearReferencia(input, mapaLibros) {
   const texto = normalizarTexto(input);
-  const match = texto.match(/^(\d?\s?[a-zÃ¡Ã©Ã­Ã³ÃºÃ±]+)\s*(\d+)\s*[:,]?\s*(\d+)?(?:-(\d+))?$/i);
+  const match = texto.match(/^(\d?\s?[a-záéíóúñ]+)\s*(\d+)\s*[:,]?\s*(\d+)?(?:-(\d+))?$/i);
   if (!match) return null;
 
   const nombreLibro = match[1].trim();
@@ -475,7 +503,7 @@ async function buscarEnEspanol(ref, inputTexto) {
   if (!response.ok) throw new Error("No encontrado");
   const data = await response.json();
 
-  if (!data || data.length === 0) throw new Error("VacÃ­o");
+  if (!data || data.length === 0) throw new Error("Vacío");
 
   const textoFinal = `<p><strong>${inputTexto}</strong></p>` +
     data.map(v => `<p>${v.content}</p>`).join("");
@@ -526,7 +554,7 @@ async function loadBibleVerse() {
     mostrarResultadoBiblia(textoFinal);
   } catch (error) {
     console.error("Error al buscar pasaje:", error);
-    mostrarErrorBiblia(window.t('bible_error_fetch', "No se pudo obtener el pasaje. Verifica la escritura o intÃ©ntalo mÃ¡s tarde."));
+    mostrarErrorBiblia(window.t('bible_error_fetch', "No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde."));
   }
 }
 
@@ -544,18 +572,18 @@ document.getElementById('bible-search-btn').addEventListener('click', loadBibleV
 document.getElementById('bible-passage').addEventListener('keydown', function(e){ if(e.key==='Enter') loadBibleVerse(); });
 
 
-      // Inicializar EmailJS con seguridad (no fallar si la librerÃ­a no estÃ¡ disponible)
+      // Inicializar EmailJS con seguridad (no fallar si la librería no está disponible)
       try {
         if (window.emailjs && typeof emailjs.init === 'function') {
-          emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pÃºblica
+          emailjs.init("kDH7feAla0TaB3Ejz"); // Reemplaza con tu clave pública
         } else {
-          console.warn('EmailJS no estÃ¡ disponible en este entorno.');
+          console.warn('EmailJS no está disponible en este entorno.');
         }
       } catch (err) {
         console.error('Error inicializando EmailJS:', err);
       }
 
-      // Manejar el formulario de registro con validaciones bÃ¡sicas y mejor manejo de errores
+      // Manejar el formulario de registro con validaciones básicas y mejor manejo de errores
       document.getElementById("registroForm").addEventListener("submit", async function(e) {
         e.preventDefault();
 
@@ -563,7 +591,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         const botonEnvio = e.target.querySelector('button[type="submit"]');
         const textoOriginal = botonEnvio.textContent;
 
-        // Deshabilitar botÃ³n y mostrar estado
+        // Deshabilitar botón y mostrar estado
         botonEnvio.disabled = true;
         botonEnvio.textContent = window.t('form_sending', 'Enviando...');
         statusDiv.style.display = "none";
@@ -574,7 +602,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         const email = document.getElementById("email").value.trim();
         const telefono = document.getElementById("telefono").value.trim();
 
-        // Validaciones bÃ¡sicas
+        // Validaciones básicas
         if (!nombre || !invitado || !email) {
           statusDiv.textContent = window.t('form_error_required', 'Por favor completa los campos obligatorios.');
           statusDiv.className = "form-message form-message--error";
@@ -585,7 +613,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         }
 
         if (!horarioElem) {
-          statusDiv.textContent = window.t('form_error_horario', 'Selecciona la hora en la que asistirÃ¡s.');
+          statusDiv.textContent = window.t('form_error_horario', 'Selecciona la hora en la que asistirás.');
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
           botonEnvio.disabled = false;
@@ -593,10 +621,10 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
           return;
         }
 
-        // ValidaciÃ³n simple de email
+        // Validación simple de email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-          statusDiv.textContent = window.t('form_error_email', 'Ingresa un correo electrÃ³nico vÃ¡lido.');
+          statusDiv.textContent = window.t('form_error_email', 'Ingresa un correo electrónico válido.');
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
           botonEnvio.disabled = false;
@@ -605,7 +633,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         }
 
         if (!navigator.onLine) {
-          statusDiv.textContent = window.t('form_error_offline', 'No estÃ¡s conectado a internet. Intenta de nuevo cuando tengas conexiÃ³n.');
+          statusDiv.textContent = window.t('form_error_offline', 'No estás conectado a internet. Intenta de nuevo cuando tengas conexión.');
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
           botonEnvio.disabled = false;
@@ -629,15 +657,15 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
             fecha: new Date().toLocaleDateString("es-ES")
           });
 
-          // Mostrar mensaje de Ã©xito
-          statusDiv.textContent = window.t('form_success', 'âœ“ Â¡Registro enviado correctamente! Te esperamos.');
+          // Mostrar mensaje de éxito
+          statusDiv.textContent = window.t('form_success', '? ¡Registro enviado correctamente! Te esperamos.');
           statusDiv.className = "form-message form-message--success";
           statusDiv.style.display = "block";
 
           // Limpiar formulario
           document.getElementById("registroForm").reset();
 
-          // Ocultar mensaje despuÃ©s de 5 segundos
+          // Ocultar mensaje después de 5 segundos
           setTimeout(() => {
             statusDiv.style.display = "none";
             botonEnvio.disabled = false;
@@ -646,16 +674,16 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
 
         } catch (error) {
           console.error("Error al enviar:", error);
-          const friendly = window.t('form_error', 'âš  Error al enviar. Intenta de nuevo o contactanos directamente.');
+          const friendly = window.t('form_error', '? Error al enviar. Intenta de nuevo o contactanos directamente.');
           const detail = (error && (error.text || error.message)) ? ` (${error.text || error.message})` : '';
           const statusInfo = error && error.status ? ` [status:${error.status}]` : '';
 
-          // Detectar error especÃ­fico de EmailJS sobre "non-browser environments"
+          // Detectar error específico de EmailJS sobre "non-browser environments"
           const errMsg = (error && (error.text || error.message)) ? (error.text || error.message) : '';
           const isNonBrowser = /non-browser/i.test(errMsg) || (error && error.status === 403);
 
           if (isNonBrowser) {
-            statusDiv.innerHTML = `${friendly} ${window.t('emailjs_nonbrowser', 'API access from non-browser environments is currently disabled.')}<br><a href="https://dashboard.emailjs.com/admin/account/security" target="_blank" rel="noopener">${window.t('open_emailjs_security','Abrir configuraciÃ³n de seguridad en EmailJS')}</a><br>${window.t('or_host','O sirve el sitio desde HTTP (ej. Live Server o `python -m http.server`) para evitar el bloqueo.')}`;
+            statusDiv.innerHTML = `${friendly} ${window.t('emailjs_nonbrowser', 'API access from non-browser environments is currently disabled.')}<br><a href="https://dashboard.emailjs.com/admin/account/security" target="_blank" rel="noopener">${window.t('open_emailjs_security','Abrir configuración de seguridad en EmailJS')}</a><br>${window.t('or_host','O sirve el sitio desde HTTP (ej. Live Server o `python -m http.server`) para evitar el bloqueo.')}`;
           } else {
             statusDiv.textContent = friendly + detail + statusInfo;
           }
@@ -663,7 +691,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
           statusDiv.className = "form-message form-message--error";
           statusDiv.style.display = "block";
 
-          // Rehabilitar botÃ³n
+          // Rehabilitar botón
           botonEnvio.disabled = false;
           botonEnvio.textContent = textoOriginal;
         }
@@ -674,14 +702,14 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
       const menuBtn = document.getElementById('menuBtn');
       const navMenu = document.getElementById('navMenu');
       
-      // Toggle menÃº
+      // Toggle menú
       menuBtn.addEventListener('click', function() {
         menuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
         menuBtn.setAttribute('aria-expanded', menuBtn.classList.contains('active'));
       });
       
-      // Cerrar menÃº cuando se haga clic en un enlace
+      // Cerrar menú cuando se haga clic en un enlace
       const menuLinks = navMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -691,7 +719,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         });
       });
       
-      // Cerrar menÃº cuando se haga clic fuera
+      // Cerrar menú cuando se haga clic fuera
       document.addEventListener('click', function(event) {
         if (!event.target.closest('nav')) {
           menuBtn.classList.remove('active');

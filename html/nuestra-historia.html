@@ -1,4 +1,4 @@
-Ôªø<!doctype html>
+<!doctype html>
    <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta charset="UTF-8" />
@@ -6,6 +6,34 @@
     <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
     <link rel="stylesheet" href="../css/styles.css" />
   <!-- Google tag (gtag.js) -->
+<script>
+  window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
+  window.GA_DISABLE_STORAGE_KEY = 'fdv_disable_ga';
+
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('noanalytics') === '1') {
+      localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+    } else if (params.get('noanalytics') === '0') {
+      localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+    }
+
+    if (localStorage.getItem(window.GA_DISABLE_STORAGE_KEY) === '1') {
+      window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+    }
+  })();
+
+  window.disableAnalyticsTracking = function () {
+    localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+    window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+  };
+
+  window.enableAnalyticsTracking = function () {
+    localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+    window['ga-disable-' + window.GA_MEASUREMENT_ID] = false;
+  };
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71PNQ7G8RJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,14 +45,14 @@
      <nav>
     <a href="../index.html"><img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
     <div class="nav-actions">
-    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir men√∫ de navegaci√≥n" aria-expanded="false">
+    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir men˙ de navegaciÛn" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
     </div>
     <ul id="navMenu" class="nav-menu">
-      <li><a href="../index.html#visitar">Vis√≠tanos</a></li>
+      <li><a href="../index.html#visitar">VisÌtanos</a></li>
       <li><a href="../index.html#horarios">Horarios</a></li>
       <li><a href="../index.html#liderazgo">Liderazgo</a></li>
       <li><a href="../index.html#contacto">Contacto</a></li>
@@ -32,16 +60,16 @@
     </ul>
   </nav>
 
- <header class="hero-header" style="background-image: url('../jpg/bienvenido-bienvenida.JPG'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 70vh;">
+ <header class="hero-header header-historia" style="background-image: url('../jpg/historia-back.JPG'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 70vh;">
       <div class="hero-header-content">
         <div class="redes" role="list">
-          <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="S√≠guenos en Facebook">
+          <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="SÌguenos en Facebook">
             <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
           </a>
-          <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="S√≠guenos en Instagram">
+          <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="SÌguenos en Instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
           </a>
-          <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="S√≠guenos en YouTube">
+          <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="SÌguenos en YouTube">
             <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
           </a>
         </div>
@@ -55,14 +83,14 @@
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="timeline-anio">2015</div>
+          <div class="timeline-anio">2014</div>
           <div class="lider-grande">
-            <img src="../jpg/inauguracion.JPG" alt="Pastor Jacobo Castillo y Carla Rosales en los primeros a√±os" />
+            <img src="../jpg/inauguracion.JPG" alt="Pastor Jacobo Castillo y Carla Rosales en los primeros aÒos" />
           
             <div class="lider-grande-info">
-              <h3>Fundaci√≥n</h3>
-              <p>En 2015, el pastor Jacobo Castillo y Carla Rosales fueron enviados desde la iglesia Templo Emanuel con la misi√≥n de abrir una nueva congregaci√≥n en Madison, WI. Este llamado naci√≥ del deseo de llevar el mensaje de Jesucristo a nuevas familias y servir a la comunidad con amor, fe y disposici√≥n.</p>
-              <p>Confiando en la direcci√≥n de Dios, comenzaron esta obra con una visi√≥n sencilla pero firme: formar una iglesia donde cada persona pudiera encontrar esperanza, crecer en su relaci√≥n con Dios y descubrir un lugar al cual llamar familia.</p>
+              <h3>FundaciÛn</h3>
+              <p>En 2014, el pastor Jacobo Castillo y Carla Rosales fueron enviados desde la iglesia Templo Emanuel con la misiÛn de abrir una nueva congregaciÛn en Madison, WI. Este llamado naciÛ del deseo de llevar el mensaje de Jesucristo a nuevas familias y servir a la comunidad con amor, fe y disposiciÛn.</p>
+              <p>Confiando en la direcciÛn de Dios, comenzaron esta obra con una visiÛn sencilla pero firme: formar una iglesia donde cada persona pudiera encontrar esperanza, crecer en su relaciÛn con Dios y descubrir un lugar al cual llamar familia.</p>
             </div>
           </div>
         </div>
@@ -70,25 +98,25 @@
         <div class="timeline-item">
           <div class="timeline-anio">Primeros pasos</div>
           <div class="lider-grande">
-            <img src="../jpg/templo-viejo.JPG" alt="Edificio de los primeros a√±os de Fuente de Vida" />
+            <img src="../jpg/templo-viejo.JPG" alt="Edificio de los primeros aÒos de Fuente de Vida" />
             <!-- reemplazar con foto real -->
             <div class="lider-grande-info">
               <h3>Primeros pasos</h3>
-              <p>Con fe y un fuerte deseo de servir a Dios y a la comunidad, comenzaron las reuniones en un edificio peque√±o. Cada encuentro representaba un paso de obediencia y una oportunidad para compartir la Palabra, orar juntos y conocer a m√°s personas en Madison.</p>
-              <p>Aunque los recursos eran limitados, el entusiasmo y el compromiso de las primeras familias hicieron posible que la congregaci√≥n siguiera avanzando. Lo que comenz√≥ con reuniones sencillas fue tomando forma como una comunidad unida alrededor de la fe.</p>
+              <p>Con fe y un fuerte deseo de servir a Dios y a la comunidad, comenzaron las reuniones en un edificio pequeÒo. Cada encuentro representaba un paso de obediencia y una oportunidad para compartir la Palabra, orar juntos y conocer a m·s personas en Madison.</p>
+              <p>Aunque los recursos eran limitados, el entusiasmo y el compromiso de las primeras familias hicieron posible que la congregaciÛn siguiera avanzando. Lo que comenzÛ con reuniones sencillas fue tomando forma como una comunidad unida alrededor de la fe.</p>
             </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-anio">Crecimiento por c√©lulas</div>
+          <div class="timeline-anio">Crecimiento por cÈlulas</div>
           <div class="lider-grande">
-            <img src="../jpg/oracion.JPG" alt="Familias y l√≠deres de las c√©lulas de Fuente de Vida" />
+            <img src="../jpg/oracion.JPG" alt="Familias y lÌderes de las cÈlulas de Fuente de Vida" />
             <!-- reemplazar con foto real -->
             <div class="lider-grande-info">
-              <h3>Crecimiento por c√©lulas</h3>
-              <p>La iglesia ha crecido a trav√©s de c√©lulas, grupos de amistad donde las personas comparten la Palabra de Dios, fortalecen su fe y se apoyan como una familia espiritual. En estos espacios, cada integrante puede ser escuchado, acompa√±ado y animado a seguir creciendo.</p>
-              <p>Las c√©lulas tambi√©n han permitido que la iglesia se acerque a distintos hogares y familias de Madison. A trav√©s de la oraci√≥n, la convivencia y el servicio, estos grupos se han convertido en una parte fundamental del desarrollo de la iglesia y de su misi√≥n.</p>
+              <h3>Crecimiento por cÈlulas</h3>
+              <p>La iglesia ha crecido a travÈs de cÈlulas, grupos de amistad donde las personas comparten la Palabra de Dios, fortalecen su fe y se apoyan como una familia espiritual. En estos espacios, cada integrante puede ser escuchado, acompaÒado y animado a seguir creciendo.</p>
+              <p>Las cÈlulas tambiÈn han permitido que la iglesia se acerque a distintos hogares y familias de Madison. A travÈs de la oraciÛn, la convivencia y el servicio, estos grupos se han convertido en una parte fundamental del desarrollo de la iglesia y de su misiÛn.</p>
             </div>
           </div>
         </div>
@@ -99,9 +127,9 @@
             <img src="../jpg/templo2.JPG" alt="Templo actual de Fuente de Vida en Madison, Wisconsin" />
             <!-- reemplazar con foto real -->
             <div class="lider-grande-info">
-              <h3>Adquisici√≥n del templo actual</h3>
-              <p>La adquisici√≥n del templo actual fue un paso significativo para expandir la obra de Dios en Madison. Este logro represent√≥ una gran bendici√≥n y el resultado de la oraci√≥n, la perseverancia y el esfuerzo de muchas personas que creyeron en el futuro de la congregaci√≥n.</p>
-              <p>Contar con un espacio propio permiti√≥ recibir a m√°s familias, fortalecer los ministerios y crear nuevas oportunidades para servir a la comunidad. El templo se convirti√≥ en un punto de encuentro para adorar, aprender y celebrar juntos lo que Dios ha hecho.</p>
+              <h3>AdquisiciÛn del templo actual</h3>
+              <p>La adquisiciÛn del templo actual fue un paso significativo para expandir la obra de Dios en Madison. Este logro representÛ una gran bendiciÛn y el resultado de la oraciÛn, la perseverancia y el esfuerzo de muchas personas que creyeron en el futuro de la congregaciÛn.</p>
+              <p>Contar con un espacio propio permitiÛ recibir a m·s familias, fortalecer los ministerios y crear nuevas oportunidades para servir a la comunidad. El templo se convirtiÛ en un punto de encuentro para adorar, aprender y celebrar juntos lo que Dios ha hecho.</p>
             </div>
           </div>
         </div>
@@ -109,13 +137,13 @@
         <div class="timeline-item">
           <div class="timeline-anio">Hoy</div>
           <div class="lider-grande">
-            <img src="../jpg/hoy-timeline.JPG" alt="Congregaci√≥n actual de Fuente de Vida en Madison" />
+            <img src="../jpg/hoy-timeline.JPG" alt="CongregaciÛn actual de Fuente de Vida en Madison" />
             <!-- reemplazar con foto real -->
             <div class="lider-grande-info">
               <h3>Hoy</h3>
-              <p>Hoy, Fuente de Vida contin√∫a trabajando con la misma pasi√≥n que impuls√≥ sus primeros pasos. La misi√≥n sigue siendo ir por los perdidos y necesitados, compartiendo esperanza y salvaci√≥n, fortaleciendo familias y sirviendo a cada persona que Dios permite alcanzar.</p>
-              <p>La iglesia cree en el bautismo en el nombre de JESUCRISTO para el perd√≥n de pecados y en un solo Dios. Con gratitud por el camino recorrido y con esperanza por lo que viene, la congregaci√≥n sigue creciendo en unidad, fe y servicio.</p>
-              <p><strong>2015 + 11 a√±os = 2026</strong> ¬∑ <a href="https://youtu.be/I1-QkPig6sc?si=6CTtt_Bmvqk2OrgV" target="_blank" rel="noopener noreferrer">Escucha el serm√≥n ‚Äú11 aniversario‚Äù</a></p>
+              <p>Hoy, Fuente de Vida contin˙a trabajando con la misma pasiÛn que impulsÛ sus primeros pasos. La misiÛn sigue siendo ir por los perdidos y necesitados, compartiendo esperanza y salvaciÛn, fortaleciendo familias y sirviendo a cada persona que Dios permite alcanzar.</p>
+              <p>La iglesia cree en el bautismo en el nombre de JESUCRISTO para el perdÛn de pecados y en un solo Dios. Con gratitud por el camino recorrido y con esperanza por lo que viene, la congregaciÛn sigue creciendo en unidad, fe y servicio.</p>
+              <p><strong>2015 + 11 aÒos = 2026</strong> ∑ <a href="https://youtu.be/I1-QkPig6sc?si=6CTtt_Bmvqk2OrgV" target="_blank" rel="noopener noreferrer">Escucha el sermÛn ì11 aniversarioî</a></p>
             </div>
           </div>
         </div>

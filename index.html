@@ -1,16 +1,22 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" lang="es">
   <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fuente de Vida</title>
+    <title>Fuente de Vida | Iglesia Cristiana en Madison, WI</title>
     <link rel="icon" href="jpg/logo-sin-fondo2.png" type="image/png" />
+    <link rel="apple-touch-icon" href="jpg/logo-sin-fondo2.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS"
+      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script>
   window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
@@ -46,7 +52,49 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-71PNQ7G8RJ');
-</script></head>
+</script>    
+
+      <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fuentedevidawi.com/" />
+    <meta property="og:image" content="https://fuentedevidawi.com/jpg/logo-sin-fondo2.png" />
+    <meta property="og:description" content="Servicios dominicales biling?es, eventos, liderazgo, c?lulas y comunidad cristiana en Madison, Wisconsin." />
+    <meta property="og:title" content="Fuente de Vida | Iglesia Cristiana en Madison, WI" />
+    <link rel="canonical" href="https://fuentedevidawi.com/" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="description" content="Iglesia Fuente de Vida en Madison, Wisconsin. Servicios dominicales biling?es, eventos, liderazgo, c?lulas y comunidad cristiana." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Fuente de Vida",
+      "alternateName": "Iglesia Fuente de Vida",
+      "url": "https://fuentedevidawi.com/",
+      "image": "https://fuentedevidawi.com/jpg/logo-sin-fondo2.png",
+      "description": "Iglesia Fuente de Vida en Madison, Wisconsin, con servicios biling?es, comunidad, c?lulas y eventos cristianos.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3939 Lien Rd",
+        "addressLocality": "Madison",
+        "addressRegion": "WI",
+        "postalCode": "53704",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-608-217-6835",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100064671460385",
+        "https://www.instagram.com/ia.fuentedevida/",
+        "https://www.youtube.com/@fdvmadison7681"
+      ],
+      "openingHours": [
+        "Su 12:00-14:00",
+        "Su 17:30-19:30"
+      ]
+    }
+    </script>
+</head>
   <body>
     <!-- ===== NAVEGACIÓN ===== -->
     <nav>
@@ -98,7 +146,7 @@
         <h2>Registro de Visitas</h2>
         <div class="divider"></div>
         <p>
-          ¿Nos alegra que estés interesado en visitarnos? Regístrate aqu¿ para que podamos darte la bienvenida y prepararnos para recibirte.
+          ¿Nos alegra que estés interesado en visitarnos? Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
         </p>
         <br />
         <div class="registro-container">
@@ -111,15 +159,15 @@
             <div class="form-group form-group--full">
               <label><span>Hora en la que asistirás</span> <span class="req">*</span></label>
               <div class="horario-opciones">
-                <label class="horario-opcion">
-                  <input type="radio" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
+                <label for="horario-manana" class="horario-opcion">
+                  <input type="radio" id="horario-manana" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
                   <div>
                     <span>Mañana</span>
                     <small>12:00 pm (Bilingüe)</small>
                   </div>
                 </label>
-                <label class="horario-opcion">
-                  <input type="radio" name="horario" value="Tarde 5:30 pm (Español)" required />
+                <label for="horario-tarde" class="horario-opcion">
+                  <input type="radio" id="horario-tarde" name="horario" value="Tarde 5:30 pm (Español)" required />
                   <div>
                     <span>Tarde</span>
                     <small>5:30 pm (Español)</small>
@@ -130,7 +178,7 @@
 
             <div class="form-group">
               <label for="invitado"><span>¿Quién lo/la invitó?</span> <span class="req">*</span></label>
-              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invit¿" required />
+              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" required />
             </div>
 
             <div class="form-group">
@@ -143,6 +191,12 @@
               <input type="tel" id="telefono" name="telefono" placeholder="+1 (608) 123-4567" />
             </div>
 
+            <!-- Honeypot anti-spam: campo invisible, no debe ser llenado por humanos -->
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+              <label for="website">No llenar este campo</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="form-group">
               <button type="submit" class="btn btn-primary form-btn-submit">
                 Registrarme
@@ -153,7 +207,7 @@
           </form>
         </div>
         <p class="form-confidential">
-          Tus datos serán tratados con confidencialidad y solo se utilizar¿n para mejorar tu experiencia en nuestra iglesia.
+          Tus datos serán tratados con confidencialidad y solo se utilizarán para mejorar tu experiencia en nuestra iglesia.
         </p>
       </div>
     </section>
@@ -268,7 +322,7 @@
           <i class="fas fa-envelope"></i>
           <div>
             <strong>Email</strong>
-            <span>pastorfdvjacobocastillo@gmail.com</span>
+            <span>Gmail</span>
           </div>
         </a>
       </div>
@@ -491,6 +545,17 @@ function parsearReferencia(input, mapaLibros) {
   return { libro: libroId, capitulo, versiculo, versiculoFin };
 }
 
+// Fetch con timeout via AbortController para no dejar la UI colgada si la API no responde
+async function fetchConTimeout(url, timeoutMs = 9000) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { signal: controller.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 async function buscarEnEspanol(ref, inputTexto) {
   let url;
   if (ref.versiculo) {
@@ -499,16 +564,20 @@ async function buscarEnEspanol(ref, inputTexto) {
     url = `https://biblia-api.qhar.in/book/${ref.libro}/chapter/${ref.capitulo}/verse`;
   }
 
-  const response = await fetch(url);
+  const response = await fetchConTimeout(url);
   if (!response.ok) throw new Error("No encontrado");
   const data = await response.json();
 
-  if (!data || data.length === 0) throw new Error("Vac¿o");
+  if (!Array.isArray(data) || data.length === 0) throw new Error("Respuesta vacía o con formato inesperado");
 
-  const textoFinal = `<p><strong>${inputTexto}</strong></p>` +
-    data.map(v => `<p>${v.content}</p>`).join("");
+  // Validar que cada elemento tenga el campo esperado antes de usarlo
+  const lineas = data
+    .filter(v => v && typeof v.content === 'string')
+    .map(v => v.content);
 
-  return textoFinal;
+  if (lineas.length === 0) throw new Error("Formato de respuesta inesperado");
+
+  return { referencia: inputTexto, lineas };
 }
 
 async function buscarEnIngles(ref, inputTexto) {
@@ -519,18 +588,25 @@ async function buscarEnIngles(ref, inputTexto) {
     url = `https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/${ref.libro}/chapters/${ref.capitulo}.json`;
   }
 
-  const response = await fetch(url);
+  const response = await fetchConTimeout(url);
   if (!response.ok) throw new Error("No encontrado");
   const data = await response.json();
 
-  let textoFinal = "";
+  if (!data || typeof data !== 'object') throw new Error("Respuesta con formato inesperado");
+
+  let lineas = [];
   if (ref.versiculo) {
-    textoFinal = `<p><strong>${inputTexto}</strong></p><p>${data.text}</p>`;
-  } else if (data.verses) {
-    textoFinal = `<p><strong>${inputTexto}</strong></p>` +
-      data.verses.map(v => `<p><sup>${v.verse}</sup> ${v.text}</p>`).join("");
+    if (typeof data.text !== 'string') throw new Error("Formato de respuesta inesperado");
+    lineas = [data.text];
+  } else if (Array.isArray(data.verses)) {
+    lineas = data.verses
+      .filter(v => v && typeof v.text === 'string')
+      .map(v => (typeof v.verse !== 'undefined' ? `${v.verse} ${v.text}` : v.text));
   }
-  return textoFinal;
+
+  if (lineas.length === 0) throw new Error("Formato de respuesta inesperado");
+
+  return { referencia: inputTexto, lineas };
 }
 
 async function loadBibleVerse() {
@@ -547,25 +623,50 @@ async function loadBibleVerse() {
   }
 
   try {
-    const textoFinal = esEspanol
+    const resultado = esEspanol
       ? await buscarEnEspanol(ref, inputTexto)
       : await buscarEnIngles(ref, inputTexto);
 
-    mostrarResultadoBiblia(textoFinal);
+    mostrarResultadoBiblia(resultado);
   } catch (error) {
     console.error("Error al buscar pasaje:", error);
-    mostrarErrorBiblia(window.t('bible_error_fetch', "No se pudo obtener el pasaje. Verifica la escritura o int¿ntalo m¿s tarde."));
+    const mensaje = error && error.name === 'AbortError'
+      ? window.t('bible_error_timeout', 'La búsqueda tardó demasiado. Verifica tu conexión e intenta de nuevo.')
+      : window.t('bible_error_fetch', 'No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde.');
+    mostrarErrorBiblia(mensaje);
   }
 }
 
-function mostrarResultadoBiblia(html) {
+// Construye el resultado con textContent (no innerHTML) para no ejecutar HTML/scripts si la API devuelve contenido malicioso
+function mostrarResultadoBiblia(resultado) {
   const contenedor = document.querySelector(".bible-container");
-  contenedor.innerHTML = `<div class="bible-resultado">${html}</div>`;
+  contenedor.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "bible-resultado";
+
+  const titulo = document.createElement("p");
+  const strong = document.createElement("strong");
+  strong.textContent = resultado.referencia;
+  titulo.appendChild(strong);
+  wrapper.appendChild(titulo);
+
+  resultado.lineas.forEach(linea => {
+    const p = document.createElement("p");
+    p.textContent = linea;
+    wrapper.appendChild(p);
+  });
+
+  contenedor.appendChild(wrapper);
 }
 
 function mostrarErrorBiblia(mensaje) {
   const contenedor = document.querySelector(".bible-container");
-  contenedor.innerHTML = `<div class="form-message form-message--error">${mensaje}</div>`;
+  contenedor.innerHTML = "";
+  const div = document.createElement("div");
+  div.className = "form-message form-message--error";
+  div.textContent = mensaje;
+  contenedor.appendChild(div);
 }
 
 document.getElementById('bible-search-btn').addEventListener('click', loadBibleVerse);
@@ -583,6 +684,10 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         console.error('Error inicializando EmailJS:', err);
       }
 
+      // Cooldown anti-spam: evita reenvios del mismo visitante en menos de 30s (dura solo la pestaña/sesión)
+      const FORM_COOLDOWN_MS = 30000;
+      const FORM_COOLDOWN_KEY = 'fdv_registro_last_submit';
+
       // Manejar el formulario de registro con validaciones b¿sicas y mejor manejo de errores
       document.getElementById("registroForm").addEventListener("submit", async function(e) {
         e.preventDefault();
@@ -590,6 +695,23 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         const statusDiv = document.getElementById("statusMessage");
         const botonEnvio = e.target.querySelector('button[type="submit"]');
         const textoOriginal = botonEnvio.textContent;
+
+        // Honeypot: si el campo oculto "website" tiene contenido, es un bot; abortar en silencio
+        const honeypot = document.getElementById("website");
+        if (honeypot && honeypot.value.trim() !== '') {
+          return;
+        }
+
+        // Cooldown: bloquear reenvios repetidos dentro de la ventana de tiempo
+        const lastSubmit = Number(sessionStorage.getItem(FORM_COOLDOWN_KEY) || 0);
+        const now = Date.now();
+        if (lastSubmit && (now - lastSubmit) < FORM_COOLDOWN_MS) {
+          const segundosRestantes = Math.ceil((FORM_COOLDOWN_MS - (now - lastSubmit)) / 1000);
+          statusDiv.textContent = window.t('form_cooldown', 'Ya enviaste el formulario. Espera ' + segundosRestantes + ' segundos antes de intentar de nuevo.');
+          statusDiv.className = "form-message form-message--error";
+          statusDiv.style.display = "block";
+          return;
+        }
 
         // Deshabilitar bot¿n y mostrar estado
         botonEnvio.disabled = true;
@@ -656,6 +778,9 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
             horario: horario,
             fecha: new Date().toLocaleDateString("es-ES")
           });
+
+          // Registrar el momento del envio exitoso para el cooldown
+          sessionStorage.setItem(FORM_COOLDOWN_KEY, String(Date.now()));
 
           // Mostrar mensaje de ¿xito
           statusDiv.textContent = window.t('form_success', '? ¿Registro enviado correctamente! Te esperamos.');
@@ -728,5 +853,6 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
         }
       });
     </script>
+    <script src="js/scroll-to-top.js"></script>
   </body>
 </html>

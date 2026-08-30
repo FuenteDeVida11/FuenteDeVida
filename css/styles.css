@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 :root {
   --teal: #1a7a8a;
   --teal-dark:#0f5060;
@@ -8,7 +9,7 @@
   --dark: #111827;
   --cream: #faf8f4;
   --text: #2d3748;
-  --muted: #718096;
+  --muted: #5a6472;
   --white: #ffffff;
   --radius: 12px;
   --shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
@@ -138,10 +139,11 @@ nav ul li a:hover {
   background-color: var(--dark);
   border-radius: 2px;
   transition: all 0.3s ease;
+  transform-origin: center;
 }
 
 .menu-hamburguesa.active span:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 10px);
+  transform: translateY(9px) rotate(45deg);
 }
 
 .menu-hamburguesa.active span:nth-child(2) {
@@ -149,7 +151,7 @@ nav ul li a:hover {
 }
 
 .menu-hamburguesa.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 .nav-menu {
@@ -316,19 +318,25 @@ header::after {
   }
 
   .btn-primary {
-    background: var(--gold);
-    color: var(--dark);
+    background: var(--teal);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-dark);
+    box-shadow: 0 8px 24px rgba(26, 122, 138, 0.3);
   }
 
 .btn-outline {
-  background: transparent;
-  color: var(--dark);
+  background: var(--teal);
+  color: var(--white);
   border: 2px solid var(--teal);
 }
 
 .btn-outline:hover {
-  background: var(--teal-light);
-  color: var(--teal-dark);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  color: var(--white);
 }
 
 .container {
@@ -661,11 +669,43 @@ footer strong {
   font-size: 1.1rem;
 }
 
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-contact a:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.14);
+}
+
+.fc-phone,
+.fc-whatsapp,
+.fc-email {
+  font-size: 1rem;
+}
+
 /* ---- Divisor decorativo ---- */
 .divider {
   width: 60px;
   height: 4px;
-  background: var(--gold);
+  background: var(--teal);
   border-radius: 2px;
   margin: 16px 0 28px;
 }
@@ -1059,6 +1099,54 @@ header a       { animation-delay: 0.55s; }
   opacity: 0.85;
 }
 
+/* ---- SCROLL TO TOP BUTTON ---- */
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(26, 122, 138, 0.2);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .scroll-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 24px;
+    right: 24px;
+    font-size: 1rem;
+  }
+}
+
 .evento-info {
   padding: 20px;
 }
@@ -1125,7 +1213,7 @@ header a       { animation-delay: 0.55s; }
 
 .versiculo {
   font-size: 0.82rem;
-  color: var(--gold);
+  color: var(--teal-dark);
   font-weight: 700;
   margin-top: 12px;
   display: block;

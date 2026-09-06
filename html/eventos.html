@@ -8,7 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eventos | Fuente de Vida</title>
     <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
-    <link rel="apple-touch-icon" href="../jpg/logo-sin-fondo2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../jpg/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../jpg/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="../jpg/favicon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../jpg/apple-touch-icon-180x180.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -16,6 +24,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script>
@@ -61,7 +70,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fuentedevidawi.com/html/eventos.html" />
     <meta property="og:image" content="https://fuentedevidawi.com/jpg/eventos-back.JPG" />
-    <meta property="og:description" content="Mantente al d?a con los eventos, actividades y reuniones de la iglesia Fuente de Vida." />
+    <meta property="og:description" content="Mantente al dia con los eventos, actividades y reuniones de la iglesia Fuente de Vida." />
     <meta property="og:title" content="Eventos de Fuente de Vida" />
     <link rel="canonical" href="https://fuentedevidawi.com/html/eventos.html" />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
@@ -103,77 +112,214 @@
       </div>
     </header>
 
-  <section>
-    <h2>Prximos Eventos</h2>
+  <section id="eventos-section">
+    <h2>Próximos Eventos</h2>
     <div class="divider"></div>
 
-
-  <div class="eventos-grid">
-
-     <div class="evento-card">
-        <div class="evento-fecha">
-          <div class="dia">Todos los sabados</div>
-          <div class="mes"></div>
+    <div class="eventos-mes">
+      <div class="eventos-grid">
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">Todos los sábados</div>
+            <div class="mes"></div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Oración</span>
+            <h3>Oración de Intercesión</h3>
+            <p>Todos los sábados a las 6:00 am, con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.</p>
+            <p class="evento-direccion">6:00 am · 3939 Lien Rd, Madison WI</p>
+            <div id="mapaOracion" class="mapa-ubicacion mapa-ubicacion--small" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
+          </div>
         </div>
-        <div class="evento-info">
-          <span class="evento-tag">Oracion los sabados</span>
-          <h4>todos los sabados a las 6:00 am tenemos oraion por parte del ministerio de intersecion, todos estan invitados a unirse cuando gusten.</h4>
-          <p>6:00 am - 3939 Lien Rd, Madison WI</p>
-         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus" width="100%" height="200" class="maps-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicaci?n de Iglesia Fuente de Vida"></iframe> 
+      </div>
     </div>
+
+    <div class="eventos-mes">
+      <h3 class="eventos-mes-titulo">Septiembre</h3>
+      <div class="eventos-grid">
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">7</div>
+            <div class="mes">Septiembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Comunidad</span>
+            <h3>Convivio de la Iglesia</h3>
+            <p>Un tiempo de convivencia para toda la congregación.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">13</div>
+            <div class="mes">Septiembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Ministerio</span>
+            <h3>Buen Samaritano / Flor Azul</h3>
+            <p>Actividad de servicio y evangelismo en la comunidad.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">25-26</div>
+            <div class="mes">Septiembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Evento especial</span>
+            <h3>Fiesta del Amigo</h3>
+            <p>Trae a un amigo y vive una experiencia especial en la iglesia.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
       </div>
-    
+    </div>
 
-   <div class="evento-card">
-        <div class="evento-fecha">
-          <div class="dia">28-29</div>
-          <div class="mes">agosto</div>
+    <div class="eventos-mes">
+      <h3 class="eventos-mes-titulo">Octubre</h3>
+      <div class="eventos-grid">
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">6-8</div>
+            <div class="mes">Octubre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Oración</span>
+            <h3>Ayuno y Oración en el Templo (Rescate de Almas)</h3>
+            <p>Días de ayuno y oración en el templo como preparación para el Rescate de Almas.</p>
+            <p class="evento-direccion">3939 Lien Rd, Madison WI</p>
+          </div>
         </div>
-        <div class="evento-info">
-          <span class="evento-tag">Actividad de Damas</span>
-          <h4>una actividad especial para las damas, todas son vien venidas</h4>
-          <p>direccion por confirmar</p>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">9-10</div>
+            <div class="mes">Octubre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Evangelismo</span>
+            <h3>Rescate de Almas</h3>
+            <p>Jornada de evangelismo para alcanzar a nuevas almas para Cristo.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">24</div>
+            <div class="mes">Octubre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Culto especial</span>
+            <h3>Culto de Sector: Reconocimiento a Ancianos</h3>
+            <p>Culto de sector para honrar y reconocer a los ancianos de la congregación.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">30</div>
+            <div class="mes">Octubre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Niños</span>
+            <h3>Actividad de Juniors</h3>
+            <p>Actividad especial para los niños de la iglesia.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="evento-card">
-        <div class="evento-fecha">
-          <div class="dia">30</div>
-          <div class="mes">agosto</div>
+    <div class="eventos-mes">
+      <h3 class="eventos-mes-titulo">Noviembre</h3>
+      <div class="eventos-grid">
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">6-7</div>
+            <div class="mes">Noviembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Juventud</span>
+            <h3>Actividad de Jóvenes</h3>
+            <p>Actividad especial para el ministerio de jóvenes.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
         </div>
-        <div class="evento-info">
-          <span class="evento-tag">Fiesta de la cosecha</span>
-          <h4>unete a nuestra fiesta de la cosecha</h4>
-          <p>3939 Lien Rd, Madison WI</p>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">13</div>
+            <div class="mes">Noviembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Ministerio</span>
+            <h3>Llenura del Espíritu Santo</h3>
+            <p>Un tiempo especial buscando la llenura del Espíritu Santo.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">14</div>
+            <div class="mes">Noviembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Liderazgo</span>
+            <h3>Rescate de Líderes</h3>
+            <p>Jornada de renovación y capacitación para los líderes.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
+        </div>
+
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">18</div>
+            <div class="mes">Noviembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Juventud</span>
+            <h3>Actividad de Jóvenes</h3>
+            <p>Segunda actividad especial para el ministerio de jóvenes.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="evento-card">
-        <div class="evento-fecha">
-          <div class="dia">14-15</div>
-          <div class="mes">Agosto</div>
-        </div>
-        <div class="evento-info">
-          <span class="evento-tag">Buen samaritano flor azul</span>
-          <h4>Unete a nuestra actividad del buen samaritano flor azul</h4>
-          <p>por confirmar</p>
+    <div class="eventos-mes">
+      <h3 class="eventos-mes-titulo">Diciembre</h3>
+      <div class="eventos-grid">
+        <div class="evento-card">
+          <div class="evento-fecha">
+            <div class="dia">13</div>
+            <div class="mes">Diciembre</div>
+          </div>
+          <div class="evento-info">
+            <span class="evento-tag">Evento especial</span>
+            <h3>Aniversario 13 / Fiesta de Cosecha</h3>
+            <p>Celebramos 13 años de la iglesia junto con nuestra fiesta de cosecha.</p>
+            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+          </div>
         </div>
       </div>
-
-
+    </div>
 
 </section>
 
-  <section class="bg-teal">
-    <div class="container cta-container">
+  <footer>
+    <div class="container cta-container footer-cta">
       <h2>Vive cada momento con nosotros</h2>
       <div class="divider cta-divider"></div>
       <p class="cta-text">Acompáñanos en nuestras próximas actividades y sí parte de la comunidad Fuente de Vida.</p>
       <a href="../index.html" class="btn btn-primary">Regresar al inicio</a>
     </div>
-  </section>
 
-  <footer>
     <strong>Fuente De Vida</strong>
     <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús – Madison, WI</span>
 
@@ -227,6 +373,17 @@
       });
     </script>
     <script src="../js/scroll-to-top.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+    <script>
+      const mapaOracion = L.map('mapaOracion').setView([43.120351, -89.31647], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(mapaOracion);
+      L.circleMarker([43.120351, -89.31647], { radius: 10, color: '#1a7a8a', fillColor: '#1a7a8a', fillOpacity: 0.9 })
+        .addTo(mapaOracion)
+        .bindPopup('Iglesia Fuente de Vida');
+    </script>
     </body>
 
 

@@ -8,7 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fuente de Vida | Iglesia Cristiana en Madison, WI</title>
     <link rel="icon" href="jpg/logo-sin-fondo2.png" type="image/png" />
-    <link rel="apple-touch-icon" href="jpg/logo-sin-fondo2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="jpg/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="jpg/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="jpg/favicon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="jpg/apple-touch-icon-180x180.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -16,6 +24,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script>
@@ -59,11 +68,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fuentedevidawi.com/" />
     <meta property="og:image" content="https://fuentedevidawi.com/jpg/logo-sin-fondo2.png" />
-    <meta property="og:description" content="Servicios dominicales biling?es, eventos, liderazgo, c?lulas y comunidad cristiana en Madison, Wisconsin." />
+    <meta property="og:description" content="Servicios dominicales bilingues, eventos, liderazgo, células y comunidad cristiana en Madison, Wisconsin." />
     <meta property="og:title" content="Fuente de Vida | Iglesia Cristiana en Madison, WI" />
     <link rel="canonical" href="https://fuentedevidawi.com/" />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-    <meta name="description" content="Iglesia Fuente de Vida en Madison, Wisconsin. Servicios dominicales biling?es, eventos, liderazgo, c?lulas y comunidad cristiana." />
+    <meta name="description" content="Iglesia Fuente de Vida en Madison, Wisconsin. Servicios dominicales bilingues, eventos, liderazgo, células y comunidad cristiana." />
 
     <script type="application/ld+json">
     {
@@ -73,7 +82,7 @@
       "alternateName": "Iglesia Fuente de Vida",
       "url": "https://fuentedevidawi.com/",
       "image": "https://fuentedevidawi.com/jpg/logo-sin-fondo2.png",
-      "description": "Iglesia Fuente de Vida en Madison, Wisconsin, con servicios biling?es, comunidad, c?lulas y eventos cristianos.",
+      "description": "Iglesia Fuente de Vida en Madison, Wisconsin, con servicios bilingues, comunidad, células y eventos cristianos.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3939 Lien Rd",
@@ -125,18 +134,7 @@
      
       <div class="header-actions">
         <a href="html/eventos.html" class="btn btn-primary">Ver Eventos</a>
-        <a href="html/ultimo-sermon.html" class="btn btn-outline">¿Último Sermón?</a>
-      </div>
-      <div class="redes" role="list">
-        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="Síguenos en Facebook">
-          <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
-        </a>
-        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="Síguenos en Instagram">
-          <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-        </a>
-        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="Síguenos en YouTube">
-          <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
-        </a>
+        <a href="html/ultimo-sermon.html" class="btn btn-outline">Último Sermón</a>
       </div>
     </header>
 
@@ -146,7 +144,7 @@
         <h2>Registro de Visitas</h2>
         <div class="divider"></div>
         <p>
-          ¿Nos alegra que estés interesado en visitarnos? Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
+          Nos alegra que estés interesado en visitarnos Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
         </p>
         <br />
         <div class="registro-container">
@@ -213,24 +211,20 @@
     </section>
 
     <!-- Ubicacion -->
-    <section class="bg-light">
+    <section>
       <div class="container">
         <h2>Ubicación</h2>
         <div class="divider"></div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d364.0307927463597!2d-89.31647!3d43.120351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8806569bc7d8f1dd%3A0x87ccbe053bd3a6c1!2sIglesia%20Fuente%20de%20Vida!5e0!3m2!1sen!2sus!4v1769727941049!5m2!1sen!2sus"
-          width="100%"
-          height="200"
-          class="maps-iframe"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <div id="mapaUbicacion" class="mapa-ubicacion" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
+        <div class="ubicacion-box">
+          <p>3939 Lien Rd, Madison, WI 53704</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=43.120351,-89.31647" target="_blank" rel="noopener noreferrer">Cómo llegar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </section>
 
     <!-- ===== HORARIOS ===== -->
-    <section id="horarios" class="bg-light">
+    <section id="horarios">
       <div class="container">
         <h2>Horarios de Servicios</h2>
         <div class="divider"></div>
@@ -265,7 +259,7 @@
     </section>
 
     <!-- ===== LIDERAZGO ===== -->
-    <section id="liderazgo" class="bg-light">
+    <section id="liderazgo">
       <div class="container">
         <h2>Liderazgo</h2>
         <div class="divider"></div>
@@ -280,7 +274,7 @@
             <p>Pastores de Fuente de Vida, Madison WI</p>
             <br />
             <a href="html/nuestro-liderazgo.html" class="btn btn-primary"
-              >Nuestro Liderazgo</a
+              >Conoce Nuestros Líderes</a
             >
           </div>
         </div>
@@ -387,16 +381,16 @@
       </div>
     </section>
 
-    <!-- ===== TE ESPERAMOS ===== -->
-    <section class="bg-teal">
-      <div class="container cta-container">
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <!-- ===== TE ESPERAMOS ===== -->
+      <div class="container cta-container footer-cta">
         <h2>Te Esperamos</h2>
         <div class="divider cta-divider"></div>
         <p class="cta-text">
           Las puertas están abiertas para ti y tu familia. Ven tal como eres y
           vive una experiencia con Dios.
         </p>
-        <br /><br />
         <div class="cta-buttons">
           <a href="html/nuestra-historia.html" class="btn btn-primary"
             >Nuestra Historia</a
@@ -406,9 +400,7 @@
           >
         </div>
       </div>
-    </section>
-    <!-- ===== FOOTER ===== -->
-    <footer>
+
       <strong>Fuente De Vida</strong>
       <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús – Madison, WI</span>
 
@@ -783,7 +775,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
           sessionStorage.setItem(FORM_COOLDOWN_KEY, String(Date.now()));
 
           // Mostrar mensaje de ¿xito
-          statusDiv.textContent = window.t('form_success', '? ¿Registro enviado correctamente! Te esperamos.');
+          statusDiv.textContent = window.t('form_success', ' Registro enviado correctamente! Te esperamos.');
           statusDiv.className = "form-message form-message--success";
           statusDiv.style.display = "block";
 
@@ -799,7 +791,7 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
 
         } catch (error) {
           console.error("Error al enviar:", error);
-          const friendly = window.t('form_error', '? Error al enviar. Intenta de nuevo o contactanos directamente.');
+          const friendly = window.t('form_error', ' Error al enviar. Intenta de nuevo o contactanos directamente.');
           const detail = (error && (error.text || error.message)) ? ` (${error.text || error.message})` : '';
           const statusInfo = error && error.status ? ` [status:${error.status}]` : '';
 
@@ -854,5 +846,16 @@ document.getElementById('bible-passage').addEventListener('keydown', function(e)
       });
     </script>
     <script src="js/scroll-to-top.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+    <script>
+      const mapaUbicacion = L.map('mapaUbicacion').setView([43.120351, -89.31647], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(mapaUbicacion);
+      L.circleMarker([43.120351, -89.31647], { radius: 10, color: '#1a7a8a', fillColor: '#1a7a8a', fillOpacity: 0.9 })
+        .addTo(mapaUbicacion)
+        .bindPopup('Iglesia Fuente de Vida');
+    </script>
   </body>
 </html>

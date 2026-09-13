@@ -73,25 +73,106 @@
   </head>
 
   <body>
-    <nav>
-    <a href="../index.html"><img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
-    <div class="nav-actions">
-    <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    </div>
-    <ul id="navMenu" class="nav-menu">
-      <li><a href="../index.html#visitar">Visítanos</a></li>
-      <li><a href="../index.html#horarios">Horarios</a></li>
-      <li><a href="../index.html#liderazgo">Liderazgo</a></li>
-      <li><a href="../index.html#contacto">Contacto</a></li>
-      <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Donaciones</a></li>
-    </ul>
-  </nav>
+ <nav>
+      <a href="../index.html" class="nav-brand" aria-label="Inicio - Fuente de Vida">
+        <img
+          src="../jpg/logo-sin-fondo.png"
+          alt="Logo Fuente de Vida"
+        />
+      </a>
+      <ul class="nav-links-horizontal">
+        <li><a href="ultimo-sermon.html">Sermones</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="nuestro-liderazgo.html">Liderazgo</a></li>
+        <li><a href="nuestras-creencias.html">Creencias</a></li>
+        <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Donaciones</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menuOverlay">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
 
- <header class="hero-header header-historia" style="background-image: url('../jpg/historia-back.JPG'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 70vh;">
+  <!-- ===== BARRAS LATERALES FIJAS ===== -->
+  <div class="side-bar side-bar-left">
+    <div class="side-bar-icons">
+      <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+    </div>
+    <div class="side-bar-line" aria-hidden="true"></div>
+    <span class="side-bar-label">SÍGUENOS</span>
+  </div>
+  <div class="side-bar side-bar-right">
+    <button type="button" class="side-bar-scroll" id="discoverBtn" aria-label="Descubre más, ir a la siguiente sección">
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </button>
+    <div class="side-bar-line" aria-hidden="true"></div>
+    <span class="side-bar-label">DESCUBRE</span>
+  </div>
+
+  <!-- ===== MENÚ OVERLAY DESPLEGABLE ===== -->
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+  <div id="menuOverlay" class="menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div class="menu-overlay-backdrop" aria-hidden="true"></div>
+    <div class="menu-overlay-header">
+      <a href="../index.html" class="menu-overlay-logo" aria-label="Inicio - Fuente de Vida">
+        <img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
+      </a>
+      <button class="menu-overlay-close" id="menuCloseBtn" aria-label="Cerrar menú">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="menu-overlay-content">
+      <div class="menu-grid">
+        <div class="menu-col">
+          <h3 class="menu-col-title">Visítanos</h3>
+          <ul class="menu-col-links">
+            <li><a href="../index.html#visitar"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Registro de Visitas</a></li>
+            <li><a href="../index.html#horarios"><i class="fas fa-clock" aria-hidden="true"></i> Horarios</a></li>
+            <li><a href="../index.html#ubicacion"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></li>
+          </ul>
+        </div>
+        <div class="menu-col">
+          <h3 class="menu-col-title">Nosotros</h3>
+          <ul class="menu-col-links">
+            <li><a href="../index.html#liderazgo"><i class="fas fa-users" aria-hidden="true"></i> Liderazgo</a></li>
+            <li><a href="nuestra-historia.html"><i class="fas fa-book-open" aria-hidden="true"></i> Nuestra Historia</a></li>
+            <li><a href="nuestras-creencias.html"><i class="fas fa-cross" aria-hidden="true"></i> Nuestras Creencias</a></li>
+          </ul>
+        </div>
+        <div class="menu-col">
+          <h3 class="menu-col-title">Recursos</h3>
+          <ul class="menu-col-links">
+            <li><a href="../index.html#biblia"><i class="fas fa-bible" aria-hidden="true"></i> Lectura Bíblica</a></li>
+            <li><a href="ultimo-sermon.html"><i class="fas fa-video" aria-hidden="true"></i> Último Sermón</a></li>
+            <li><a href="eventos.html"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Ver Eventos</a></li>
+          </ul>
+        </div>
+        <div class="menu-col">
+          <h3 class="menu-col-title">Conecta</h3>
+          <ul class="menu-col-links">
+            <li><a href="../index.html#contacto"><i class="fas fa-envelope" aria-hidden="true"></i> Contacto</a></li>
+            <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Donaciones</a></li>
+          </ul>
+          <div class="menu-social">
+            <span class="menu-social-title">Redes Sociales</span>
+            <div class="menu-social-icons">
+              <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="menu-social-btn fb"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="menu-social-btn ig"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="menu-social-btn yt"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/menu-overlay.js"></script>
+
+ <header class="hero-header header-historia" style="background-image: url('../jpg/historia-back.JPG'); background-size: cover; background-position: center 30%; background-attachment: fixed;">
       <div class="hero-header-content">
         <div class="redes" role="list">
           <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="Síguenos en Facebook">
@@ -216,35 +297,6 @@
       </a>
     </div>
   </footer>
-
-  <script>
-    // Menu Hamburguesa
-    const menuBtn = document.getElementById('menuBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    menuBtn.addEventListener('click', function() {
-      menuBtn.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      menuBtn.setAttribute('aria-expanded', menuBtn.classList.contains('active'));
-    });
-
-    const menuLinks = navMenu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        menuBtn.classList.remove('active');
-        navMenu.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', function(event) {
-      if (!event.target.closest('nav')) {
-        menuBtn.classList.remove('active');
-        navMenu.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
 
   <script src="../js/scroll-to-top.js"></script>
   </body>

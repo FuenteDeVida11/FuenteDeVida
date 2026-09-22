@@ -1,443 +1,822 @@
 <!doctype html>
+
 <html lang="es" lang="es">
-  <head>
+ 
+<head>
+    
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
+    
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
     <meta charset="UTF-8" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>Eventos | Fuente de Vida</title>
+    
     <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
+    
     <link rel="icon" type="image/png" sizes="16x16" href="../jpg/favicon-16x16.png" />
+    
     <link rel="icon" type="image/png" sizes="32x32" href="../jpg/favicon-32x32.png" />
+    
     <link rel="icon" type="image/png" sizes="48x48" href="../jpg/favicon-48x48.png" />
+    
     <link rel="apple-touch-icon" sizes="180x180" href="../jpg/apple-touch-icon-180x180.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" />
 
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS"
-      crossorigin="anonymous"
+    
+    rel="stylesheet"
+    
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    
+    integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS"
+    
+    crossorigin="anonymous"
+    
     />
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN
+    +hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script>
-  window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
-  window.GA_DISABLE_STORAGE_KEY = 'fdv_disable_ga';
+
+window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
+
+window.GA_DISABLE_STORAGE_KEY = 'fdv_disable_ga';
 
   (function () {
+
     const params = new URLSearchParams(window.location.search);
 
     if (params.get('noanalytics') === '1') {
+
       localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+
     } else if (params.get('noanalytics') === '0') {
+
       localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+
     }
 
     if (localStorage.getItem(window.GA_DISABLE_STORAGE_KEY) === '1') {
+
       window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+
     }
+
   })();
 
   window.disableAnalyticsTracking = function () {
+
     localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
+
     window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
+
   };
 
   window.enableAnalyticsTracking = function () {
+
     localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
+
     window['ga-disable-' + window.GA_MEASUREMENT_ID] = false;
-  };
+
+};
+
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71PNQ7G8RJ"></script>
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-71PNQ7G8RJ');
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){dataLayer.push(arguments);}
+
+gtag('js', new Date());
+
+gtag('config', 'G-71PNQ7G8RJ');
+
 </script>    
 
-
-
       <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fuentedevidawi.com/html/eventos.html" />
-    <meta property="og:image" content="https://fuentedevidawi.com/jpg/eventos-back.JPG" />
-    <meta property="og:description" content="Mantente al dia con los eventos, actividades y reuniones de la iglesia Fuente de Vida." />
-    <meta property="og:title" content="Eventos de Fuente de Vida" />
-    <link rel="canonical" href="https://fuentedevidawi.com/html/eventos.html" />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-    <meta name="description" content="Consulta los eventos, reuniones y actividades de la Iglesia Fuente de Vida en Madison, Wisconsin." />
-</head>
-  <body>
+ 
+      <meta name="twitter:card" content="summary_large_image" />
+ 
+      <meta property="og:type" content="website" />
+ 
+      <meta property="og:url" content="https://fuentedevidawi.com/html/eventos.html" />
+ 
+      <meta property="og:image" content="https://fuentedevidawi.com/jpg/eventos-back.JPG" />
+ 
+      <meta property="og:description" content="Mantente al dia con los eventos, actividades y reuniones de la iglesia Fuente de Vida." />
+ 
+      <meta property="og:title" content="Eventos de Fuente de Vida" />
+ 
+      <link rel="canonical" href="https://fuentedevidawi.com/html/eventos.html" />
+ 
+      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+ 
+      <meta name="description" content="Consulta los eventos, reuniones y actividades de la Iglesia Fuente de Vida en Madison, Wisconsin." />
+    
 
- <nav>
-      <a href="../index.html" class="nav-brand" aria-label="Inicio - Fuente de Vida">
-        <img
+    </head>
+
+    <body>
+
+      <nav>
+      
+        <a href="../index.html" class="nav-brand" aria-label="Inicio - Fuente de Vida">
+      
+          <img
+      
           src="../jpg/logo-sin-fondo.png"
+      
           alt="Logo Fuente de Vida"
-        />
-      </a>
-      <ul class="nav-links-horizontal">
-        <li><a href="ultimo-sermon.html">Sermones</a></li>
-        <li><a href="nuestra-historia.html">Historia</a></li>
-        <li><a href="nuestro-liderazgo.html">Liderazgo</a></li>
-        <li><a href="nuestras-creencias.html">Creencias</a></li>
-        <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Donaciones</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menuOverlay">
+      
+          />
+      
+        </a>
+      
+        <ul class="nav-links-horizontal">
+      
+          <li><a href="ultimo-sermon.html">Sermones</a></li>
+      
+          <li><a href="nuestra-historia.html">Historia</a></li>
+      
+          <li><a href="nuestro-liderazgo.html">Liderazgo</a></li>
+      
+          <li><a href="nuestras-creencias.html">Creencias</a></li>
+      
+          <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Donaciones</a></li>
+     
+        </ul>
+     
+        <div class="nav-actions">
+     
+          <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menuOverlay">
+     
+            <span></span>
+     
           <span></span>
+     
           <span></span>
-          <span></span>
+     
         </button>
+     
       </div>
+    
     </nav>
-
   <!-- ===== BARRAS LATERALES FIJAS ===== -->
   <div class="side-bar side-bar-left">
+ 
     <div class="side-bar-icons">
+ 
       <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+ 
       <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+ 
       <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+ 
     </div>
+ 
     <div class="side-bar-line" aria-hidden="true"></div>
+ 
     <span class="side-bar-label">SÍGUENOS</span>
+ 
   </div>
+ 
   <div class="side-bar side-bar-right">
+ 
     <button type="button" class="side-bar-scroll" id="discoverBtn" aria-label="Descubre más, ir a la siguiente sección">
+ 
       <i class="fas fa-chevron-down" aria-hidden="true"></i>
+ 
     </button>
+ 
     <div class="side-bar-line" aria-hidden="true"></div>
+ 
     <span class="side-bar-label">DESCUBRE</span>
+ 
   </div>
-
   <!-- ===== MENÚ OVERLAY DESPLEGABLE ===== -->
   <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+ 
   <div id="menuOverlay" class="menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú principal">
+    
     <div class="menu-overlay-backdrop" aria-hidden="true"></div>
+    
     <div class="menu-overlay-header">
+    
       <a href="../index.html" class="menu-overlay-logo" aria-label="Inicio - Fuente de Vida">
+    
         <img src="../jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
+    
       </a>
+    
       <button class="menu-overlay-close" id="menuCloseBtn" aria-label="Cerrar menú">
+    
         <i class="fas fa-times" aria-hidden="true"></i>
+    
       </button>
+    
     </div>
+    
     <div class="menu-overlay-content">
+    
       <div class="menu-grid">
+    
         <div class="menu-col">
+    
           <h3 class="menu-col-title">Visítanos</h3>
+    
           <ul class="menu-col-links">
+    
             <li><a href="../index.html#visitar"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Registro de Visitas</a></li>
             <li><a href="../index.html#horarios"><i class="fas fa-clock" aria-hidden="true"></i> Horarios</a></li>
+    
             <li><a href="../index.html#ubicacion"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></li>
           </ul>
+    
         </div>
+    
         <div class="menu-col">
+    
           <h3 class="menu-col-title">Nosotros</h3>
+    
           <ul class="menu-col-links">
+    
             <li><a href="../index.html#liderazgo"><i class="fas fa-users" aria-hidden="true"></i> Liderazgo</a></li>
+    
             <li><a href="nuestra-historia.html"><i class="fas fa-book-open" aria-hidden="true"></i> Nuestra Historia</a></li>
             <li><a href="nuestras-creencias.html"><i class="fas fa-cross" aria-hidden="true"></i> Nuestras Creencias</a></li>
           </ul>
+    
         </div>
+    
         <div class="menu-col">
+    
           <h3 class="menu-col-title">Recursos</h3>
+    
           <ul class="menu-col-links">
+    
             <li><a href="../index.html#biblia"><i class="fas fa-bible" aria-hidden="true"></i> Lectura Bíblica</a></li>
+    
             <li><a href="ultimo-sermon.html"><i class="fas fa-video" aria-hidden="true"></i> Último Sermón</a></li>
+    
             <li><a href="eventos.html"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Ver Eventos</a></li>
+    
           </ul>
+    
         </div>
+    
         <div class="menu-col">
+    
           <h3 class="menu-col-title">Conecta</h3>
+    
           <ul class="menu-col-links">
+    
             <li><a href="../index.html#contacto"><i class="fas fa-envelope" aria-hidden="true"></i> Contacto</a></li>
+    
             <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Donaciones</a></li>
           </ul>
+        
           <div class="menu-social">
+        
             <span class="menu-social-title">Redes Sociales</span>
+        
             <div class="menu-social-icons">
+        
               <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="menu-social-btn fb"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        
               <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="menu-social-btn ig"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        
               <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="menu-social-btn yt"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        
             </div>
+        
           </div>
+        
         </div>
+   
       </div>
+   
     </div>
+ 
   </div>
+    <!-- ===== video HEADER ===== -->
   <script src="../js/menu-overlay.js"></script>
 
- <header class="hero-header" style="background-image: url('../jpg/eventos-back.JPG'); background-size: cover; background-position: center 30%; background-attachment: fixed;">
-      <div class="hero-header-content">
-        <div class="redes" role="list">
-          <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" class="red-social red-facebook" aria-label="Síguenos en Facebook">
-            <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
-          </a>
-          <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" class="red-social red-instagram" aria-label="Síguenos en Instagram">
-            <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-          </a>
-          <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" class="red-social red-youtube" aria-label="Síguenos en YouTube">
-            <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
-          </a>
-        </div>
-      </div>
+    <header class="hero-header" aria-label="Portada">
+ 
+      <video class="hero-video" autoplay muted loop playsinline poster="../jpg/eventos-back.JPG" aria-hidden="true" tabindex="-1">
+ 
+        <source src="../mp4/eventos.mp4" type="video/mp4" />
+ 
+      </video>
+ 
+      <img class="hero-poster" src="../jpg/back-creencias.JPG" alt="" aria-hidden="true" />
+ 
+      <div class="hero-overlay" aria-hidden="true"></div>
+ 
     </header>
 
   <section id="eventos-section">
+ 
     <h2>Próximos Eventos</h2>
+ 
     <div class="divider"></div>
 
     <div class="eventos-mes">
+ 
       <div class="eventos-grid">
+ 
         <div class="evento-card">
+ 
           <div class="evento-fecha">
+ 
             <div class="dia">Todos los sábados</div>
+ 
             <div class="mes"></div>
+ 
           </div>
+ 
           <div class="evento-info">
+
             <span class="evento-tag">Oración</span>
+
             <h3>Oración de Intercesión</h3>
+
             <p>Todos los sábados a las 6:00 am, con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.</p>
+
             <p class="evento-direccion">6:00 am · 3939 Lien Rd, Madison WI</p>
+
             <div id="mapaOracion" class="mapa-ubicacion mapa-ubicacion--small" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
 
     <div class="eventos-mes">
+
       <h3 class="eventos-mes-titulo">Septiembre</h3>
+
       <div class="eventos-grid">
+
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">7</div>
+
             <div class="mes">Septiembre</div>
+
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Comunidad</span>
+
             <h3>Convivio de la Iglesia</h3>
+
+
             <p>Un tiempo de convivencia para toda la congregación.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">13</div>
+
             <div class="mes">Septiembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Ministerio</span>
+
             <h3>Buen Samaritano / Flor Azul</h3>
+
             <p>Actividad de servicio y evangelismo en la comunidad.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">25-26</div>
+
             <div class="mes">Septiembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Evento especial</span>
+
             <h3>Fiesta del Amigo</h3>
+
             <p>Trae a un amigo y vive una experiencia especial en la iglesia.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
+
       </div>
+
     </div>
 
     <div class="eventos-mes">
+
       <h3 class="eventos-mes-titulo">Octubre</h3>
+
       <div class="eventos-grid">
+
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">6-8</div>
+
             <div class="mes">Octubre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Oración</span>
+
             <h3>Ayuno y Oración en el Templo (Rescate de Almas)</h3>
+
+
             <p>Días de ayuno y oración en el templo como preparación para el Rescate de Almas.</p>
+
             <p class="evento-direccion">3939 Lien Rd, Madison WI</p>
+
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">9-10</div>
+
             <div class="mes">Octubre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Evangelismo</span>
+
             <h3>Rescate de Almas</h3>
+
             <p>Jornada de evangelismo para alcanzar a nuevas almas para Cristo.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">24</div>
+
             <div class="mes">Octubre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Culto especial</span>
+
             <h3>Culto de Sector: Reconocimiento a Ancianos</h3>
+
             <p>Culto de sector para honrar y reconocer a los ancianos de la congregación.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">30</div>
+
             <div class="mes">Octubre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Niños</span>
+
             <h3>Actividad de Juniors</h3>
+
             <p>Actividad especial para los niños de la iglesia.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
+
       </div>
+
     </div>
 
     <div class="eventos-mes">
+
       <h3 class="eventos-mes-titulo">Noviembre</h3>
+
       <div class="eventos-grid">
+
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">6-7</div>
+
             <div class="mes">Noviembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Juventud</span>
+
             <h3>Actividad de Jóvenes</h3>
+
             <p>Actividad especial para el ministerio de jóvenes.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">13</div>
+
             <div class="mes">Noviembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Ministerio</span>
+
             <h3>Llenura del Espíritu Santo</h3>
+
             <p>Un tiempo especial buscando la llenura del Espíritu Santo.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">14</div>
+
             <div class="mes">Noviembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Liderazgo</span>
+
             <h3>Rescate de Líderes</h3>
+
             <p>Jornada de renovación y capacitación para los líderes.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
 
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">18</div>
+
             <div class="mes">Noviembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Juventud</span>
+
             <h3>Actividad de Jóvenes</h3>
+
             <p>Segunda actividad especial para el ministerio de jóvenes.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
+
       </div>
+
     </div>
 
     <div class="eventos-mes">
+
       <h3 class="eventos-mes-titulo">Diciembre</h3>
+
       <div class="eventos-grid">
+
         <div class="evento-card">
+
           <div class="evento-fecha">
+
             <div class="dia">13</div>
+
             <div class="mes">Diciembre</div>
+
           </div>
+
           <div class="evento-info">
+
             <span class="evento-tag">Evento especial</span>
+
             <h3>Aniversario 13 / Fiesta de Cosecha</h3>
+
             <p>Celebramos 13 años de la iglesia junto con nuestra fiesta de cosecha.</p>
+
             <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
+
         </div>
+
       </div>
+
     </div>
 
 </section>
 
   <footer>
+
     <div class="container cta-container footer-cta">
+
       <h2>Vive cada momento con nosotros</h2>
+
       <div class="divider cta-divider"></div>
+
       <p class="cta-text">Acompáñanos en nuestras próximas actividades y sí parte de la comunidad Fuente de Vida.</p>
+
       <a href="../index.html" class="btn btn-primary">Regresar al inicio</a>
+
     </div>
 
     <strong>Fuente De Vida</strong>
+
     <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús – Madison, WI</span>
 
     <div class="footer-contact" role="list">
-      <a href="tel:+16082176835" class="fc-phone">
-        <i class="fas fa-phone" aria-hidden="true"></i>
-      </a>
-      <a
-        href="https://wa.me/16086181831"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="fc-whatsapp"
-      >
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-      </a>
-      <a
-        href="mailto:pastorfdvjacobocastillo@gmail.com"
-        class="fc-email"
-      >
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-      </a>
-    </div>
-  </footer>
 
-    <script src="../js/scroll-to-top.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-    <script>
-      const mapaOracion = L.map('mapaOracion').setView([43.120351, -89.31647], 15);
+      <a href="tel:+16082176835" class="fc-phone">
+
+        <i class="fas fa-phone" aria-hidden="true"></i>
+
+      </a>
+
+      <a
+
+      href="https://wa.me/16086181831"
+
+      target="_blank"
+
+      rel="noopener noreferrer"
+
+      class="fc-whatsapp"
+
+      >
+
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+
+    </a>
+
+    <a
+
+    href="mailto:pastorfdvjacobocastillo@gmail.com"
+
+    class="fc-email"
+
+    >
+
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+
+  </a>
+
+</div>
+
+</footer>
+
+<script src="../js/scroll-to-top.js"></script>
+     
+     <script>
+      // Manejo de fallback para video en menu y hero si ocurre un error de carga
+      function setupVideoFallback(videoSelector, posterSelector) {
+
+        const video = document.querySelector(videoSelector);
+
+        const poster = document.querySelector(posterSelector);
+
+        if (!video || !poster) return;
+
+        const showPoster = () => {
+
+          poster.style.display = 'block';
+
+          video.style.display = 'none';
+
+        };
+
+        video.addEventListener('error', showPoster, true);
+
+        const source = video.querySelector('source');
+
+        if (source) {
+
+          source.addEventListener('error', showPoster);
+
+        }
+
+      }
+
+      setupVideoFallback('.hero-video', '.hero-poster');
+
+</script>
+
+<script src="../js/scroll-to-top.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+
+<script>
+
+const mapaUbicacion = L.map('mapaUbicacion').setView([43.120351, -89.31647], 15);
+
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
         attribution: '&copy; OpenStreetMap contributors',
+
         maxZoom: 19
-      }).addTo(mapaOracion);
+
+      }).addTo(mapaUbicacion);
+
       L.circleMarker([43.120351, -89.31647], { radius: 10, color: '#1a7a8a', fillColor: '#1a7a8a', fillOpacity: 0.9 })
-        .addTo(mapaOracion)
-        .bindPopup('Iglesia Fuente de Vida');
-    </script>
-    </body>
+
+      .addTo(mapaUbicacion)
+
+      .bindPopup('Iglesia Fuente de Vida');
+
+</script>
+    
+</body>
+  
+  </html>
 
 
 

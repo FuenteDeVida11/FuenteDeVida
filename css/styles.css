@@ -191,7 +191,7 @@ nav img {
    BARRAS LATERALES FIJAS (SÍGUENOS / DESCUBRE)
    ========================================================================== */
 .side-bar {
-  position: fixed;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 999999;
@@ -201,6 +201,7 @@ nav img {
   gap: 14px;
   pointer-events: auto;
 }
+
 
 .side-bar-left {
   left: 20px;
@@ -218,7 +219,8 @@ nav img {
 }
 
 .side-bar a,
-.side-bar button {
+.side-bar button,
+.side-bar-mute {
   color: var(--white);
   mix-blend-mode: difference;
   font-size: 18px;
@@ -233,7 +235,8 @@ nav img {
 }
 
 .side-bar a:hover,
-.side-bar button:hover {
+.side-bar button:hover,
+.side-bar-mute:hover {
   opacity: 0.7;
 }
 
@@ -269,7 +272,8 @@ nav img {
     gap: 10px;
   }
   .side-bar a,
-  .side-bar button {
+  .side-bar button,
+  .side-bar-mute {
     font-size: 14px;
   }
   .side-bar-line {

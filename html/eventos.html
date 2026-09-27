@@ -50,67 +50,12 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
-<script>
-
-window.GA_MEASUREMENT_ID = 'G-71PNQ7G8RJ';
-
-window.GA_DISABLE_STORAGE_KEY = 'fdv_disable_ga';
-
-  (function () {
-
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get('noanalytics') === '1') {
-
-      localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
-
-    } else if (params.get('noanalytics') === '0') {
-
-      localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
-
-    }
-
-    if (localStorage.getItem(window.GA_DISABLE_STORAGE_KEY) === '1') {
-
-      window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
-
-    }
-
-  })();
-
-  window.disableAnalyticsTracking = function () {
-
-    localStorage.setItem(window.GA_DISABLE_STORAGE_KEY, '1');
-
-    window['ga-disable-' + window.GA_MEASUREMENT_ID] = true;
-
-  };
-
-  window.enableAnalyticsTracking = function () {
-
-    localStorage.removeItem(window.GA_DISABLE_STORAGE_KEY);
-
-    window['ga-disable-' + window.GA_MEASUREMENT_ID] = false;
-
-};
-
-</script>
+<script src="../js/analytics.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71PNQ7G8RJ"></script>
 
-<script>
+    
 
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){dataLayer.push(arguments);}
-
-gtag('js', new Date());
-
-gtag('config', 'G-71PNQ7G8RJ');
-
-</script>    
-
-      <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE" />
  
       <meta name="twitter:card" content="summary_large_image" />
  
@@ -198,6 +143,10 @@ gtag('config', 'G-71PNQ7G8RJ');
   </div>
  
   <div class="side-bar side-bar-right">
+
+    <button type="button" class="side-bar-mute" id="muteBtn" aria-label="Activar sonido del video" aria-pressed="false">
+      <i class="fas fa-volume-mute" aria-hidden="true"></i>
+    </button>
  
     <button type="button" class="side-bar-scroll" id="discoverBtn" aria-label="Descubre más, ir a la siguiente sección">
  
@@ -374,89 +323,6 @@ gtag('config', 'G-71PNQ7G8RJ');
 
     <div class="eventos-mes">
 
-      <h3 class="eventos-mes-titulo">Septiembre</h3>
-
-      <div class="eventos-grid">
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
-            <div class="dia">7</div>
-
-            <div class="mes">Septiembre</div>
-
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag">Comunidad</span>
-
-            <h3>Convivio de la Iglesia</h3>
-
-
-            <p>Un tiempo de convivencia para toda la congregación.</p>
-
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
-
-          </div>
-
-        </div>
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
-            <div class="dia">13</div>
-
-            <div class="mes">Septiembre</div>
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag">Ministerio</span>
-
-            <h3>Buen Samaritano / Flor Azul</h3>
-
-            <p>Actividad de servicio y evangelismo en la comunidad.</p>
-
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
-
-          </div>
-
-        </div>
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
-            <div class="dia">25-26</div>
-
-            <div class="mes">Septiembre</div>
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag">Evento especial</span>
-
-            <h3>Fiesta del Amigo</h3>
-
-            <p>Trae a un amigo y vive una experiencia especial en la iglesia.</p>
-
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="eventos-mes">
-
       <h3 class="eventos-mes-titulo">Octubre</h3>
 
       <div class="eventos-grid">
@@ -490,7 +356,7 @@ gtag('config', 'G-71PNQ7G8RJ');
 
           <div class="evento-fecha">
 
-            <div class="dia">9-10</div>
+            <div class="dia">10</div>
 
             <div class="mes">Octubre</div>
 
@@ -756,63 +622,15 @@ gtag('config', 'G-71PNQ7G8RJ');
 
 <script src="../js/scroll-to-top.js"></script>
      
-     <script>
-      // Manejo de fallback para video en menu y hero si ocurre un error de carga
-      function setupVideoFallback(videoSelector, posterSelector) {
-
-        const video = document.querySelector(videoSelector);
-
-        const poster = document.querySelector(posterSelector);
-
-        if (!video || !poster) return;
-
-        const showPoster = () => {
-
-          poster.style.display = 'block';
-
-          video.style.display = 'none';
-
-        };
-
-        video.addEventListener('error', showPoster, true);
-
-        const source = video.querySelector('source');
-
-        if (source) {
-
-          source.addEventListener('error', showPoster);
-
-        }
-
-      }
-
-      setupVideoFallback('.hero-video', '.hero-poster');
-
-</script>
+     <script src="../js/video-fallback.js" defer></script>
 
 <script src="../js/scroll-to-top.js"></script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 
-<script>
+<script src="../js/location-map.js" defer></script>
 
-const mapaUbicacion = L.map('mapaUbicacion').setView([43.120351, -89.31647], 15);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-
-        attribution: '&copy; OpenStreetMap contributors',
-
-        maxZoom: 19
-
-      }).addTo(mapaUbicacion);
-
-      L.circleMarker([43.120351, -89.31647], { radius: 10, color: '#1a7a8a', fillColor: '#1a7a8a', fillOpacity: 0.9 })
-
-      .addTo(mapaUbicacion)
-
-      .bindPopup('Iglesia Fuente de Vida');
-
-</script>
+<script src="../js/video-mute.js" defer></script>
     
 </body>
   

@@ -172,7 +172,7 @@
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       
-        attribution: '¿ OpenStreetMap contributors',
+        attribution: '&copy; OpenStreetMap contributors',
       
         maxZoom: 19
       
@@ -180,6 +180,9 @@
       // Add markers for each cell
       cellsData.forEach(cell => {
         
+        // Sin coordenadas no hay marcador (la célula sigue apareciendo en la lista)
+        if (cell.lat == null || cell.lng == null) return;
+
         const color = NETWORK_COLORS[cell.red] || '#1a7a8a';
         
         const marker = L.circleMarker([cell.lat, cell.lng], {
@@ -198,27 +201,27 @@
         
         }).addTo(map);
 
-        const popupContent = `
+        const buildPopup = () => `
         
         <div class="popup-content">
         
-          <div class="popup-badge" style="background-color: ${color};">${cell.red}</div>
+          <div class="popup-badge" style="background-color: ${color};">${window.fdvCells.red(cell.red)}</div>
         
           <div class="popup-info">
         
-            <strong>Pastor de red:</strong> ${cell.pastorDeRed}
+            <strong>${window.t('celulas.pastor', 'Pastor de red')}:</strong> ${cell.pastorDeRed}
         
             </div>
         
             <div class="popup-info">
         
-              <strong>Líderes de célula:</strong> ${cell.lideresDecelula}
+              <strong>${window.t('celulas.leaders', 'Líderes de célula')}:</strong> ${cell.lideresDecelula}
         
               </div>
         
               <div class="popup-info">
         
-                <strong>Timoteo:</strong> ${cell.timoteo}
+                <strong>${window.t('celulas.timoteo', 'Timoteo')}:</strong> ${cell.timoteo}
         
                 </div>
         
@@ -232,7 +235,7 @@
         
                   `;
 
-        marker.bindPopup(popupContent);
+        marker.bindPopup(buildPopup);
         
         markers.push(marker);
       
@@ -272,7 +275,7 @@
         
             <div class="red-color-badge" style="background-color: ${color};"></div>
         
-            ${red}
+            ${window.fdvCells.red(red)}
         
             </div>
         
@@ -282,37 +285,37 @@
         
               <div class="cell-card" style="border-left-color: ${color};">
         
-                <div class="cell-badge" style="background-color: ${color};">${cell.red}</div>
+                <div class="cell-badge" style="background-color: ${color};">${window.fdvCells.red(cell.red)}</div>
         
-                <h3>Célula ${cell.id}</h3>
+                <h3>${window.t('celulas.cell', 'Célula')} ${cell.id}</h3>
         
                 <div class="cell-info">
         
-                  <strong>Pastor de red:</strong><br>${cell.pastorDeRed}
+                  <strong>${window.t('celulas.pastor', 'Pastor de red')}:</strong><br>${cell.pastorDeRed}
         
                   </div>
         
                   <div class="cell-info">
         
-                    <strong>Líderes de célula:</strong><br>${cell.lideresDecelula}
+                    <strong>${window.t('celulas.leaders', 'Líderes de célula')}:</strong><br>${cell.lideresDecelula}
         
                     </div>
         
                     <div class="cell-info">
         
-                      <strong>Timoteo:</strong><br>${cell.timoteo}
+                      <strong>${window.t('celulas.timoteo', 'Timoteo')}:</strong><br>${cell.timoteo}
         
                       </div>
         
                       <div class="cell-info">
         
-                        <strong>Día:</strong> ${cell.dia}
+                        <strong>${window.t('celulas.day', 'Día')}:</strong> ${window.fdvCells.day(cell.dia)}
         
                       </div>
         
                       <div class="cell-info">
         
-                      <strong>Hora:</strong> ${cell.hora}
+                      <strong>${window.t('celulas.time', 'Hora')}:</strong> ${cell.hora}
       
                       </div>
         
@@ -384,6 +387,16 @@
     document.getElementById('mapToggle').addEventListener('click', () => toggleView('map'));
     
     document.getElementById('listToggle').addEventListener('click', () => toggleView('list'));
+
+    // Al cambiar de idioma se vuelve a pintar la lista y se actualizan los popups abiertos
+    document.addEventListener('fdv:languagechange', () => {
+      if (!map) return;
+      renderListView();
+      markers.forEach(marker => {
+        const popup = marker.getPopup();
+        if (popup && popup.isOpen()) popup.update();
+      });
+    });
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
      

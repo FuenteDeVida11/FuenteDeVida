@@ -3,6 +3,8 @@
   --teal-dark:#0f5060;
   --teal-light: #e8f4f7;
   --gold: #c9a84c;
+  --menu-accent: #1a7a8a;
+  --menu-hover: #c9a84c;
   --dark: #111827;
   --cream: #faf8f4;
   --text: #2d3748;
@@ -131,6 +133,68 @@ nav img {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Selector de idioma ES | EN (inyectado por js/i18n.js) */
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1.5px solid var(--teal);
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--teal-dark);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn + .lang-btn {
+  border-left: 1.5px solid var(--teal);
+}
+
+.lang-btn:hover {
+  background-color: var(--teal-light);
+}
+
+.lang-btn[aria-pressed="true"] {
+  background-color: var(--teal);
+  color: var(--white);
+}
+
+.lang-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -3px;
+}
+
+/* En móvil el selector vive dentro del menú desplegable */
+@media (max-width: 900px) {
+  .lang-switch--nav {
+    display: none;
+  }
+}
+
+.lang-switch--menu .lang-btn {
+  min-width: 56px;
+  min-height: 40px;
+  font-size: 0.85rem;
+}
+
+/* Evita el parpadeo en español mientras se aplica la traducción al inglés */
+html.i18n-pending body {
+  visibility: hidden;
 }
 
 /* Nav original (lista de enlaces) reemplazado por el menú overlay; se mantiene oculto en todas las páginas */
@@ -267,9 +331,6 @@ nav img {
   }
   .side-bar-right {
     right: 10px;
-  }
-  .side-bar-icons {
-    gap: 10px;
   }
   .side-bar a,
   .side-bar button,
@@ -433,9 +494,9 @@ nav img {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 36px;
-  height: 3px;
-  background-color: var(--gold);
+  width: 40px;
+  height: 2px;
+  background-color: var(--menu-accent);
   border-radius: 2px;
 }
 
@@ -474,14 +535,37 @@ nav img {
   transform: translateX(4px);
 }
 
-.menu-col-links li a:hover i {
+.menu-col-links li a:hover i,
+.menu-col-links li a:hover .fdv-icon {
   transform: scale(1.15);
+}
+
+/* Íconos de línea (SVG inline inyectados por js/icons.js) */
+.fdv-icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  display: block;
+  color: var(--teal);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.fdv-icon--social {
+  width: 24px;
+  height: 24px;
+}
+
+.fdv-icon--inline {
+  width: 20px;
+  height: 20px;
+  color: inherit;
 }
 
 .menu-social {
   margin-top: 12px;
   padding-top: 14px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(26, 122, 138, 0.25);
+  border-top: 1px solid color-mix(in srgb, var(--menu-accent) 25%, transparent);
 }
 
 .menu-social-title {
@@ -504,22 +588,28 @@ nav img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  color: var(--white) !important;
-  font-size: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: none;
+  color: var(--teal);
+  font-size: 1.5rem;
+  transition: color 0.2s;
   text-decoration: none;
 }
 
-.menu-social-btn.fb { background-color: #1877f2; }
-.menu-social-btn.ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.menu-social-btn.yt { background-color: #ff0000; }
+.menu-social-icons {
+  gap: 4px;
+}
 
-.menu-social-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.menu-social-btn:hover,
+.menu-social-btn:focus-visible {
+  color: var(--menu-hover);
+}
+
+.menu-social-btn:focus-visible {
+  outline: 2px solid var(--menu-hover);
+  outline-offset: 2px;
 }
 
 @media (max-width: 960px) {

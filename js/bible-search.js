@@ -163,9 +163,19 @@ const LIBROS_EN = {
 
 };
 
+// Identificadores de libros en inglés usados por la API de KJV
+const LIBROS_EN_SLUGS = ['genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth',
+  '1samuel', '2samuel', '1kings', '2kings', '1chronicles', '2chronicles', 'ezra', 'nehemiah', 'esther', 'job',
+  'psalms', 'proverbs', 'ecclesiastes', 'songofsolomon', 'isaiah', 'jeremiah', 'lamentations', 'ezekiel', 'daniel',
+  'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah',
+  'malachi', 'matthew', 'mark', 'luke', 'john', 'acts', 'romans', '1corinthians', '2corinthians', 'galatians',
+  'ephesians', 'philippians', 'colossians', '1thessalonians', '2thessalonians', '1timothy', '2timothy', 'titus',
+  'philemon', 'hebrews', 'james', '1peter', '2peter', '1john', '2john', '3john', 'jude', 'revelation'];
+
 function normalizarTexto(str) {
 
-  return str.toLowerCase().trim();
+  // Quita acentos para aceptar "Génesis", "Éxodo", etc.
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
 }
 
@@ -186,7 +196,15 @@ function parsearReferencia(input, mapaLibros) {
 
   const versiculoFin = match[4] || null;
 
-  const libroId = mapaLibros[nombreLibro];
+  let libroId = mapaLibros[nombreLibro];
+
+  // En KJV también se aceptan los nombres de los libros en inglés ("John 3:16", "1 Corinthians 13")
+  if (!libroId && mapaLibros === LIBROS_EN) {
+    const slug = nombreLibro.replace(/\s+/g, '');
+    if (LIBROS_EN_SLUGS.indexOf(slug) !== -1) libroId = slug;
+    else if (slug === 'psalm') libroId = 'psalms';
+    else if (slug === 'songofsongs') libroId = 'songofsolomon';
+  }
 
   if (!libroId) return null;
 
@@ -358,7 +376,7 @@ async function loadBibleVerse() {
 
   if (!ref) {
 
-    mostrarErrorBiblia(window.t('bible_error_invalid_ref', "No pude entender la referencia. Intenta algo como 'Juan 3 16' o 'Juan 3:16'."));
+    mostrarErrorBiblia(window.t('biblia.errInvalidRef', "No pude entender la referencia. Intenta algo como 'Juan 3 16' o 'Juan 3:16'."));
     
     return;
   
@@ -380,9 +398,9 @@ async function loadBibleVerse() {
   
     const mensaje = error && error.name === 'AbortError'
   
-    ? window.t('bible_error_timeout', 'La búsqueda tardó demasiado. Verifica tu conexión e intenta de nuevo.')
+    ? window.t('biblia.errTimeout', 'La búsqueda tardó demasiado. Verifica tu conexión e intenta de nuevo.')
   
-    : window.t('bible_error_fetch', 'No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde.');
+    : window.t('biblia.errFetch', 'No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde.');
   
     mostrarErrorBiblia(mensaje);
   
@@ -438,6 +456,20 @@ function mostrarErrorBiblia(mensaje) {
   contenedor.appendChild(div);
 
 }
+
+// Sincroniza la versión bíblica por defecto con el idioma del sitio (ES→RVR1960, EN→KJV)
+function syncBibleVersion(lang) {
+  const sel = document.getElementById('bible-version');
+  if (!sel) return;
+  const wanted = lang === 'en' ? 'KJV' : 'RVR1960';
+  if (sel.value !== wanted && Array.from(sel.options).some(o => o.value === wanted)) {
+    sel.value = wanted;
+  }
+}
+document.addEventListener('fdv:languagechange', function (e) {
+  syncBibleVersion(e.detail && e.detail.lang);
+});
+if (window.FDV_I18N) syncBibleVersion(window.FDV_I18N.getLang());
 
 document.getElementById('bible-search-btn').addEventListener('click', loadBibleVerse);
 

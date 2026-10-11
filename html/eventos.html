@@ -1,8 +1,9 @@
 <!doctype html>
 
-<html lang="es" lang="es">
+<html lang="es">
  
 <head>
+<meta charset="UTF-8" />
     
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
     
@@ -10,11 +11,11 @@
     
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     
-    <meta charset="UTF-8" />
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>Eventos | Fuente de Vida</title>
+    <title data-i18n="meta.eventos.title">Eventos | Fuente de Vida</title>
     
     <link rel="icon" href="../jpg/logo-sin-fondo2.png" type="image/png" />
     
@@ -45,10 +46,12 @@
     />
     <link rel="stylesheet" href="../css/styles.css" />
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN
-    +hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="    sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/translations-eventos.js"></script>
+    <script src="../js/i18n.js"></script>
   <!-- Google tag (gtag.js) -->
 <script src="../js/analytics.js"></script>
 
@@ -70,6 +73,9 @@
       <meta property="og:title" content="Eventos de Fuente de Vida" />
  
       <link rel="canonical" href="https://fuentedevidawi.com/html/eventos.html" />
+      <link rel="alternate" hreflang="es" href="https://fuentedevidawi.com/html/eventos.html" />
+      <link rel="alternate" hreflang="en" href="https://fuentedevidawi.com/html/eventos.html" />
+      <link rel="alternate" hreflang="x-default" href="https://fuentedevidawi.com/html/eventos.html" />
  
       <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
  
@@ -266,6 +272,7 @@
   </div>
     <!-- ===== video HEADER ===== -->
   <script src="../js/menu-overlay.js"></script>
+  <script src="../js/icons.js"></script>
 
     <header class="hero-header" aria-label="Portada">
  
@@ -283,7 +290,7 @@
 
   <section id="eventos-section">
  
-    <h2>Próximos Eventos</h2>
+    <h2 data-i18n="eventos.title">Próximos Eventos</h2>
  
     <div class="divider"></div>
 
@@ -295,7 +302,7 @@
  
           <div class="evento-fecha">
  
-            <div class="dia">Todos los sábados</div>
+            <div class="dia" data-i18n="eventos.prayer.day">Todos los sábados</div>
  
             <div class="mes"></div>
  
@@ -303,15 +310,15 @@
  
           <div class="evento-info">
 
-            <span class="evento-tag">Oración</span>
+            <span class="evento-tag" data-i18n="eventos.prayer.tag">Oración</span>
 
-            <h3>Oración de Intercesión</h3>
+                        <h3 data-i18n="eventos.prayer.title">Oración de Intercesión</h3>
 
-            <p>Todos los sábados a las 6:00 am, con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.</p>
+                        <p data-i18n="eventos.prayer.desc">Todos los sábados a las 6:00 am, con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.</p>
 
-            <p class="evento-direccion">6:00 am · 3939 Lien Rd, Madison WI</p>
+                        <p class="evento-direccion" data-i18n="eventos.prayer.place">6:00 am · 3939 Lien Rd, Madison WI</p>
 
-            <div id="mapaOracion" class="mapa-ubicacion mapa-ubicacion--small" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
+                        <div id="mapaOracion" class="mapa-ubicacion mapa-ubicacion--small" role="img" data-i18n-aria="eventos.mapAria" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
 
           </div>
 
@@ -323,7 +330,7 @@
 
     <div class="eventos-mes">
 
-      <h3 class="eventos-mes-titulo">Octubre</h3>
+      <h3 class="eventos-mes-titulo" data-i18n-month="10">Octubre</h3>
 
       <div class="eventos-grid">
 
@@ -331,69 +338,21 @@
 
           <div class="evento-fecha">
 
-            <div class="dia">6-8</div>
-
-            <div class="mes">Octubre</div>
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag">Oración</span>
-
-            <h3>Ayuno y Oración en el Templo (Rescate de Almas)</h3>
-
-
-            <p>Días de ayuno y oración en el templo como preparación para el Rescate de Almas.</p>
-
-            <p class="evento-direccion">3939 Lien Rd, Madison WI</p>
-
-          </div>
-
-        </div>
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
-            <div class="dia">10</div>
-
-            <div class="mes">Octubre</div>
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag">Evangelismo</span>
-
-            <h3>Rescate de Almas</h3>
-
-            <p>Jornada de evangelismo para alcanzar a nuevas almas para Cristo.</p>
-
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
-          </div>
-
-        </div>
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
             <div class="dia">24</div>
 
-            <div class="mes">Octubre</div>
+                        <div class="mes" data-i18n-month="10">Octubre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Culto especial</span>
+                        <span class="evento-tag" data-i18n="eventos.elders.tag">Culto especial</span>
 
-            <h3>Culto de Sector: Reconocimiento a Ancianos</h3>
+                        <h3 data-i18n="eventos.elders.title">Culto de Sector: Reconocimiento a Ancianos</h3>
 
-            <p>Culto de sector para honrar y reconocer a los ancianos de la congregación.</p>
+                        <p data-i18n="eventos.elders.desc">Culto de sector para honrar y reconocer a los ancianos de la congregación.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -404,19 +363,19 @@
 
             <div class="dia">30</div>
 
-            <div class="mes">Octubre</div>
+                        <div class="mes" data-i18n-month="10">Octubre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Niños</span>
+                        <span class="evento-tag" data-i18n="eventos.juniors.tag">Niños</span>
 
-            <h3>Actividad de Juniors</h3>
+                        <h3 data-i18n="eventos.juniors.title">Actividad de Juniors</h3>
 
-            <p>Actividad especial para los niños de la iglesia.</p>
+                        <p data-i18n="eventos.juniors.desc">Actividad especial para los niños de la iglesia.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -427,7 +386,7 @@
 
     <div class="eventos-mes">
 
-      <h3 class="eventos-mes-titulo">Noviembre</h3>
+      <h3 class="eventos-mes-titulo" data-i18n-month="11">Noviembre</h3>
 
       <div class="eventos-grid">
 
@@ -437,19 +396,19 @@
 
             <div class="dia">6-7</div>
 
-            <div class="mes">Noviembre</div>
+                        <div class="mes" data-i18n-month="11">Noviembre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Juventud</span>
+                        <span class="evento-tag" data-i18n="eventos.youth.tag">Juventud</span>
 
-            <h3>Actividad de Jóvenes</h3>
+                        <h3 data-i18n="eventos.youth.title">Actividad de Jóvenes</h3>
 
-            <p>Actividad especial para el ministerio de jóvenes.</p>
+                        <p data-i18n="eventos.youth1.desc">Actividad especial para el ministerio de jóvenes.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -460,19 +419,19 @@
 
             <div class="dia">13</div>
 
-            <div class="mes">Noviembre</div>
+                        <div class="mes" data-i18n-month="11">Noviembre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Ministerio</span>
+                        <span class="evento-tag" data-i18n="eventos.fill.tag">Ministerio</span>
 
-            <h3>Llenura del Espíritu Santo</h3>
+                        <h3 data-i18n="eventos.fill.title">Llenura del Espíritu Santo</h3>
 
-            <p>Un tiempo especial buscando la llenura del Espíritu Santo.</p>
+                        <p data-i18n="eventos.fill.desc">Un tiempo especial buscando la llenura del Espíritu Santo.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -483,19 +442,19 @@
 
             <div class="dia">14</div>
 
-            <div class="mes">Noviembre</div>
+                        <div class="mes" data-i18n-month="11">Noviembre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Liderazgo</span>
+                        <span class="evento-tag" data-i18n="eventos.rescue.tag">Liderazgo</span>
 
-            <h3>Rescate de Líderes</h3>
+                        <h3 data-i18n="eventos.rescue.title">Rescate de Líderes</h3>
 
-            <p>Jornada de renovación y capacitación para los líderes.</p>
+                        <p data-i18n="eventos.rescue.desc">Jornada de renovación y capacitación para los líderes.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -506,19 +465,19 @@
 
             <div class="dia">18</div>
 
-            <div class="mes">Noviembre</div>
+                        <div class="mes" data-i18n-month="11">Noviembre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Juventud</span>
+                        <span class="evento-tag" data-i18n="eventos.youth.tag">Juventud</span>
 
-            <h3>Actividad de Jóvenes</h3>
+                        <h3 data-i18n="eventos.youth.title">Actividad de Jóvenes</h3>
 
-            <p>Segunda actividad especial para el ministerio de jóvenes.</p>
+                        <p data-i18n="eventos.youth2.desc">Segunda actividad especial para el ministerio de jóvenes.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -529,7 +488,7 @@
 
     <div class="eventos-mes">
 
-      <h3 class="eventos-mes-titulo">Diciembre</h3>
+      <h3 class="eventos-mes-titulo" data-i18n-month="12">Diciembre</h3>
 
       <div class="eventos-grid">
 
@@ -539,19 +498,19 @@
 
             <div class="dia">13</div>
 
-            <div class="mes">Diciembre</div>
+            <div class="mes" data-i18n-month="12">Diciembre</div>
 
           </div>
 
           <div class="evento-info">
 
-            <span class="evento-tag">Evento especial</span>
+                        <span class="evento-tag" data-i18n="eventos.anniv.tag">Evento especial</span>
 
-            <h3>Aniversario 13 / Fiesta de Cosecha</h3>
+                        <h3 data-i18n="eventos.anniv.title">Aniversario 13 / Fiesta de Cosecha</h3>
 
-            <p>Celebramos 13 años de la iglesia junto con nuestra fiesta de cosecha.</p>
+                        <p data-i18n="eventos.anniv.desc">Celebramos 13 años de la iglesia junto con nuestra fiesta de cosecha.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+                                    <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
           </div>
 
         </div>
@@ -566,13 +525,13 @@
 
     <div class="container cta-container footer-cta">
 
-      <h2>Vive cada momento con nosotros</h2>
+      <h2 data-i18n="eventos.cta.title">Vive cada momento con nosotros</h2>
 
       <div class="divider cta-divider"></div>
 
-      <p class="cta-text">Acompáñanos en nuestras próximas actividades y sí parte de la comunidad Fuente de Vida.</p>
+      <p class="cta-text" data-i18n="eventos.cta.text">Acompáñanos en nuestras próximas actividades y sí parte de la comunidad Fuente de Vida.</p>
 
-      <a href="../index.html" class="btn btn-primary">Regresar al inicio</a>
+      <a href="../index.html" class="btn btn-primary" data-i18n="eventos.cta.btn">Regresar al inicio</a>
 
     </div>
 
@@ -623,8 +582,6 @@
 <script src="../js/scroll-to-top.js"></script>
      
      <script src="../js/video-fallback.js" defer></script>
-
-<script src="../js/scroll-to-top.js"></script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 

@@ -1,8 +1,9 @@
 <!doctype html>
 
-<html lang="es" lang="es">
+<html lang="es">
 
 <head>
+<meta charset="UTF-8" />
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
 
@@ -12,7 +13,7 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-  <meta charset="UTF-8" />
+  
 
   <title>Nuestras Creencias | Fuente de Vida</title>
 
@@ -45,6 +46,12 @@
     />
 
     <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="alternate" hreflang="es" href="https://fuentedevidawi.com/html/nuestras-creencias.html" />
+  <link rel="alternate" hreflang="en" href="https://fuentedevidawi.com/html/nuestras-creencias.html" />
+  <link rel="alternate" hreflang="x-default" href="https://fuentedevidawi.com/html/nuestras-creencias.html" />
+  <script src="../js/translations.js"></script>
+  <script src="../js/translations-nuestras-creencias.js"></script>
+  <script src="../js/i18n.js"></script>
   <!-- Google tag (gtag.js) -->
 <script src="../js/analytics.js"></script>
 
@@ -264,6 +271,7 @@
   </div>
   <!-- ===== video HEADER ===== -->
   <script src="../js/menu-overlay.js"></script>
+  <script src="../js/icons.js"></script>
 
     <header class="hero-header" aria-label="Portada">
   
@@ -281,27 +289,27 @@
     
 <section>
   
-  <h2>Fundamentos de Fe</h2>
+  <h2 data-i18n="creencias.title">Fundamentos de Fe</h2>
   
     <div class="divider"></div>
   
     <p>
   
-      Somos parte de la Iglesia Apostolica de la Fe en Cristo Jesus.
+      <span data-i18n="creencias.intro">Somos parte de la Iglesia Apostolica de la Fe en Cristo Jesus.
   
       Nuestras creencias estan basadas en la Biblia y en los principios
   
-      del movimiento apostolico pentecostal.
+      del movimiento apostolico pentecostal.</span>
   
     </p>
 
     <h4>
   
-      Vivimos en tiempos cambiantes pero estamos enraizados en verdades eternas,
+      <span data-i18n="creencias.lead">Vivimos en tiempos cambiantes pero estamos enraizados en verdades eternas,
   
       las enseñanzas de la Sagrada Escritura. Aqui en Fuente De Vida nos guiamos
   
-      por ciertas creencias fundamentales y valores que nos moldean.
+      por ciertas creencias fundamentales y valores que nos moldean.</span>
   
     </h4>
     
@@ -311,9 +319,9 @@
   
         <div class="creencia-icono"></div>
   
-        <h3>La Biblia</h3>
+        <h3 data-i18n="creencias.bible.title">La Biblia</h3>
   
-        <p>Creemos que la Biblia es la Palabra de Dios inspirada y la autoridad
+        <p data-i18n="creencias.bible.text">Creemos que la Biblia es la Palabra de Dios inspirada y la autoridad
   
           suprema para nuestra fe y nuestra vida. Ningun hombre tiene mayor
   
@@ -327,9 +335,9 @@
   
       <div class="creencia-icono"></div>
   
-      <h3>Un Solo Dios</h3>
+      <h3 data-i18n="creencias.god.title">Un Solo Dios</h3>
   
-      <p> Creemos que hay un solo Dios verdadero, todopoderoso y eterno. Él es tan
+      <p data-i18n="creencias.god.text"> Creemos que hay un solo Dios verdadero, todopoderoso y eterno. Él es tan
   
         grande y poderoso que puede manifestarse de maneras que van más allá de lo
   
@@ -344,9 +352,9 @@
   
         <div class="creencia-icono"></div>
   
-        <h3>El Bautismo</h3>
+        <h3 data-i18n="creencias.baptism.title">El Bautismo</h3>
   
-        <p> Creemos en el bautismo por inmersión completa en agua en el nombre de
+        <p data-i18n="creencias.baptism.text"> Creemos en el bautismo por inmersión completa en agua en el nombre de
   
           Jesucristo para el perdón de los pecados, conforme a la enseñanza bíblica.</p>
   
@@ -358,9 +366,9 @@
   
     <div class="creencia-icono"></div>
   
-    <h3>Jesucristo</h3>
+    <h3 data-i18n="creencias.jesus.title">Jesucristo</h3>
   
-    <p>Creemos que Jesucristo es nuestro Señor y Salvador, y que en ¿l se revela
+    <p data-i18n="creencias.jesus.text">Creemos que Jesucristo es nuestro Señor y Salvador, y que en ¿l se revela
   
       plenamente Dios para la salvación de la humanidad.</p>
   
@@ -373,9 +381,9 @@
   
           <div class="creencia-icono"></div>
   
-          <h3>La salvacion</h3>
+          <h3 data-i18n="creencias.salvation.title">La salvacion</h3>
   
-          <p>Creemos que la salvación se recibe a través del bautismo en agua en el
+          <p data-i18n="creencias.salvation.text">Creemos que la salvación se recibe a través del bautismo en agua en el
   
             nombre de Jesucristo. Después de este paso, el creyente es llamado a
   
@@ -391,9 +399,9 @@
         
           <div class="creencia-icono"></div>
         
-          <h3>El Espiritu Santo</h3>
+          <h3 data-i18n="creencias.spirit.title">El Espiritu Santo</h3>
        
-          <p>Creemos en el bautismo del Espíritu Santo como una experiencia real y
+          <p data-i18n="creencias.spirit.text">Creemos en el bautismo del Espíritu Santo como una experiencia real y
       
             transformadora, acompañada por la evidencia de hablar en otras lenguas.</p>
       
@@ -405,9 +413,9 @@
         
           <div class="creencia-icono"></div>
         
-          <h3>La santidad</h3>
+          <h3 data-i18n="creencias.holiness.title">La santidad</h3>
         
-          <p>Creemos que Dios llama a su pueblo a vivir una vida de santidad,
+          <p data-i18n="creencias.holiness.text">Creemos que Dios llama a su pueblo a vivir una vida de santidad,
      
             cumpliendo los estándares establecidos en la Biblia y siendo luz para el
      
@@ -421,9 +429,9 @@
 
       <div class="creencia-icono"></div>
 
-      <h3>Los dones de Dios</h3>
+      <h3 data-i18n="creencias.gifts.title">Los dones de Dios</h3>
 
-      <p>Creemos que Dios sigue obrando hoy por medio de los dones espirituales,
+      <p data-i18n="creencias.gifts.text">Creemos que Dios sigue obrando hoy por medio de los dones espirituales,
 
         incluyendo sanidades, milagros y otras manifestaciones de su poder.</p>
 
@@ -435,9 +443,9 @@
    
       <div class="creencia-icono"></div>
    
-      <h3>Nuestra Misión</h3>
+      <h3 data-i18n="creencias.mission.title">Nuestra Misión</h3>
    
-      <p> Nuestra misión es predicar el evangelio de salvación con pasión, 
+      <p data-i18n="creencias.mission.text"> Nuestra misión es predicar el evangelio de salvación con pasión, 
    
         discipular a cada miembro y prepararlo para la misión, 
    
@@ -453,9 +461,9 @@
         
   <div class="creencia-icono"></div>
   
-  <h3>NUestra Visión</h3>
+  <h3 data-i18n="creencias.vision.title">NUestra Visión</h3>
   
-  <p>Nuestra visión es ser una iglesia 100% celular, 
+  <p data-i18n="creencias.vision.text">Nuestra visión es ser una iglesia 100% celular, 
      
     trabajando sobre los puntos de la mision.</p>
     
@@ -467,9 +475,9 @@
   
         <div class="creencia-icono"></div>
   
-        <h3>El Amor y el Servicio</h3>
+        <h3 data-i18n="creencias.love.title">El Amor y el Servicio</h3>
   
-        <p>Creemos que la fe debe reflejarse en el amor y el servicio. Por eso procuramos ayudar a quienes lo necesitan, acompañar a las familias y compartir la esperanza de Jesucristo con humildad y compasión.</p>
+        <p data-i18n="creencias.love.text">Creemos que la fe debe reflejarse en el amor y el servicio. Por eso procuramos ayudar a quienes lo necesitan, acompañar a las familias y compartir la esperanza de Jesucristo con humildad y compasión.</p>
         
         <span class="versiculo"></span>
       
@@ -479,9 +487,9 @@
       
         <div class="creencia-icono"></div>
       
-        <h3>La Iglesia y la Comunidad</h3>
+        <h3 data-i18n="creencias.community.title">La Iglesia y la Comunidad</h3>
       
-        <p>Creemos que la iglesia es una familia espiritual llamada a vivir en amor, servir a los demás y compartir el evangelio. Juntos buscamos fortalecer a las familias y ser una luz de esperanza en Madison.</p>
+        <p data-i18n="creencias.community.text">Creemos que la iglesia es una familia espiritual llamada a vivir en amor, servir a los demás y compartir el evangelio. Juntos buscamos fortalecer a las familias y ser una luz de esperanza en Madison.</p>
       
         <span class="versiculo"></span>
       
@@ -495,17 +503,17 @@
     
     <div class="container cta-container footer-cta">
     
-      <h2>¿Tienes preguntas sobre lo que creemos?</h2>
+      <h2 data-i18n="creencias.cta.title">¿Tienes preguntas sobre lo que creemos?</h2>
     
       <div class="divider cta-divider"></div>
     
-      <p class="cta-text">
+      <p class="cta-text" data-i18n="creencias.cta.text">
     
         Estaremos felices de hablar contigo. Contáctanos o visítanos cualquier domingo.
     
       </p>
     
-      <a href="../index.html#contacto" class="btn btn-primary">Contáctanos</a>
+      <a href="../index.html#contacto" class="btn btn-primary" data-i18n="creencias.cta.button">Contáctanos</a>
     
     </div>
 
@@ -553,15 +561,13 @@
 
 </footer>
 
-  <script src="../js/scroll-to-top.js"></script>
-
-   <script src="../js/video-fallback.js" defer></script>
+  <script src="../js/video-fallback.js" defer></script>
     
     <script src="../js/scroll-to-top.js"></script>
     
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     
-    <script src="../js/location-map.js" defer></script>
+    
+    
 
     <script src="../js/video-mute.js" defer></script>
   

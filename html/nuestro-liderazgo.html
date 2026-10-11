@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
+<meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
     
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -9,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     
-    <meta charset="UTF-8" />
+    
     
     <title>Nuestro Liderazgo | Fuente de Vida</title>
     
@@ -37,6 +38,12 @@
     />
     
     <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="alternate" hreflang="es" href="https://fuentedevidawi.com/html/nuestro-liderazgo.html" />
+    <link rel="alternate" hreflang="en" href="https://fuentedevidawi.com/html/nuestro-liderazgo.html" />
+    <link rel="alternate" hreflang="x-default" href="https://fuentedevidawi.com/html/nuestro-liderazgo.html" />
+    <script src="../js/translations.js"></script>
+    <script src="../js/translations-nuestro-liderazgo.js"></script>
+    <script src="../js/i18n.js"></script>
   <!-- Google tag (gtag.js) -->
 
 <script src="../js/analytics.js"></script>
@@ -249,17 +256,18 @@
     </div>
    
     <script src="../js/menu-overlay.js"></script>
+    <script src="../js/icons.js"></script>
 
 
     <header class="hero-header header-liderazgo" style="background-image: url('../jpg/liderazgo-fdv.jpg'); background-size: cover; background-position: center 30%; background-attachment: fixed;">
 
       <div class="hero-header-content">
 
-        <h1>Nuestro Liderazgo</h1>
+        <h1 data-i18n="liderazgo-page.hero.title">Nuestro Liderazgo</h1>
 
-        <h3>Conoce a quienes guían nuestra iglesia</h3>
+        <h3 data-i18n="liderazgo-page.hero.subtitle">Conoce a quienes guían nuestra iglesia</h3>
 
-        <a class="contact-card-link contact-celulas-general hero-header-cta" href="celulas-fdv.html">
+        <a class="contact-card-link contact-celulas-general hero-header-cta" href="celulas-fdv.html" data-i18n-html="liderazgo-page.cellsBtn">
 
           <i class="fas fa-users"></i> Células
 
@@ -271,21 +279,21 @@
 
     <section>
 
-      <h2>Liderazgo</h2>
+      <h2 data-i18n="liderazgo-page.heading">Liderazgo</h2>
 
       <div class="divider"></div>
 
       <div class="lider-grande">
 
-        <img src="../jpg/jacobo-carla.JPG" alt="Pastor Jacobo Castillo y Carla Rosales" />
+        <img src="../jpg/jacobo-carla.JPG" alt="Pastor Jacobo Castillo y Carla Rosales" data-i18n-alt="liderazgo-page.pastors.alt" />
 
         <div class="lider-grande-info">
 
           <h3>Jacobo Castillo + Carla Rosales</h3>
 
-          <span class="lider-rol">Pastores Generales</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.pastors.role">Pastores Generales</span>
 
-          <p>
+          <p data-i18n="liderazgo-page.pastors.bio">
             Con amor y pasión por el evangelio, el Pastor Jacobo y su esposa Carla lideran la Iglesia Fuente de Vida con un corazón de servicio. Su visión es alcanzar a cada familia de Madison con el mensaje de esperanza y salvación de Jesucristo.
           </p>
 
@@ -313,11 +321,11 @@
     <!-- ===== PASTORES DE RED ===== -->
     <section>
 
-      <h2>Pastores de Red</h2>
+      <h2 data-i18n="liderazgo-page.network.heading">Pastores de Red</h2>
 
       <div class="divider"></div>
 
-      <p>Conoce a los pastores que lideran nuestras redes ministeriales.</p>
+      <p data-i18n="liderazgo-page.network.intro">Conoce a los pastores que lideran nuestras redes ministeriales.</p>
 
     </section>
 
@@ -325,15 +333,15 @@
 
       <div class="lider-grande">
 
-        <img src="../jpg/luis-itzel.JPG" alt="Líderes Red Verde" />
+        <img src="../jpg/luis-itzel.JPG" alt="Líderes Red Verde" data-i18n-alt="liderazgo-page.green.alt" />
 
         <div class="lider-grande-info">
 
           <h3>Luis Rosas + Izcel Gonzales</h3>
 
-          <span class="lider-rol">Líderes Red Verde / Ministros</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.green.role">Líderes Red Verde / Ministros</span>
 
-          <p>
+          <p data-i18n="liderazgo-page.green.bio">
             El Copastor Luis Rosas e Izcel lideran la Red Verde con un corazón
             apasionado por el evangelismo y un compromiso firme con la visión de
             Fuente de Vida. Como copastor, Luis trabaja de la mano con el Pastor
@@ -368,6 +376,7 @@
   <a
     class="contact-card-link contact-celulas-verde"
     href="celulas-verde.html"
+    data-i18n-html="liderazgo-page.cellsBtn"
     ><i class="fas fa-users"></i> Células
     
   </a>
@@ -384,17 +393,17 @@
     
       <div class="lider-grande">
     
-        <img src="../jpg/omar-carmen.JPG" alt="Líderes Red Morada" />
+        <img src="../jpg/omar-carmen.JPG" alt="Líderes Red Morada" data-i18n-alt="liderazgo-page.purple.alt" />
     
         <div class="lider-grande-info">
     
           <h3>Omar Robles + Maria Torres</h3>
     
-          <span class="lider-rol">Líderes Red Morada / Ministros</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.purple.role">Líderes Red Morada / Ministros</span>
     
-          <p>
+          <p data-i18n="liderazgo-page.purple.bio">
             Omar y Maria sirven con una visión clara: alcanzar familias para
-            Su pasión por el evangelismo los
+            Cristo. Su pasión por el evangelismo los
             impulsa a tender puentes entre la comunidad y la iglesia, sembrando
             esperanza en cada hogar que tocan.
           </p>
@@ -418,6 +427,7 @@
   <a
     class="contact-card-link contact-celulas-morada"
     href="celulas-morada.html"
+    data-i18n-html="liderazgo-page.cellsBtn"
     ><i class="fas fa-users"></i> Células</a
   >
 
@@ -435,15 +445,15 @@
   
       <div class="lider-grande">
   
-        <img src="../jpg/jorge-brenda.JPG" alt="Líderes Red Rosa" />
+        <img src="../jpg/jorge-brenda.JPG" alt="Líderes Red Rosa" data-i18n-alt="liderazgo-page.pink.alt" />
   
         <div class="lider-grande-info">
   
           <h3>Jorge Macias + Brenda Obregon</h3>
   
-          <span class="lider-rol">Líderes Red Rosa / Ministros</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.pink.role">Líderes Red Rosa / Ministros</span>
   
-          <p>
+          <p data-i18n="liderazgo-page.pink.bio">
             Jorge y Brenda lideran la Red Rosa con un corazón enfocado en las
             familias y el evangelismo. Su misión es ver hogares restaurados y
             fortalecidos en la Palabra de Dios, creyendo que cada familia
@@ -468,6 +478,7 @@
   <a
     class="contact-card-link contact-celulas-rosa"
     href="celulas-rosa.html"
+    data-i18n-html="liderazgo-page.cellsBtn"
     ><i class="fas fa-users"></i> Células</a
   >
 
@@ -483,15 +494,15 @@
   
       <div class="lider-grande">
   
-        <img src="../jpg/omar-lety.JPG" alt="Líderes Red Azul" />
+        <img src="../jpg/omar-lety.JPG" alt="Líderes Red Azul" data-i18n-alt="liderazgo-page.blue.alt" />
   
         <div class="lider-grande-info">
   
           <h3>Omar Falcon + Lety Carranza</h3>
   
-          <span class="lider-rol">Líderes Red Azul / Ministros</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.blue.role">Líderes Red Azul / Ministros</span>
   
-          <p>
+          <p data-i18n="liderazgo-page.blue.bio">
             Omar y Lety sirven a la Red Azul con pasión por el evangelismo y un
             amor genuino por las familias. Creen firmemente que el evangelio
             tiene el poder de sanar y unir hogares, y esa convicción guía cada
@@ -517,6 +528,7 @@
             <a
               class="contact-card-link contact-celulas-azul"
               href="celulas-azul.html"
+              data-i18n-html="liderazgo-page.cellsBtn"
               ><i class="fas fa-users"></i> Células</a
             >
   
@@ -532,15 +544,15 @@
       
       <div class="lider-grande">
       
-        <img src="../jpg/ricardo-noemi.JPG" alt="Líderes Red Roja" />
+        <img src="../jpg/ricardo-noemi.JPG" alt="Líderes Red Roja" data-i18n-alt="liderazgo-page.red.alt" />
       
         <div class="lider-grande-info">
       
           <h3>Ricardo Chavarria + Noemi Aleman</h3>
       
-          <span class="lider-rol">Líderes Red Roja / Ministros</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.red.role">Líderes Red Roja / Ministros</span>
       
-          <p>
+          <p data-i18n="liderazgo-page.red.bio">
             Ricardo y Noemi lideran la Red Roja con un llamado firme al
             evangelismo y al fortalecimiento de las familias. Su corazón es ver
             a cada persona encontrar en Cristo la esperanza que transforma vidas
@@ -566,6 +578,7 @@
   <a
     class="contact-card-link contact-celulas-roja"
     href="celulas-roja.html"
+    data-i18n-html="liderazgo-page.cellsBtn"
     ><i class="fas fa-users"></i> Células</a
   >
  
@@ -581,15 +594,15 @@
   
       <div class="lider-grande">
   
-        <img src="../jpg/jenifer-alejandro.JPG" alt="Guinda Jóvenes" />
+        <img src="../jpg/jenifer-alejandro.JPG" alt="Red Guinda Jóvenes" data-i18n-alt="liderazgo-page.youth.alt" />
   
         <div class="lider-grande-info">
   
           <h3>Jenifer Alejandro</h3>
   
-          <span class="lider-rol">líder Red Guinda (jóvenes)</span>
+          <span class="lider-rol" data-i18n="liderazgo-page.youth.role">Líder Red Guinda (jóvenes)</span>
   
-          <p>
+          <p data-i18n="liderazgo-page.youth.bio">
             Jenifer lidera la Red Guinda con una pasión desbordante por la
             generación joven. Su corazón es ver a los jóvenes de Madison
             encontrar su identidad en Cristo y convertirse en evangelistas de su
@@ -616,6 +629,7 @@
   <a
     class="contact-card-link contact-celulas-guinda"
     href="celulas-jovenes.html"
+    data-i18n-html="liderazgo-page.cellsBtn"
     ><i class="fas fa-users"></i> Células</a
   >
             
@@ -631,15 +645,15 @@
   
       <div class="container cta-container footer-cta">
   
-        <h2>¿Quieres saber más?</h2>
+        <h2 data-i18n="liderazgo-page.cta.title">¿Quieres saber más?</h2>
   
         <div class="divider cta-divider"></div>
   
-        <p class="cta-text">
+        <p class="cta-text" data-i18n="liderazgo-page.cta.text">
           Únete a nosotros en persona cada domingo y vive la experiencia completa.
         </p>
   
-        <a href="../index.html#horarios" class="btn btn-primary">Ver Horarios</a>
+        <a href="../index.html#horarios" class="btn btn-primary" data-i18n="liderazgo-page.cta.button">Ver Horarios</a>
   
       </div>
 

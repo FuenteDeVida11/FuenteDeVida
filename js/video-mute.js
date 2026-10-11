@@ -10,9 +10,10 @@ if (heroVideo && muteButton) {
     const isMuted = heroVideo.muted;
 
     muteButton.setAttribute('aria-pressed', String(!isMuted));
+    const tr = window.t || ((k, f) => f);
     muteButton.setAttribute(
       'aria-label',
-      isMuted ? 'Activar sonido del video' : 'Silenciar video'
+      isMuted ? tr('sidebar.muteOn', 'Activar sonido del video') : tr('sidebar.muteOff', 'Silenciar video')
     );
 
     if (muteIcon) {

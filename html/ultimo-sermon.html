@@ -3,13 +3,14 @@
 <html lang="es">
 
   <head>
+<meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <meta charset="UTF-8" />
+    
 
     <title>Sermones | Fuente de Vida</title>
 
@@ -43,6 +44,15 @@
     <meta property="og:description" content="Mensajes de fe, enseñanza bíblica y predicación de la iglesia Fuente de Vida." />
     <meta property="og:title" content="Sermones | Fuente de Vida" />
     <link rel="canonical" href="https://fuentedevidawi.com/html/ultimo-sermon.html" />
+    <link rel="alternate" hreflang="es" href="https://fuentedevidawi.com/html/ultimo-sermon.html" />
+    <link rel="alternate" hreflang="en" href="https://fuentedevidawi.com/html/ultimo-sermon.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://fuentedevidawi.com/html/ultimo-sermon.html" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <!-- Idioma ES/EN: se carga síncrono en el head para evitar parpadeo -->
+    <script src="../js/translations.js"></script>
+    <script src="../js/translations-ultimo-sermon.js"></script>
+    <script src="../js/i18n.js"></script>
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta name="description" content="Escucha los sermones recientes y mensajes de fe de la Iglesia Fuente de Vida en Madison, Wisconsin." />
 </head>
@@ -239,6 +249,7 @@
     </div>
      <!-- ===== video HEADER ===== -->
   <script src="../js/menu-overlay.js"></script>
+  <script src="../js/icons.js"></script>
 
     <header class="hero-header" aria-label="Portada">
       
@@ -256,11 +267,11 @@
 
   <section class="video-section">
 
-  <h2>Mensaje mas reciente</h2>
+  <h2 data-i18n="sermones.latestTitle">Mensaje mas reciente</h2>
 
   <div class="divider"></div>
 
-  <p>Sigue nuestros sermones en YouTube cada semana. La palabra de Dios para tu vida hoy!</p>
+  <p data-i18n="sermones.latestIntro">Sigue nuestros sermones en YouTube cada semana. La palabra de Dios para tu vida hoy!</p>
 
   <div class="sermon-container">
 
@@ -272,7 +283,7 @@
 
       class="sermon-iframe"
 
-      title="Ultimo Sermón Fuente de Vida"
+      title="Ultimo Sermón Fuente de Vida" data-i18n-title="sermones.iframeTitle"
 
       frameborder="0"
 
@@ -290,21 +301,49 @@
 
       <div class="sermon-search-box">
 
-        <h2>Sermones Anteriores</h2>
+        <h2 data-i18n="sermones.pastTitle">Sermones Anteriores</h2>
 
-        <p>Encuentra tus sermones favoritos</p>
+        <p data-i18n="sermones.pastIntro">Encuentra tus sermones favoritos</p>
 
-        <input type="text" id="search" placeholder="Buscar por título o predicador..." />
+        <input type="text" id="search" placeholder="Buscar por título o predicador..." data-i18n-placeholder="sermones.searchPh" data-i18n-aria="sermones.searchAria" aria-label="Buscar sermones por título o predicador" />
 
         <div id="no-results" style="display: none; margin-top: 24px; padding: 24px; text-align: center; color: var(--muted);">
 
-          <p style="font-size: 1.05rem; margin: 0;">No encontramos sermones con ese término. Intenta con otra palabra.</p>
+          <p style="font-size: 1.05rem; margin: 0;" data-i18n="sermones.noResults">No encontramos sermones con ese término. Intenta con otra palabra.</p>
 
         </div>
 
       </div>
 
       <ul class="sermon-list">
+
+        <li>
+
+          <div class="sermon-thumbnail" style="background-image:url('https://img.youtube.com/vi/vLcOqRbDuew/mqdefault.jpg');"></div>
+
+          <div class="sermon-info">
+
+            <a href="https://youtu.be/vLcOqRbDuew?si=ufHau8vMFfR12tR0" target="_blank" rel="noopener noreferrer"> Quien como tu? | Eduardo garcia</a>
+
+            <span> Bilingüe</span>
+
+          </div>
+
+        </li> 
+
+          <li>
+
+          <div class="sermon-thumbnail" style="background-image:url('https://img.youtube.com/vi/sOm3fAHUfKk/mqdefault.jpg');"></div>
+
+          <div class="sermon-info">
+
+            <a href="https://youtu.be/sOm3fAHUfKk?si=u1S8GvXcK2DH-tHU" target="_blank" rel="noopener noreferrer"> Un encuentro que transforma | Omar Falcon</a>
+
+            <span> Español</span>
+
+          </div>
+
+        </li> 
 
      <li>
 
@@ -719,7 +758,7 @@
 
           <div class="sermon-info">
 
-            <a href="https://www.youtube.com/live/kt_9Lp6lbF8?si=zEtpi7Sx_6AzrVe5" target="_blank" rel="noopener noreferrer">  Obispo Z¿¿iga</a>
+            <a href="https://www.youtube.com/live/kt_9Lp6lbF8?si=zEtpi7Sx_6AzrVe5" target="_blank" rel="noopener noreferrer">  Obispo Zuñiga</a>
 
             <span> Español</span>
 
@@ -2497,12 +2536,12 @@
 
     <footer>
       <div class="container cta-container footer-cta">
-        <h2>Quieres saber mas?</h2>
+        <h2 data-i18n="sermones.ctaTitle">¿Quieres saber más?</h2>
         <div class="divider cta-divider"></div>
-        <p class="cta-text">
-          ¿nete a nosotros en persona cada domingo y vive la experiencia completa.
+        <p class="cta-text" data-i18n="sermones.ctaText">
+          Únete a nosotros en persona cada domingo y vive la experiencia completa.
         </p>
-        <a href="../index.html#horarios" class="btn btn-primary">Ver Horarios</a>
+        <a href="../index.html#horarios" class="btn btn-primary" data-i18n="sermones.ctaButton">Ver Horarios</a>
       </div>
 
       <strong>Fuente De Vida</strong>
@@ -2545,8 +2584,6 @@
 
      <script src="../js/video-fallback.js" defer></script>
     <script src="../js/scroll-to-top.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-    <script src="../js/location-map.js" defer></script>
 
     <script src="../js/video-mute.js" defer></script>
   </body>

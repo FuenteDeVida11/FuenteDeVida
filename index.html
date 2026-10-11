@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="es">
   <head>
+<meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; media-src 'self' data:; frame-src https://www.youtube.com https://www.google.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
     
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    
-    <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -41,6 +40,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
     
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+    <!-- Idioma ES/EN: se carga síncrono en el head para evitar parpadeo -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
   <!-- Google tag (gtag.js) -->
 <script src="js/analytics.js"></script>
 
@@ -62,6 +64,13 @@
       <meta property="og:title" content="Fuente de Vida | Iglesia Cristiana en Madison, WI" />
     
       <link rel="canonical" href="https://fuentedevidawi.com/" />
+
+      <link rel="alternate" hreflang="es" href="https://fuentedevidawi.com/" />
+      <link rel="alternate" hreflang="en" href="https://fuentedevidawi.com/" />
+      <link rel="alternate" hreflang="x-default" href="https://fuentedevidawi.com/" />
+
+      <meta property="og:locale" content="es_ES" />
+      <meta property="og:locale:alternate" content="en_US" />
     
       <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     
@@ -316,12 +325,12 @@
     
       <div class="container">
     
-        <h2>Registro de Visitas</h2>
+        <h2 data-i18n="visitas.title">Registro de Visitas</h2>
     
         <div class="divider"></div>
     
-        <p>
-          Nos alegra que estés interesado en visitarnos Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
+        <p data-i18n="visitas.intro">
+          Nos alegra que estés interesado en visitarnos. Regístrate aquí para que podamos darte la bienvenida y prepararnos para recibirte.
         </p>
     
         <br />
@@ -332,15 +341,15 @@
     
             <div class="form-group form-group--full">
     
-              <label for="nombre"><span>Nombre</span> <span class="req">*</span></label>
+              <label for="nombre"><span data-i18n="visitas.name">Nombre</span> <span class="req">*</span></label>
     
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" data-i18n-placeholder="visitas.namePh" required />
     
             </div>
 
             <div class="form-group form-group--full">
     
-              <label><span>Hora en la que asistirás</span> <span class="req">*</span></label>
+              <label><span data-i18n="visitas.time">Hora en la que asistirás</span> <span class="req">*</span></label>
     
               <div class="horario-opciones">
     
@@ -349,9 +358,9 @@
                   <input type="radio" id="horario-manana" name="horario" value="Mañana 12:00 pm (Bilingüe)" required />
                   <div>
     
-                    <span>Mañana</span>
+                    <span data-i18n="visitas.morning">Mañana</span>
     
-                    <small>12:00 pm (Bilingüe)</small>
+                    <small data-i18n="visitas.morningTime">12:00 pm (Bilingüe)</small>
     
                   </div>
     
@@ -363,9 +372,9 @@
     
                   <div>
     
-                    <span>Tarde</span>
+                    <span data-i18n="visitas.evening">Tarde</span>
     
-                    <small>5:30 pm (Español)</small>
+                    <small data-i18n="visitas.eveningTime">5:30 pm (Español)</small>
     
                   </div>
     
@@ -377,23 +386,23 @@
 
             <div class="form-group">
     
-              <label for="invitado"><span>¿Quién lo/la invitó?</span> <span class="req">*</span></label>
+              <label for="invitado"><span data-i18n="visitas.invitedBy">¿Quién lo/la invitó?</span> <span class="req">*</span></label>
     
-              <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" required />
-    
-            </div>
-
-            <div class="form-group">
-    
-              <label for="email"><span>Correo Electrónico</span> <span class="req">*</span></label>
-    
-              <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+                            <input type="text" id="invitado" name="invitado" placeholder="Nombre de la persona que te invitó" data-i18n-placeholder="visitas.invitedByPh" required />
     
             </div>
 
             <div class="form-group">
     
-              <label for="telefono"><span>Teléfono</span></label>
+              <label for="email"><span data-i18n="visitas.email">Correo Electrónico</span> <span class="req">*</span></label>
+    
+                            <input type="email" id="email" name="email" placeholder="tu@correo.com" data-i18n-placeholder="visitas.emailPh" required />
+    
+            </div>
+
+            <div class="form-group">
+    
+              <label for="telefono"><span data-i18n="visitas.phone">Teléfono</span></label>
     
               <input type="tel" id="telefono" name="telefono" placeholder="+1 (608) 123-4567" />
     
@@ -402,7 +411,7 @@
             <!-- Honeypot anti-spam: campo invisible, no debe ser llenado por humanos -->
             <div style="position:absolute; left:-9999px;" aria-hidden="true">
     
-              <label for="website">No llenar este campo</label>
+              <label for="website" data-i18n="visitas.honeypot">No llenar este campo</label>
     
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
     
@@ -410,7 +419,7 @@
 
             <div class="form-group">
     
-              <button type="submit" class="btn btn-primary form-btn-submit">
+              <button type="submit" class="btn btn-primary form-btn-submit" data-i18n="visitas.submit">
     
                 Registrarme
     
@@ -424,7 +433,7 @@
     
         </div>
     
-        <p class="form-confidential">
+        <p class="form-confidential" data-i18n="visitas.confidential">
           Tus datos serán tratados con confidencialidad y solo se utilizarán para mejorar tu experiencia en nuestra iglesia.
         </p>
     
@@ -437,17 +446,17 @@
     
       <div class="container">
     
-        <h2>Ubicación</h2>
+        <h2 data-i18n="ubicacion.title">Ubicación</h2>
     
         <div class="divider"></div>
     
-        <div id="mapaUbicacion" class="mapa-ubicacion" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
+        <div id="mapaUbicacion" class="mapa-ubicacion" role="img" aria-label="Mapa de ubicación de Iglesia Fuente de Vida" data-i18n-aria="ubicacion.mapAria"></div>
     
         <div class="ubicacion-box">
     
           <p>3939 Lien Rd, Madison, WI 53704</p>
     
-          <a href="https://www.google.com/maps/search/?api=1&query=43.120351,-89.31647" target="_blank" rel="noopener noreferrer">Cómo llegar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <a href="https://www.google.com/maps/search/?api=1&query=43.120351,-89.31647" target="_blank" rel="noopener noreferrer" data-i18n="ubicacion.directions">Cómo llegar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
     
         </div>
     
@@ -460,7 +469,7 @@
     
       <div class="container">
     
-        <h2>Horarios de Servicios</h2>
+        <h2 data-i18n="horarios.title">Horarios de Servicios</h2>
     
         <div class="divider"></div>
     
@@ -468,21 +477,21 @@
     
           <div class="horario-card">
     
-            <h3>Domingo</h3>
+            <h3 data-i18n="horarios.sunday">Domingo</h3>
     
-            <p>12:00 pm</p>
+            <p data-i18n="horarios.time1">12:00 pm</p>
     
-            <span>Servicio Bilingüe</span>
+            <span data-i18n="horarios.service1">Servicio Bilingüe</span>
     
           </div>
 
           <div class="horario-card">
     
-            <h3>Domingo</h3>
+            <h3 data-i18n="horarios.sunday">Domingo</h3>
     
-            <p>5:30 pm</p>
+            <p data-i18n="horarios.time2">5:30 pm</p>
     
-            <span>Servicio en Español</span>
+            <span data-i18n="horarios.service2">Servicio en Español</span>
     
           </div>
     
@@ -495,21 +504,21 @@
     <!-- ===== QUÉ ES FUENTE DE VIDA ===== -->
     <section>
     
-      <h2>¿Qué es Fuente de Vida?</h2>
+      <h2 data-i18n="about.title">¿Qué es Fuente de Vida?</h2>
     
       <div class="divider"></div>
     
       <p>
     
-        <span>Somos un grupo de personas redimidos por el amor de JESUCRISTO, dispuestos a servir con amor y pasión para la gloria de Dios.</span>
+        <span data-i18n="about.text">Somos un grupo de personas redimidos por el amor de JESUCRISTO, dispuestos a servir con amor y pasión para la gloria de Dios.</span>
     
-        <strong>¡Bienvenidos a Fuente de Vida!</strong>
+        <strong data-i18n="about.welcome">¡Bienvenidos a Fuente de Vida!</strong>
     
       </p>
     
       <br />
     
-      <a href="html/nuestra-historia.html" class="btn btn-primary"
+      <a href="html/nuestra-historia.html" class="btn btn-primary" data-i18n="about.more"
         >Aprende Más</a
       >
     
@@ -520,7 +529,7 @@
     
       <div class="container">
     
-        <h2>Liderazgo</h2>
+        <h2 data-i18n="liderazgo.title">Liderazgo</h2>
     
         <div class="divider"></div>
     
@@ -535,11 +544,11 @@
     
             <h3>Jacobo Castillo + Carla Rosales</h3>
     
-            <p>Pastores de Fuente de Vida, Madison WI</p>
+            <p data-i18n="liderazgo.role">Pastores de Fuente de Vida, Madison WI</p>
     
             <br />
     
-            <a href="html/nuestro-liderazgo.html" class="btn btn-primary"
+            <a href="html/nuestro-liderazgo.html" class="btn btn-primary" data-i18n="liderazgo.cta"
               >Conoce Nuestros Líderes</a
             >
     
@@ -553,7 +562,7 @@
     <!-- ===== CONTACTO ===== -->
     <section id="contacto">
     
-      <h2>Información de Contacto</h2>
+      <h2 data-i18n="contacto.title">Información de Contacto</h2>
     
       <div class="divider"></div>
     
@@ -569,7 +578,7 @@
          
           <div>
          
-            <strong>Teléfono</strong>
+            <strong data-i18n="contacto.phone">Teléfono</strong>
          
             <span>+1 (608) 217-6835</span>
          
@@ -593,7 +602,7 @@
 
           <strong>WhatsApp</strong>
 
-          <span>Escríbenos</span>
+          <span data-i18n="contacto.whatsappSub">Escríbenos</span>
 
         </div>
 
@@ -611,7 +620,7 @@
 
           <strong>Email</strong>
 
-          <span>Contactanos por Email</span>
+          <span data-i18n="contacto.emailSub">Contáctanos por Email</span>
 
         </div>
 
@@ -623,7 +632,7 @@
 
       <br />
 
-      <h3>Síguenos en Redes Sociales</h3>
+      <h3 data-i18n="contacto.socialTitle">Síguenos en Redes Sociales</h3>
 
       <div class="redes">
 
@@ -637,6 +646,7 @@
           class="red-social red-facebook"
           
           aria-label="Facebook de Fuente de Vida"
+          data-i18n-aria="contacto.facebookAria"
         >
 
         <i class="fab fa-facebook-f" aria-hidden="true"></i> <span>Facebook</span>
@@ -653,6 +663,7 @@
           class="red-social red-instagram"
           
           aria-label="Instagram de Fuente de Vida"
+          data-i18n-aria="contacto.instagramAria"
         >
 
         <i class="fab fa-instagram" aria-hidden="true"></i> <span>Instagram</span>
@@ -669,6 +680,7 @@
           class="red-social red-youtube"
           
           aria-label="YouTube de Fuente de Vida"
+          data-i18n-aria="contacto.youtubeAria"
         >
 
         <i class="fab fa-youtube" aria-hidden="true"></i> <span>YouTube</span>
@@ -683,18 +695,18 @@
 
     <section id="biblia">
 
-      <h2>Lectura Bíblica</h2>
+      <h2 data-i18n="biblia.title">Lectura Bíblica</h2>
 
       <div class="divider"></div>
 
-      <p>Lee la Palabra de Dios en diferentes versiones.</p>
+      <p data-i18n="biblia.intro">Lee la Palabra de Dios en diferentes versiones.</p>
 
 
       <br />
 
       <div class="bible-controls">
 
-        <select id="bible-version" class="bible-select" aria-label="Versión de la Biblia" title="Versión de la Biblia">
+        <select id="bible-version" class="bible-select" aria-label="Versión de la Biblia" title="Versión de la Biblia" data-i18n-aria="biblia.versionAria" data-i18n-title="biblia.versionAria">
 
           <option value="RVR1960">Reina Valera 1960</option>
 
@@ -714,9 +726,13 @@
 
         aria-label="Pasaje bíblico"
 
+        data-i18n-placeholder="biblia.placeholder"
+
+        data-i18n-aria="biblia.passageAria"
+
         />
 
-        <button id="bible-search-btn" class="btn btn-primary bible-btn">Buscar</button>
+        <button id="bible-search-btn" class="btn btn-primary bible-btn" data-i18n="biblia.search">Buscar</button>
 
       </div>
 
@@ -731,22 +747,22 @@
       <!-- ===== TE ESPERAMOS ===== -->
       <div class="container cta-container footer-cta">
         
-        <h2>Te Esperamos</h2>
+        <h2 data-i18n="cta.title">Te Esperamos</h2>
         
         <div class="divider cta-divider"></div>
         
-        <p class="cta-text">
+        <p class="cta-text" data-i18n="cta.text">
           Las puertas están abiertas para ti y tu familia. Ven tal como eres y
           vive una experiencia con Dios.
         </p>
         
         <div class="cta-buttons">
         
-          <a href="html/nuestra-historia.html" class="btn btn-primary"
+          <a href="html/nuestra-historia.html" class="btn btn-primary" data-i18n="cta.history"
             >Nuestra Historia</a
           >
         
-          <a href="html/nuestras-creencias.html" class="btn btn-outline"
+          <a href="html/nuestras-creencias.html" class="btn btn-outline" data-i18n="cta.beliefs"
             >Nuestras Creencias</a
           >
         
@@ -795,12 +811,12 @@
     
     </footer>
     
-    <script src="js/i18n.js" defer></script>
     <script src="js/bible-search.js" defer></script>
     <script src="js/visit-form.js" defer></script>
     
 
 <script src="js/menu-overlay.js"></script>
+<script src="js/icons.js"></script>
 
 <script src="js/video-fallback.js" defer></script>
     

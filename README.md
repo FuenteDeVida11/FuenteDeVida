@@ -17,8 +17,6 @@ A static, multi-page website for Fuente de Vida, a Christian church in Madison, 
 - **Reusable scroll-to-top button** — a single self-contained script injects the button and its behavior on every page, no HTML duplication required.
 - **SEO basics** — `sitemap.xml`, `robots.txt`, canonical URLs, Open Graph/Twitter meta tags, and a custom `404.html`.
 
-> **Note on i18n:** the codebase includes a `window.t()` fallback helper used across form/status messages, but there isn't yet a live ES/EN language switcher (no `data-i18n` markup or toggle UI exists). It's a foundation for future localization rather than a shipped feature today.
-
 ## Tech Stack
 
 - **HTML5 / CSS3** — vanilla CSS with custom properties (CSS variables) for theming, no preprocessor.

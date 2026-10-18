@@ -193,7 +193,7 @@ window.fdvAddTranslations('en', {
   'nav.leadership': 'Leadership',
   'nav.beliefs': 'Beliefs',
   'nav.events': 'Events',
-  'nav.donate': 'Give',
+  'nav.donate': 'Donate',
   'nav.openMenu': 'Open navigation menu',
   'nav.closeMenu': 'Close menu',
   'nav.mainMenu': 'Main menu',

@@ -1,190 +1,288 @@
 // Mapeo de nombres de libros en español -> código de 3 letras que usa biblia-api.qhar.in
 const LIBROS_ES = {
-  
-  "genesis": "GEN", "genesis": "GEN",
-  
-  "exodo": "EXO", "exodo": "EXO",
-  
-  "levitico": "LEV", "levitico": "LEV",
-  
-  "numeros": "NUM", "numeros": "NUM",
-  
-  "deuteronomio": "DEU",
-  
-  "josue": "JOS", "josue": "JOS",
-  
-  "jueces": "JDG",
-  
-  "rut": "RUT",
-  
-  "1 samuel": "1SA", "2 samuel": "2SA",
-  
-  "1 reyes": "1KI", "2 reyes": "2KI",
-  
-  "1 cronicas": "1CH", "1 cronicas": "1CH",
-  
-  "2 cronicas": "2CH", "2 cronicas": "2CH",
-  
-  "esdras": "EZR",
-  
-  "nehemias": "NEH", "nehemias": "NEH",
-  
-  "ester": "EST",
-  
-  "job": "JOB",
-  
-  "salmos": "PSA", "salmo": "PSA",
-  
-  "proverbios": "PRO",
-  
-  "eclesiastes": "ECC", "eclesiastes": "ECC",
-  
-  "cantares": "SNG", "cantar de los cantares": "SNG",
-  
-  "isaias": "ISA", "isaias": "ISA",
-  
-  "jeremias": "JER", "jeremias": "JER",
-  
-  "lamentaciones": "LAM",
-  
-  "ezequiel": "EZK",
-  
-  "daniel": "DAN",
-  
-  "oseas": "HOS",
-  
-  "joel": "JOL",
-  
-  "amos": "AMO", "amos": "AMO",
-  
-  "abdias": "OBA", "abdías": "OBA",
-  
-  "jonas": "JON", "jonas": "JON",
-  
-  "miqueas": "MIC",
-  
-  "nahum": "NAM", "nahum": "NAM",
-  
-  "habacuc": "HAB",
-  
-  "sofonias": "ZEP", "sofonias": "ZEP",
-  
-  "hageo": "HAG",
-  
-  "zacarias": "ZEC", "zacarias": "ZEC",
-  
-  "malaquias": "MAL", "malaquias": "MAL",
-  
-  "mateo": "MAT",
-  
-  "marcos": "MRK",
-  
-  "lucas": "LUK",
-  
-  "juan": "JHN",
-  
-  "hechos": "ACT",
-  
-  "romanos": "ROM",
-  
-  "1 corintios": "1CO", "2 corintios": "2CO",
-  
-  "galatas": "GAL", "galatas": "GAL",
-  
-  "efesios": "EPH",
-  
-  "filipenses": "PHP",
-  
-  
-  "colosenses": "COL",
-  
-  "1 tesalonicenses": "1TH", "2 tesalonicenses": "2TH",
-  
-  "1 timoteo": "1TI", "2 timoteo": "2TI",
-  
-  "tito": "TIT",
-  
-  "filemon": "PHM", "filemon": "PHM",
-  
-  "hebreos": "HEB",
-  
-  "santiago": "JAS",
-  
-  "1 pedro": "1PE", "2 pedro": "2PE",
-  
-  "1 juan": "1JN", "2 juan": "2JN", "3 juan": "3JN",
-  
-  "judas": "JUD",
-  
-  "apocalipsis": "REV"
+  genesis: "GEN",
+  genesis: "GEN",
 
+  exodo: "EXO",
+  exodo: "EXO",
+
+  levitico: "LEV",
+  levitico: "LEV",
+
+  numeros: "NUM",
+  numeros: "NUM",
+
+  deuteronomio: "DEU",
+
+  josue: "JOS",
+  josue: "JOS",
+
+  jueces: "JDG",
+
+  rut: "RUT",
+
+  "1 samuel": "1SA",
+  "2 samuel": "2SA",
+
+  "1 reyes": "1KI",
+  "2 reyes": "2KI",
+
+  "1 cronicas": "1CH",
+  "1 cronicas": "1CH",
+
+  "2 cronicas": "2CH",
+  "2 cronicas": "2CH",
+
+  esdras: "EZR",
+
+  nehemias: "NEH",
+  nehemias: "NEH",
+
+  ester: "EST",
+
+  job: "JOB",
+
+  salmos: "PSA",
+  salmo: "PSA",
+
+  proverbios: "PRO",
+
+  eclesiastes: "ECC",
+  eclesiastes: "ECC",
+
+  cantares: "SNG",
+  "cantar de los cantares": "SNG",
+
+  isaias: "ISA",
+  isaias: "ISA",
+
+  jeremias: "JER",
+  jeremias: "JER",
+
+  lamentaciones: "LAM",
+
+  ezequiel: "EZK",
+
+  daniel: "DAN",
+
+  oseas: "HOS",
+
+  joel: "JOL",
+
+  amos: "AMO",
+  amos: "AMO",
+
+  abdias: "OBA",
+  abdías: "OBA",
+
+  jonas: "JON",
+  jonas: "JON",
+
+  miqueas: "MIC",
+
+  nahum: "NAM",
+  nahum: "NAM",
+
+  habacuc: "HAB",
+
+  sofonias: "ZEP",
+  sofonias: "ZEP",
+
+  hageo: "HAG",
+
+  zacarias: "ZEC",
+  zacarias: "ZEC",
+
+  malaquias: "MAL",
+  malaquias: "MAL",
+
+  mateo: "MAT",
+
+  marcos: "MRK",
+
+  lucas: "LUK",
+
+  juan: "JHN",
+
+  hechos: "ACT",
+
+  romanos: "ROM",
+
+  "1 corintios": "1CO",
+  "2 corintios": "2CO",
+
+  galatas: "GAL",
+  galatas: "GAL",
+
+  efesios: "EPH",
+
+  filipenses: "PHP",
+
+  colosenses: "COL",
+
+  "1 tesalonicenses": "1TH",
+  "2 tesalonicenses": "2TH",
+
+  "1 timoteo": "1TI",
+  "2 timoteo": "2TI",
+
+  tito: "TIT",
+
+  filemon: "PHM",
+  filemon: "PHM",
+
+  hebreos: "HEB",
+
+  santiago: "JAS",
+
+  "1 pedro": "1PE",
+  "2 pedro": "2PE",
+
+  "1 juan": "1JN",
+  "2 juan": "2JN",
+  "3 juan": "3JN",
+
+  judas: "JUD",
+
+  apocalipsis: "REV",
 };
 
-// Mapeo para la API en ingles (wldeh) - nombres completos en minusculas
+// Mapeo de nombres en español a los nombres completos que usa la API KJV.
 const LIBROS_EN = {
+  genesis: "genesis",
+  genesis: "genesis",
 
-  "genesis": "genesis", "genesis": "genesis",
+  exodo: "exodus",
+  exodo: "exodus",
 
-  "exodo": "exodus", "exodo": "exodus",
+  levitico: "leviticus",
+  levitico: "leviticus",
 
-  "levitico": "leviticus", "levitico": "leviticus",
+  numeros: "numbers",
+  numeros: "numbers",
 
-  "numeros": "numbers", "numeros": "numbers",
+  deuteronomio: "deuteronomy",
 
-  "deuteronomio": "deuteronomy",
+  josue: "joshua",
+  josue: "joshua",
 
-  "josue": "joshua", "josue": "joshua",
+  jueces: "judges",
 
-  "jueces": "judges",
+  rut: "ruth",
 
-  "rut": "ruth",
+  "1 samuel": "1samuel",
+  "2 samuel": "2samuel",
 
-  "1 samuel": "1samuel", "2 samuel": "2samuel",
+  "1 reyes": "1kings",
+  "2 reyes": "2kings",
 
-  "1 reyes": "1kings", "2 reyes": "2kings",
+  salmos: "psalms",
+  salmo: "psalms",
 
-  "salmos": "psalms", "salmo": "psalms",
+  proverbios: "proverbs",
 
-  "proverbios": "proverbs",
+  mateo: "matthew",
 
-  "mateo": "matthew",
+  marcos: "mark",
 
-  "marcos": "mark",
+  lucas: "luke",
 
-  "lucas": "luke",
+  juan: "john",
 
-  "juan": "john",
+  hechos: "acts",
 
-  "hechos": "acts",
+  romanos: "romans",
 
-  "romanos": "romans",
-
-  "apocalipsis": "revelation"
-
+  apocalipsis: "revelation",
 };
 
 // Identificadores de libros en inglés usados por la API de KJV
-const LIBROS_EN_SLUGS = ['genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth',
-  '1samuel', '2samuel', '1kings', '2kings', '1chronicles', '2chronicles', 'ezra', 'nehemiah', 'esther', 'job',
-  'psalms', 'proverbs', 'ecclesiastes', 'songofsolomon', 'isaiah', 'jeremiah', 'lamentations', 'ezekiel', 'daniel',
-  'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah',
-  'malachi', 'matthew', 'mark', 'luke', 'john', 'acts', 'romans', '1corinthians', '2corinthians', 'galatians',
-  'ephesians', 'philippians', 'colossians', '1thessalonians', '2thessalonians', '1timothy', '2timothy', 'titus',
-  'philemon', 'hebrews', 'james', '1peter', '2peter', '1john', '2john', '3john', 'jude', 'revelation'];
+const LIBROS_EN_SLUGS = [
+  "genesis",
+  "exodus",
+  "leviticus",
+  "numbers",
+  "deuteronomy",
+  "joshua",
+  "judges",
+  "ruth",
+  "1samuel",
+  "2samuel",
+  "1kings",
+  "2kings",
+  "1chronicles",
+  "2chronicles",
+  "ezra",
+  "nehemiah",
+  "esther",
+  "job",
+  "psalms",
+  "proverbs",
+  "ecclesiastes",
+  "songofsolomon",
+  "isaiah",
+  "jeremiah",
+  "lamentations",
+  "ezekiel",
+  "daniel",
+  "hosea",
+  "joel",
+  "amos",
+  "obadiah",
+  "jonah",
+  "micah",
+  "nahum",
+  "habakkuk",
+  "zephaniah",
+  "haggai",
+  "zechariah",
+  "malachi",
+  "matthew",
+  "mark",
+  "luke",
+  "john",
+  "acts",
+  "romans",
+  "1corinthians",
+  "2corinthians",
+  "galatians",
+  "ephesians",
+  "philippians",
+  "colossians",
+  "1thessalonians",
+  "2thessalonians",
+  "1timothy",
+  "2timothy",
+  "titus",
+  "philemon",
+  "hebrews",
+  "james",
+  "1peter",
+  "2peter",
+  "1john",
+  "2john",
+  "3john",
+  "jude",
+  "revelation",
+];
 
+// Normaliza las referencias para aceptar nombres de libros con o sin acentos.
 function normalizarTexto(str) {
-
   // Quita acentos para aceptar "Génesis", "Éxodo", etc.
-  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
-
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
 }
 
 // Convierte "juan 3:16", "juan 3 16", "juan 3,16" o "juan3:16" en {libro, capitulo, versiculo}
 function parsearReferencia(input, mapaLibros) {
-
   const texto = normalizarTexto(input);
 
-  const match = texto.match(/^(\d?\s?[a-z¿¿¿¿¿¿]+)\s*(\d+)\s*[:,]?\s*(\d+)?(?:-(\d+))?$/i);
+  const match = texto.match(
+    /^(\d?\s?[a-z¿¿¿¿¿¿]+)\s*(\d+)\s*[:,]?\s*(\d+)?(?:-(\d+))?$/i,
+  );
 
   if (!match) return null;
 
@@ -200,53 +298,42 @@ function parsearReferencia(input, mapaLibros) {
 
   // En KJV también se aceptan los nombres de los libros en inglés ("John 3:16", "1 Corinthians 13")
   if (!libroId && mapaLibros === LIBROS_EN) {
-    const slug = nombreLibro.replace(/\s+/g, '');
+    const slug = nombreLibro.replace(/\s+/g, "");
     if (LIBROS_EN_SLUGS.indexOf(slug) !== -1) libroId = slug;
-    else if (slug === 'psalm') libroId = 'psalms';
-    else if (slug === 'songofsongs') libroId = 'songofsolomon';
+    else if (slug === "psalm") libroId = "psalms";
+    else if (slug === "songofsongs") libroId = "songofsolomon";
   }
 
   if (!libroId) return null;
 
   return { libro: libroId, capitulo, versiculo, versiculoFin };
-
 }
 
-// Fetch con timeout via AbortController para no dejar la UI colgada si la API no responde
+// Cancela la solicitud si la API tarda demasiado para no dejar la interfaz bloqueada.
 async function fetchConTimeout(url, timeoutMs = 9000) {
-
   const controller = new AbortController();
 
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-
     return await fetch(url, { signal: controller.signal });
-
   } finally {
-
     clearTimeout(timeoutId);
-
   }
-
 }
 
+// Consulta la API en español y adapta sus respuestas al formato común.
 async function buscarEnEspanol(ref, inputTexto) {
-
   let url;
 
   if (ref.versiculo) {
-
     const versiculos = ref.versiculoFin
       ? `${ref.versiculo}-${ref.versiculoFin}`
       : ref.versiculo;
 
     url = `https://biblia-api.qhar.in/book/${ref.libro}/chapter/${ref.capitulo}/verse/${versiculos}`;
-
   } else {
-
     url = `https://biblia-api.qhar.in/book/${ref.libro}/chapter/${ref.capitulo}/verse`;
-
   }
 
   const response = await fetchConTimeout(url);
@@ -255,14 +342,22 @@ async function buscarEnEspanol(ref, inputTexto) {
 
   let data = await response.json();
 
-  if (!Array.isArray(data) || data.length === 0) throw new Error("Respuesta vacía o con formato inesperado");
+  if (!Array.isArray(data) || data.length === 0)
+    throw new Error("Respuesta vacía o con formato inesperado");
 
-  if (!ref.versiculo && !data.every(v => v && typeof v.content === 'string')) {
-
+  if (
+    !ref.versiculo &&
+    !data.every((v) => v && typeof v.content === "string")
+  ) {
     const inicio = Number(data[0].number);
     const fin = Number(data[data.length - 1].number);
 
-    if (!Number.isInteger(inicio) || !Number.isInteger(fin) || inicio < 1 || fin < inicio) {
+    if (
+      !Number.isInteger(inicio) ||
+      !Number.isInteger(fin) ||
+      inicio < 1 ||
+      fin < inicio
+    ) {
       throw new Error("Formato de respuesta inesperado");
     }
 
@@ -273,58 +368,56 @@ async function buscarEnEspanol(ref, inputTexto) {
 
     data = await responseRango.json();
 
-    if (!Array.isArray(data) || data.length === 0) throw new Error("Respuesta vacía o con formato inesperado");
+    if (!Array.isArray(data) || data.length === 0)
+      throw new Error("Respuesta vacía o con formato inesperado");
   }
 
   // Validar que cada elemento tenga el campo esperado antes de usarlo
   const lineas = data
 
-  .filter(v => v && typeof v.content === 'string')
+    .filter((v) => v && typeof v.content === "string")
 
-  .map(v => v.content);
+    .map((v) => v.content);
 
   if (lineas.length === 0) throw new Error("Formato de respuesta inesperado");
 
   return { referencia: inputTexto, lineas };
 }
 
+// Consulta la versión KJV y filtra los versículos solicitados.
 async function buscarEnIngles(ref, inputTexto) {
-
   let url;
 
   const esRango = Boolean(ref.versiculo && ref.versiculoFin);
 
   if (ref.versiculo && !esRango) {
-
     url = `https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/${ref.libro}/chapters/${ref.capitulo}/verses/${ref.versiculo}.json`;
-  
   } else {
-  
     url = `https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/${ref.libro}/chapters/${ref.capitulo}.json`;
-  
   }
 
   const response = await fetchConTimeout(url);
-  
+
   if (!response.ok) throw new Error("No encontrado");
-  
+
   const data = await response.json();
 
-  if (!data || typeof data !== 'object') throw new Error("Respuesta con formato inesperado");
+  if (!data || typeof data !== "object")
+    throw new Error("Respuesta con formato inesperado");
 
   let lineas = [];
-  
-  if (ref.versiculo && !esRango) {
-  
-    if (typeof data.text !== 'string') throw new Error("Formato de respuesta inesperado");
-  
-    lineas = [data.text];
-  
-  } else {
 
+  if (ref.versiculo && !esRango) {
+    if (typeof data.text !== "string")
+      throw new Error("Formato de respuesta inesperado");
+
+    lineas = [data.text];
+  } else {
     const versiculos = Array.isArray(data.verses)
       ? data.verses
-      : Array.isArray(data.data) ? data.data : [];
+      : Array.isArray(data.data)
+        ? data.data
+        : [];
 
     const inicio = esRango ? Number(ref.versiculo) : null;
     const fin = esRango ? Number(ref.versiculoFin) : null;
@@ -332,38 +425,40 @@ async function buscarEnIngles(ref, inputTexto) {
 
     lineas = versiculos
 
-    .filter(v => {
+      .filter((v) => {
+        if (!v || typeof v.text !== "string") return false;
 
-      if (!v || typeof v.text !== 'string') return false;
+        const numero = Number(v.verse);
 
-      const numero = Number(v.verse);
+        if (
+          esRango &&
+          (!Number.isInteger(numero) || numero < inicio || numero > fin)
+        )
+          return false;
 
-      if (esRango && (!Number.isInteger(numero) || numero < inicio || numero > fin)) return false;
+        if (typeof v.verse === "undefined") return true;
 
-      if (typeof v.verse === 'undefined') return true;
+        const numeroClave = String(v.verse);
 
-      const numeroClave = String(v.verse);
+        if (vistos.has(numeroClave)) return false;
 
-      if (vistos.has(numeroClave)) return false;
+        vistos.add(numeroClave);
 
-      vistos.add(numeroClave);
+        return true;
+      })
 
-      return true;
-
-    })
-
-    .map(v => (typeof v.verse !== 'undefined' ? `${v.verse} ${v.text}` : v.text));
-  
+      .map((v) =>
+        typeof v.verse !== "undefined" ? `${v.verse} ${v.text}` : v.text,
+      );
   }
 
   if (lineas.length === 0) throw new Error("Formato de respuesta inesperado");
 
   return { referencia: inputTexto, lineas };
-
 }
 
+// Valida la referencia, selecciona la API y presenta el resultado o el error.
 async function loadBibleVerse() {
-
   const versionSelect = document.getElementById("bible-version").value;
 
   const inputTexto = document.getElementById("bible-passage").value;
@@ -375,41 +470,41 @@ async function loadBibleVerse() {
   const ref = parsearReferencia(inputTexto, mapaLibros);
 
   if (!ref) {
+    mostrarErrorBiblia(
+      window.t(
+        "biblia.errInvalidRef",
+        "No pude entender la referencia. Intenta algo como 'Juan 3 16' o 'Juan 3:16'.",
+      ),
+    );
 
-    mostrarErrorBiblia(window.t('biblia.errInvalidRef', "No pude entender la referencia. Intenta algo como 'Juan 3 16' o 'Juan 3:16'."));
-    
     return;
-  
   }
 
   try {
-  
     const resultado = esEspanol
-  
-    ? await buscarEnEspanol(ref, inputTexto)
-  
-    : await buscarEnIngles(ref, inputTexto);
+      ? await buscarEnEspanol(ref, inputTexto)
+      : await buscarEnIngles(ref, inputTexto);
 
     mostrarResultadoBiblia(resultado);
-  
   } catch (error) {
-  
     console.error("Error al buscar pasaje:", error);
-  
-    const mensaje = error && error.name === 'AbortError'
-  
-    ? window.t('biblia.errTimeout', 'La búsqueda tardó demasiado. Verifica tu conexión e intenta de nuevo.')
-  
-    : window.t('biblia.errFetch', 'No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde.');
-  
-    mostrarErrorBiblia(mensaje);
-  
-  }
 
+    const mensaje =
+      error && error.name === "AbortError"
+        ? window.t(
+            "biblia.errTimeout",
+            "La búsqueda tardó demasiado. Verifica tu conexión e intenta de nuevo.",
+          )
+        : window.t(
+            "biblia.errFetch",
+            "No se pudo obtener el pasaje. Verifica la escritura o inténtalo más tarde.",
+          );
+
+    mostrarErrorBiblia(mensaje);
+  }
 }
 // Construye el resultado con textContent (no innerHTML) para no ejecutar HTML/scripts si la API devuelve contenido malicioso
 function mostrarResultadoBiblia(resultado) {
-
   const contenedor = document.querySelector(".bible-container");
 
   contenedor.innerHTML = "";
@@ -418,31 +513,28 @@ function mostrarResultadoBiblia(resultado) {
   wrapper.className = "bible-resultado";
 
   const titulo = document.createElement("p");
-  
+
   const strong = document.createElement("strong");
-  
+
   strong.textContent = resultado.referencia;
-  
+
   titulo.appendChild(strong);
-  
+
   wrapper.appendChild(titulo);
 
-  resultado.lineas.forEach(linea => {
-  
+  resultado.lineas.forEach((linea) => {
     const p = document.createElement("p");
-  
+
     p.textContent = linea;
-  
+
     wrapper.appendChild(p);
-  
   });
 
   contenedor.appendChild(wrapper);
-
 }
 
+// Muestra un mensaje localizado sin conservar resultados anteriores.
 function mostrarErrorBiblia(mensaje) {
-
   const contenedor = document.querySelector(".bible-container");
 
   contenedor.innerHTML = "";
@@ -454,25 +546,31 @@ function mostrarErrorBiblia(mensaje) {
   div.textContent = mensaje;
 
   contenedor.appendChild(div);
-
 }
 
 // Sincroniza la versión bíblica por defecto con el idioma del sitio (ES→RVR1960, EN→KJV)
 function syncBibleVersion(lang) {
-  const sel = document.getElementById('bible-version');
+  const sel = document.getElementById("bible-version");
   if (!sel) return;
-  const wanted = lang === 'en' ? 'KJV' : 'RVR1960';
-  if (sel.value !== wanted && Array.from(sel.options).some(o => o.value === wanted)) {
+  const wanted = lang === "en" ? "KJV" : "RVR1960";
+  if (
+    sel.value !== wanted &&
+    Array.from(sel.options).some((o) => o.value === wanted)
+  ) {
     sel.value = wanted;
   }
 }
-document.addEventListener('fdv:languagechange', function (e) {
+document.addEventListener("fdv:languagechange", function (e) {
   syncBibleVersion(e.detail && e.detail.lang);
 });
 if (window.FDV_I18N) syncBibleVersion(window.FDV_I18N.getLang());
 
-document.getElementById('bible-search-btn').addEventListener('click', loadBibleVerse);
+document
+  .getElementById("bible-search-btn")
+  .addEventListener("click", loadBibleVerse);
 
-document.getElementById('bible-passage').addEventListener('keydown', function(e){ if(e.key==='Enter') loadBibleVerse
-
-(); });
+document
+  .getElementById("bible-passage")
+  .addEventListener("keydown", function (e) {
+    if (e.key === "Enter") loadBibleVerse();
+  });

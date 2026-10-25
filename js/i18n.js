@@ -17,12 +17,12 @@
  * Evento: "fdv:languagechange" en document (detail: { lang, initial }).
  */
 (function () {
-  'use strict';
+  "use strict";
 
-  var STORAGE_KEY = 'fdv_lang';
-  var SUPPORTED = ['es', 'en'];
-  var DEFAULT_LANG = 'es';
-  var OG_LOCALES = { es: 'es_ES', en: 'en_US' };
+  var STORAGE_KEY = "fdv_lang";
+  var SUPPORTED = ["es", "en"];
+  var DEFAULT_LANG = "es";
+  var OG_LOCALES = { es: "es_ES", en: "en_US" };
 
   var root = document.documentElement;
   var current = DEFAULT_LANG;
@@ -38,16 +38,19 @@
     }
   }
 
+  // Guarda el idioma elegido sin interrumpir la traducción si falla el almacenamiento.
   function store(lang) {
     try {
       window.localStorage.setItem(STORAGE_KEY, lang);
-    } catch (e) { /* sin persistencia: el cambio sigue funcionando en la sesión */ }
+    } catch (e) {
+      /* sin persistencia: el cambio sigue funcionando en la sesión */
+    }
   }
 
   // Permite compartir enlaces con ?lang=en
   function readQuery() {
     try {
-      var q = new URLSearchParams(window.location.search).get('lang');
+      var q = new URLSearchParams(window.location.search).get("lang");
       q = q ? q.toLowerCase() : null;
       return SUPPORTED.indexOf(q) > -1 ? q : null;
     } catch (e) {
@@ -64,118 +67,168 @@
     }
     var stored = readStored();
     if (stored) return stored;
-    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || '';
-    return String(nav).toLowerCase().indexOf('en') === 0 ? 'en' : DEFAULT_LANG;
+    var nav =
+      (navigator.languages && navigator.languages[0]) ||
+      navigator.language ||
+      "";
+    return String(nav).toLowerCase().indexOf("en") === 0 ? "en" : DEFAULT_LANG;
   }
 
   // ----- Traducción de claves -----
+  // Busca primero en el idioma activo y luego en el idioma predeterminado.
   function lookup(key, lang) {
     var all = window.FDV_TRANSLATIONS || {};
-    if (all[lang] && Object.prototype.hasOwnProperty.call(all[lang], key)) return all[lang][key];
-    if (all[DEFAULT_LANG] && Object.prototype.hasOwnProperty.call(all[DEFAULT_LANG], key)) return all[DEFAULT_LANG][key];
+    if (all[lang] && Object.prototype.hasOwnProperty.call(all[lang], key))
+      return all[lang][key];
+    if (
+      all[DEFAULT_LANG] &&
+      Object.prototype.hasOwnProperty.call(all[DEFAULT_LANG], key)
+    )
+      return all[DEFAULT_LANG][key];
     return undefined;
   }
 
+  // Sustituye marcadores por valores sin alterar los que no tengan parámetro.
   function format(text, params) {
     if (!params) return text;
     return String(text).replace(/\{(\w+)\}/g, function (match, name) {
-      return Object.prototype.hasOwnProperty.call(params, name) ? params[name] : match;
+      return Object.prototype.hasOwnProperty.call(params, name)
+        ? params[name]
+        : match;
     });
   }
 
+  // Expone una traducción con respaldo y avisa una sola vez por clave faltante.
   function t(key, fallback, params) {
     var value = lookup(key, current);
     if (value === undefined) {
       if (!warned[key]) {
         warned[key] = true;
-        console.warn('[i18n] Falta la clave:', key);
+        console.warn("[i18n] Falta la clave:", key);
       }
       value = fallback !== undefined ? fallback : key;
     }
     return format(value, params);
   }
 
+  // Permite comprobar si una clave existe antes de aplicar contenido opcional.
   function has(key) {
     return lookup(key, current) !== undefined;
   }
 
   // Nombre de la página: <html data-page="x"> o el nombre del archivo (index.html -> "index")
   function pageKey() {
-    var explicit = root.getAttribute('data-page');
+    var explicit = root.getAttribute("data-page");
     if (explicit) return explicit;
     var match = window.location.pathname.match(/([^\/]+?)(?:\.html?)?$/);
-    return match && match[1] ? match[1] : 'index';
+    return match && match[1] ? match[1] : "index";
   }
 
   // ----- Reglas del "chrome" compartido (menú, barras, pie) -----
   // Evita repetir atributos en cada HTML. [selector, tipo, clave]
   var CHROME_RULES = [
-    ['a.nav-brand, a.menu-overlay-logo', 'aria', 'nav.home'],
-    ['nav img, .menu-overlay-logo img', 'alt', 'nav.logoAlt'],
-    ['.nav-links-horizontal a[href$="ultimo-sermon.html"]', 'text', 'nav.sermons'],
-    ['.nav-links-horizontal a[href$="nuestra-historia.html"]', 'text', 'nav.history'],
-    ['.nav-links-horizontal a[href$="nuestro-liderazgo.html"]', 'text', 'nav.leadership'],
-    ['.nav-links-horizontal a[href$="nuestras-creencias.html"]', 'text', 'nav.beliefs'],
-    ['.nav-links-horizontal a[href$="eventos.html"]', 'text', 'nav.events'],
-    ['.nav-links-horizontal a[href*="checkout.square.site"]', 'text', 'nav.donate'],
-    ['#menuBtn', 'aria', 'nav.openMenu'],
-    ['#menuCloseBtn', 'aria', 'nav.closeMenu'],
-    ['#menuOverlay', 'aria', 'nav.mainMenu'],
-    ['.side-bar-left .side-bar-label', 'text', 'sidebar.follow'],
-    ['.side-bar-right .side-bar-label', 'text', 'sidebar.discover'],
-    ['#discoverBtn', 'aria', 'sidebar.discoverAria'],
-    ['.hero-header', 'aria', 'hero.aria'],
-    ['.menu-overlay a[href$="#visitar"]', 'text', 'menu.registro'],
-    ['.menu-overlay a[href$="#horarios"]', 'text', 'menu.schedule'],
-    ['.menu-overlay a[href$="#ubicacion"]', 'text', 'menu.location'],
-    ['.menu-overlay a[href$="#liderazgo"]', 'text', 'menu.leadership'],
-    ['.menu-overlay a[href$="nuestra-historia.html"]', 'text', 'menu.history'],
-    ['.menu-overlay a[href$="nuestras-creencias.html"]', 'text', 'menu.beliefs'],
-    ['.menu-overlay a[href$="#biblia"]', 'text', 'menu.bible'],
-    ['.menu-overlay a[href$="ultimo-sermon.html"]', 'text', 'menu.sermon'],
-    ['.menu-overlay a[href$="eventos.html"]', 'text', 'menu.events'],
-    ['.menu-overlay a[href$="#contacto"]', 'text', 'menu.contact'],
-    ['.menu-overlay a[href*="checkout.square.site"]', 'text', 'menu.donate'],
-    ['.menu-social:not(.menu-lang) .menu-social-title', 'text', 'menu.social'],
-    ['footer > span', 'text', 'footer.copyright'],
-    ['.fc-phone', 'aria', 'footer.phone'],
-    ['.fc-phone', 'title', 'footer.phone'],
-    ['.fc-whatsapp', 'aria', 'footer.whatsapp'],
-    ['.fc-whatsapp', 'title', 'footer.whatsapp'],
-    ['.fc-email', 'aria', 'footer.email'],
-    ['.fc-email', 'title', 'footer.email'],
-    ['.scroll-to-top', 'aria', 'scrollTop.aria'],
-    ['.scroll-to-top', 'title', 'scrollTop.title']
+    ["a.nav-brand, a.menu-overlay-logo", "aria", "nav.home"],
+    ["nav img, .menu-overlay-logo img", "alt", "nav.logoAlt"],
+    [
+      '.nav-links-horizontal a[href$="ultimo-sermon.html"]',
+      "text",
+      "nav.sermons",
+    ],
+    [
+      '.nav-links-horizontal a[href$="nuestra-historia.html"]',
+      "text",
+      "nav.history",
+    ],
+    [
+      '.nav-links-horizontal a[href$="nuestro-liderazgo.html"]',
+      "text",
+      "nav.leadership",
+    ],
+    [
+      '.nav-links-horizontal a[href$="nuestras-creencias.html"]',
+      "text",
+      "nav.beliefs",
+    ],
+    ['.nav-links-horizontal a[href$="eventos.html"]', "text", "nav.events"],
+    [
+      '.nav-links-horizontal a[href*="checkout.square.site"]',
+      "text",
+      "nav.donate",
+    ],
+    ["#menuBtn", "aria", "nav.openMenu"],
+    ["#menuCloseBtn", "aria", "nav.closeMenu"],
+    ["#menuOverlay", "aria", "nav.mainMenu"],
+    [".side-bar-left .side-bar-label", "text", "sidebar.follow"],
+    [".side-bar-right .side-bar-label", "text", "sidebar.discover"],
+    ["#discoverBtn", "aria", "sidebar.discoverAria"],
+    [".hero-header", "aria", "hero.aria"],
+    ['.menu-overlay a[href$="#visitar"]', "text", "menu.registro"],
+    ['.menu-overlay a[href$="#horarios"]', "text", "menu.schedule"],
+    ['.menu-overlay a[href$="#ubicacion"]', "text", "menu.location"],
+    ['.menu-overlay a[href$="#liderazgo"]', "text", "menu.leadership"],
+    ['.menu-overlay a[href$="nuestra-historia.html"]', "text", "menu.history"],
+    [
+      '.menu-overlay a[href$="nuestras-creencias.html"]',
+      "text",
+      "menu.beliefs",
+    ],
+    ['.menu-overlay a[href$="#biblia"]', "text", "menu.bible"],
+    ['.menu-overlay a[href$="ultimo-sermon.html"]', "text", "menu.sermon"],
+    ['.menu-overlay a[href$="eventos.html"]', "text", "menu.events"],
+    ['.menu-overlay a[href$="#contacto"]', "text", "menu.contact"],
+    ['.menu-overlay a[href*="checkout.square.site"]', "text", "menu.donate"],
+    [".menu-social:not(.menu-lang) .menu-social-title", "text", "menu.social"],
+    ["footer > span", "text", "footer.copyright"],
+    [".fc-phone", "aria", "footer.phone"],
+    [".fc-phone", "title", "footer.phone"],
+    [".fc-whatsapp", "aria", "footer.whatsapp"],
+    [".fc-whatsapp", "title", "footer.whatsapp"],
+    [".fc-email", "aria", "footer.email"],
+    [".fc-email", "title", "footer.email"],
+    [".scroll-to-top", "aria", "scrollTop.aria"],
+    [".scroll-to-top", "title", "scrollTop.title"],
   ];
 
   // Reglas por posición (títulos de las 4 columnas del menú)
   var CHROME_BY_INDEX = [
-    ['.menu-col-title', ['menu.visit', 'menu.about', 'menu.resources', 'menu.connect']]
+    [
+      ".menu-col-title",
+      ["menu.visit", "menu.about", "menu.resources", "menu.connect"],
+    ],
   ];
 
   var ATTR_BY_TYPE = {
-    text: 'data-i18n',
-    aria: 'data-i18n-aria',
-    alt: 'data-i18n-alt',
-    title: 'data-i18n-title',
-    placeholder: 'data-i18n-placeholder'
+    text: "data-i18n",
+    aria: "data-i18n-aria",
+    alt: "data-i18n-alt",
+    title: "data-i18n-title",
+    placeholder: "data-i18n-placeholder",
   };
 
+  // Añade la clave de traducción solo cuando el HTML no define ya un destino.
   function tagOnce(el, attr, key) {
-    if (!el.hasAttribute(attr) && !el.hasAttribute(attr + '-html')) el.setAttribute(attr, key);
+    if (!el.hasAttribute(attr) && !el.hasAttribute(attr + "-html"))
+      el.setAttribute(attr, key);
   }
 
+  // Prepara navegación y pie compartidos para traducirlos sin duplicar atributos.
   function tagChrome() {
     CHROME_RULES.forEach(function (rule) {
       var attr = ATTR_BY_TYPE[rule[1]];
-      Array.prototype.forEach.call(document.querySelectorAll(rule[0]), function (el) {
-        tagOnce(el, attr, rule[2]);
-      });
+      Array.prototype.forEach.call(
+        document.querySelectorAll(rule[0]),
+        function (el) {
+          tagOnce(el, attr, rule[2]);
+        },
+      );
     });
     CHROME_BY_INDEX.forEach(function (rule) {
-      Array.prototype.forEach.call(document.querySelectorAll(rule[0]), function (el, index) {
-        if (rule[1][index]) tagOnce(el, 'data-i18n', rule[1][index]);
-      });
+      Array.prototype.forEach.call(
+        document.querySelectorAll(rule[0]),
+        function (el, index) {
+          if (rule[1][index]) tagOnce(el, "data-i18n", rule[1][index]);
+        },
+      );
     });
   }
 
@@ -188,172 +241,216 @@
     }
     var nodes = el.childNodes;
     for (var i = nodes.length - 1; i >= 0; i--) {
-      if (nodes[i].nodeType === 3 && nodes[i].nodeValue.trim() !== '') {
+      if (nodes[i].nodeType === 3 && nodes[i].nodeValue.trim() !== "") {
         var parts = nodes[i].nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/);
         nodes[i].nodeValue = parts[1] + value + parts[2];
         return;
       }
     }
-    el.appendChild(document.createTextNode(' ' + value));
+    el.appendChild(document.createTextNode(" " + value));
   }
 
   var ATTR_TARGETS = [
-    ['data-i18n-placeholder', 'placeholder'],
-    ['data-i18n-aria', 'aria-label'],
-    ['data-i18n-alt', 'alt'],
-    ['data-i18n-title', 'title']
+    ["data-i18n-placeholder", "placeholder"],
+    ["data-i18n-aria", "aria-label"],
+    ["data-i18n-alt", "alt"],
+    ["data-i18n-title", "title"],
   ];
 
+  // Traduce texto, atributos y meses dentro de la sección indicada.
   function translateTree(scope) {
-    Array.prototype.forEach.call(scope.querySelectorAll('[data-i18n]'), function (el) {
-      setText(el, t(el.getAttribute('data-i18n')));
-    });
+    Array.prototype.forEach.call(
+      scope.querySelectorAll("[data-i18n]"),
+      function (el) {
+        setText(el, t(el.getAttribute("data-i18n")));
+      },
+    );
     // Las cadenas de data-i18n-html son contenido propio (translations), nunca de usuarios
-    Array.prototype.forEach.call(scope.querySelectorAll('[data-i18n-html]'), function (el) {
-      el.innerHTML = t(el.getAttribute('data-i18n-html'));
-    });
+    Array.prototype.forEach.call(
+      scope.querySelectorAll("[data-i18n-html]"),
+      function (el) {
+        el.innerHTML = t(el.getAttribute("data-i18n-html"));
+      },
+    );
     ATTR_TARGETS.forEach(function (pair) {
-      Array.prototype.forEach.call(scope.querySelectorAll('[' + pair[0] + ']'), function (el) {
-        el.setAttribute(pair[1], t(el.getAttribute(pair[0])));
-      });
+      Array.prototype.forEach.call(
+        scope.querySelectorAll("[" + pair[0] + "]"),
+        function (el) {
+          el.setAttribute(pair[1], t(el.getAttribute(pair[0])));
+        },
+      );
     });
-    Array.prototype.forEach.call(scope.querySelectorAll('[data-i18n-month]'), function (el) {
-      el.textContent = t('date.month.' + el.getAttribute('data-i18n-month'));
-    });
+    Array.prototype.forEach.call(
+      scope.querySelectorAll("[data-i18n-month]"),
+      function (el) {
+        el.textContent = t("date.month." + el.getAttribute("data-i18n-month"));
+      },
+    );
   }
 
   // Elementos cuyo texto depende de un estado (botón de sonido del video)
   function updateDynamic() {
-    var mute = document.getElementById('muteBtn');
+    var mute = document.getElementById("muteBtn");
     if (mute) {
-      var unmuted = mute.getAttribute('aria-pressed') === 'true';
-      mute.setAttribute('aria-label', t(unmuted ? 'sidebar.muteOff' : 'sidebar.muteOn'));
+      var unmuted = mute.getAttribute("aria-pressed") === "true";
+      mute.setAttribute(
+        "aria-label",
+        t(unmuted ? "sidebar.muteOff" : "sidebar.muteOn"),
+      );
     }
   }
 
   // ----- Metadatos SEO -----
+  // Actualiza un metadato existente sin crear duplicados.
   function setMeta(selector, value) {
     var el = document.querySelector(selector);
-    if (el) el.setAttribute('content', value);
+    if (el) el.setAttribute("content", value);
   }
 
+  // Crea el metadato Open Graph si falta y mantiene su contenido sincronizado.
   function ensureMeta(property, content) {
     var el = document.querySelector('meta[property="' + property + '"]');
     if (!el) {
-      el = document.createElement('meta');
-      el.setAttribute('property', property);
+      el = document.createElement("meta");
+      el.setAttribute("property", property);
       document.head.appendChild(el);
     }
-    el.setAttribute('content', content);
+    el.setAttribute("content", content);
   }
 
+  // Sincroniza título, descripciones y datos Open Graph con el idioma activo.
   function updateMeta() {
-    var prefix = 'meta.' + pageKey() + '.';
-    if (has(prefix + 'title')) document.title = t(prefix + 'title');
-    if (has(prefix + 'description')) setMeta('meta[name="description"]', t(prefix + 'description'));
-    if (has(prefix + 'ogTitle')) setMeta('meta[property="og:title"]', t(prefix + 'ogTitle'));
-    if (has(prefix + 'ogDescription')) setMeta('meta[property="og:description"]', t(prefix + 'ogDescription'));
+    var prefix = "meta." + pageKey() + ".";
+    if (has(prefix + "title")) document.title = t(prefix + "title");
+    if (has(prefix + "description"))
+      setMeta('meta[name="description"]', t(prefix + "description"));
+    if (has(prefix + "ogTitle"))
+      setMeta('meta[property="og:title"]', t(prefix + "ogTitle"));
+    if (has(prefix + "ogDescription"))
+      setMeta('meta[property="og:description"]', t(prefix + "ogDescription"));
 
-    ensureMeta('og:locale', OG_LOCALES[current]);
-    var other = current === 'es' ? 'en' : 'es';
+    ensureMeta("og:locale", OG_LOCALES[current]);
+    var other = current === "es" ? "en" : "es";
     var alt = document.querySelector('meta[property="og:locale:alternate"]');
     if (!alt) {
-      alt = document.createElement('meta');
-      alt.setAttribute('property', 'og:locale:alternate');
+      alt = document.createElement("meta");
+      alt.setAttribute("property", "og:locale:alternate");
       document.head.appendChild(alt);
     }
-    alt.setAttribute('content', OG_LOCALES[other]);
+    alt.setAttribute("content", OG_LOCALES[other]);
 
-    // Structured data (JSON-LD): solo se actualiza la descripción
-    if (has(prefix + 'ldDescription')) {
-      Array.prototype.forEach.call(document.querySelectorAll('script[type="application/ld+json"]'), function (script) {
-        try {
-          var data = JSON.parse(script.textContent);
-          if (data && typeof data === 'object' && 'description' in data) {
-            data.description = t(prefix + 'ldDescription');
-            script.textContent = JSON.stringify(data, null, 2);
+    // En JSON-LD solo cambia la descripción; los demás datos permanecen intactos.
+    if (has(prefix + "ldDescription")) {
+      Array.prototype.forEach.call(
+        document.querySelectorAll('script[type="application/ld+json"]'),
+        function (script) {
+          try {
+            var data = JSON.parse(script.textContent);
+            if (data && typeof data === "object" && "description" in data) {
+              data.description = t(prefix + "ldDescription");
+              script.textContent = JSON.stringify(data, null, 2);
+            }
+          } catch (e) {
+            /* JSON-LD inválido: se deja intacto */
           }
-        } catch (e) { /* JSON-LD inválido: se deja intacto */ }
-      });
+        },
+      );
     }
   }
 
   // ----- Selector de idioma -----
   var SWITCH_OPTIONS = [
-    { lang: 'es', label: 'ES', aria: 'Español' },
-    { lang: 'en', label: 'EN', aria: 'English' }
+    { lang: "es", label: "ES", aria: "Español" },
+    { lang: "en", label: "EN", aria: "English" },
   ];
 
+  // Construye un botón accesible para cambiar al idioma indicado.
   function createButton(option) {
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'lang-btn';
-    btn.setAttribute('data-lang', option.lang);
-    btn.setAttribute('lang', option.lang);
-    btn.setAttribute('aria-label', option.aria);
-    btn.setAttribute('aria-pressed', 'false');
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "lang-btn";
+    btn.setAttribute("data-lang", option.lang);
+    btn.setAttribute("lang", option.lang);
+    btn.setAttribute("aria-label", option.aria);
+    btn.setAttribute("aria-pressed", "false");
     btn.textContent = option.label;
-    btn.addEventListener('click', function () {
+    btn.addEventListener("click", function () {
       setLanguage(option.lang);
     });
     return btn;
   }
 
+  // Agrupa las opciones de idioma y aplica la variante visual solicitada.
   function createSwitcher(modifier) {
-    var group = document.createElement('div');
-    group.className = 'lang-switch ' + modifier;
-    group.setAttribute('role', 'group');
-    group.setAttribute('data-i18n-aria', 'lang.group');
+    var group = document.createElement("div");
+    group.className = "lang-switch " + modifier;
+    group.setAttribute("role", "group");
+    group.setAttribute("data-i18n-aria", "lang.group");
     SWITCH_OPTIONS.forEach(function (option) {
       group.appendChild(createButton(option));
     });
     return group;
   }
 
+  // Inserta selectores en navegación y menú solo si aún no existen.
   function injectSwitchers() {
-    if (document.querySelector('.lang-switch')) return;
+    if (document.querySelector(".lang-switch")) return;
 
     // Cabecera de escritorio (se oculta en móvil por CSS)
-    var navActions = document.querySelector('.nav-actions');
-    if (navActions) navActions.insertBefore(createSwitcher('lang-switch--nav'), navActions.firstChild);
+    var navActions = document.querySelector(".nav-actions");
+    if (navActions)
+      navActions.insertBefore(
+        createSwitcher("lang-switch--nav"),
+        navActions.firstChild,
+      );
 
     // Menú desplegable (móvil y escritorio): bloque al final de la última columna
-    var cols = document.querySelectorAll('.menu-col');
+    var cols = document.querySelectorAll(".menu-col");
     if (cols.length) {
-      var block = document.createElement('div');
-      block.className = 'menu-social menu-lang';
-      var title = document.createElement('span');
-      title.className = 'menu-social-title';
-      title.setAttribute('data-i18n', 'lang.title');
-      title.textContent = 'Idioma';
+      var block = document.createElement("div");
+      block.className = "menu-social menu-lang";
+      var title = document.createElement("span");
+      title.className = "menu-social-title";
+      title.setAttribute("data-i18n", "lang.title");
+      title.textContent = "Idioma";
       block.appendChild(title);
-      block.appendChild(createSwitcher('lang-switch--menu'));
+      block.appendChild(createSwitcher("lang-switch--menu"));
       cols[cols.length - 1].appendChild(block);
     }
   }
 
+  // Refleja el idioma activo en los estados accesibles y visuales de los botones.
   function updateSwitchers() {
-    Array.prototype.forEach.call(document.querySelectorAll('.lang-btn'), function (btn) {
-      var active = btn.getAttribute('data-lang') === current;
-      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-      btn.classList.toggle('is-active', active);
-    });
+    Array.prototype.forEach.call(
+      document.querySelectorAll(".lang-btn"),
+      function (btn) {
+        var active = btn.getAttribute("data-lang") === current;
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+        btn.classList.toggle("is-active", active);
+      },
+    );
   }
 
   // ----- Flujo principal -----
+  // Aplica el idioma en todo el documento y notifica cambios cuando corresponde.
   function apply(silent, initial) {
-    root.setAttribute('lang', current);
+    root.setAttribute("lang", current);
     tagChrome();
     translateTree(document);
     updateDynamic();
     updateMeta();
     updateSwitchers();
-    root.classList.remove('i18n-pending');
+    root.classList.remove("i18n-pending");
     if (!silent) {
-      document.dispatchEvent(new CustomEvent('fdv:languagechange', { detail: { lang: current, initial: !!initial } }));
+      document.dispatchEvent(
+        new CustomEvent("fdv:languagechange", {
+          detail: { lang: current, initial: !!initial },
+        }),
+      );
     }
   }
 
+  // Cambia el idioma solo si está soportado y persiste la nueva selección.
   function setLanguage(lang) {
     if (SUPPORTED.indexOf(lang) === -1) return;
     if (lang === current) {
@@ -367,30 +464,39 @@
 
   // Arranque inmediato: fija <html lang> y oculta el body solo si hay que traducir a inglés
   current = detectLanguage();
-  root.setAttribute('lang', current);
-  if (current !== DEFAULT_LANG) root.classList.add('i18n-pending');
+  root.setAttribute("lang", current);
+  if (current !== DEFAULT_LANG) root.classList.add("i18n-pending");
   // Red de seguridad: nunca dejar la página oculta si algo falla
-  window.setTimeout(function () { root.classList.remove('i18n-pending'); }, 3000);
+  window.setTimeout(function () {
+    root.classList.remove("i18n-pending");
+  }, 3000);
 
+  // Inicializa los controles y aplica las traducciones al contenido disponible.
   function init() {
     injectSwitchers();
     apply(false, true);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
   // Segunda pasada para elementos que otros scripts crean al final (p. ej. botón de subir)
-  window.addEventListener('load', function () { apply(true); });
+  window.addEventListener("load", function () {
+    apply(true);
+  });
 
   window.t = t;
   window.FDV_I18N = {
     t: t,
-    getLang: function () { return current; },
+    getLang: function () {
+      return current;
+    },
     setLang: setLanguage,
-    apply: function () { apply(true); },
-    supported: SUPPORTED.slice()
+    apply: function () {
+      apply(true);
+    },
+    supported: SUPPORTED.slice(),
   };
 })();

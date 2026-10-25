@@ -1,21 +1,47 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-page="404">
   <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://*.tile.openstreetmap.org; frame-src https://www.youtube.com; connect-src 'self' https://biblia-api.qhar.in https://cdn.jsdelivr.net https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <title>Página no encontrada | Fuente de Vida</title>
     <link rel="icon" href="jpg/logo-sin-fondo2.png" type="image/png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="jpg/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="jpg/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="jpg/favicon-48x48.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="jpg/apple-touch-icon-180x180.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="jpg/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="jpg/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="jpg/favicon-48x48.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="jpg/apple-touch-icon-180x180.png"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&display=swap"
+    />
 
     <link
       rel="stylesheet"
@@ -24,75 +50,49 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      .error-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        min-height: 60vh;
-        padding: 60px 24px;
-      }
-
-      .error-code {
-        font-size: 7rem;
-        font-weight: 700;
-        color: var(--teal);
-        line-height: 1;
-        margin-bottom: 16px;
-        font-family: var(--font-heading);
-      }
-
-      .error-title {
-        font-size: 2rem;
-        color: var(--dark);
-        margin-bottom: 16px;
-        font-family: var(--font-heading);
-      }
-
-      .error-message {
-        font-size: 1.1rem;
-        color: var(--muted);
-        margin-bottom: 32px;
-        max-width: 500px;
-      }
-
-      .error-logo {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 32px;
-        opacity: 0.9;
-      }
-
-      @media (max-width: 640px) {
-        .error-code {
-          font-size: 4rem;
-        }
-
-        .error-title {
-          font-size: 1.5rem;
-        }
-
-        .error-message {
-          font-size: 1rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/404.css" />
+    <!-- Idioma ES/EN: se carga síncrono en el head para evitar parpadeo -->
+    <script src="js/translations.js"></script>
+    <script src="js/translations-404.js"></script>
+    <script src="js/i18n.js"></script>
   </head>
   <body>
     <!-- ===== NAVEGACIÓN ===== -->
     <nav>
-      <a href="index.html"><img src="jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" /></a>
+      <a href="index.html"
+        ><img src="jpg/logo-sin-fondo-104.webp" alt="Logo Fuente de Vida" width="48" height="48"
+      /></a>
       <ul class="nav-links-horizontal">
-        <li><a href="index.html#visitar">Visítanos</a></li>
-        <li><a href="index.html#horarios">Horarios</a></li>
-        <li><a href="index.html#liderazgo">Liderazgo</a></li>
-        <li><a href="index.html#contacto">Contacto</a></li>
-        <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer">Donaciones</a></li>
+        <li>
+          <a href="index.html#visitar" data-i18n="404.navVisit">Visítanos</a>
+        </li>
+        <li>
+          <a href="index.html#horarios" data-i18n="404.navSchedule">Horarios</a>
+        </li>
+        <li>
+          <a href="index.html#liderazgo" data-i18n="404.navLeadership"
+            >Liderazgo</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contacto" data-i18n="404.navContact">Contacto</a>
+        </li>
+        <li>
+          <a
+            href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Donaciones</a
+          >
+        </li>
       </ul>
       <div class="nav-actions">
-        <button class="menu-hamburguesa" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <button
+          class="menu-hamburguesa"
+          id="menuBtn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -103,15 +103,38 @@
     <!-- ===== BARRAS LATERALES FIJAS ===== -->
     <div class="side-bar side-bar-left">
       <div class="side-bar-icons">
-        <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-        <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100064671460385"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          ><i class="fab fa-facebook-f" aria-hidden="true"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/ia.fuentedevida/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram" aria-hidden="true"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@fdvmadison7681"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          ><i class="fab fa-youtube" aria-hidden="true"></i
+        ></a>
       </div>
       <div class="side-bar-line" aria-hidden="true"></div>
       <span class="side-bar-label">SÍGUENOS</span>
     </div>
     <div class="side-bar side-bar-right">
-      <button type="button" class="side-bar-scroll" id="discoverBtn" aria-label="Descubre más, ir a la siguiente sección">
+      <button
+        type="button"
+        class="side-bar-scroll"
+        id="discoverBtn"
+        aria-label="Descubre más, ir a la siguiente sección"
+      >
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="side-bar-line" aria-hidden="true"></div>
@@ -120,13 +143,28 @@
 
     <!-- ===== MENÚ OVERLAY DESPLEGABLE ===== -->
     <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
-    <div id="menuOverlay" class="menu-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div
+      id="menuOverlay"
+      class="menu-overlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menú principal"
+    >
       <div class="menu-overlay-backdrop" aria-hidden="true"></div>
       <div class="menu-overlay-header">
-        <a href="index.html" class="menu-overlay-logo" aria-label="Inicio - Fuente de Vida">
-          <img src="jpg/logo-sin-fondo.png" alt="Logo Fuente de Vida" />
+        <a
+          href="index.html"
+          class="menu-overlay-logo"
+          aria-label="Inicio - Fuente de Vida"
+        >
+          <img src="jpg/logo-sin-fondo-104.webp" alt="Logo Fuente de Vida" width="52" height="52" loading="lazy" />
         </a>
-        <button class="menu-overlay-close" id="menuCloseBtn" aria-label="Cerrar menú">
+        <button
+          class="menu-overlay-close"
+          id="menuCloseBtn"
+          aria-label="Cerrar menú"
+        >
           <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
@@ -135,66 +173,154 @@
           <div class="menu-col">
             <h3 class="menu-col-title">Visítanos</h3>
             <ul class="menu-col-links">
-              <li><a href="index.html#visitar"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Registro de Visitas</a></li>
-              <li><a href="index.html#horarios"><i class="fas fa-clock" aria-hidden="true"></i> Horarios</a></li>
-              <li><a href="index.html#ubicacion"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></li>
+              <li>
+                <a href="index.html#visitar"
+                  ><i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                  Registro de Visitas</a
+                >
+              </li>
+              <li>
+                <a href="index.html#horarios"
+                  ><i class="fas fa-clock" aria-hidden="true"></i> Horarios</a
+                >
+              </li>
+              <li>
+                <a href="index.html#ubicacion"
+                  ><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  Ubicación</a
+                >
+              </li>
             </ul>
           </div>
           <div class="menu-col">
             <h3 class="menu-col-title">Nosotros</h3>
             <ul class="menu-col-links">
-              <li><a href="index.html#liderazgo"><i class="fas fa-users" aria-hidden="true"></i> Liderazgo</a></li>
-              <li><a href="html/nuestra-historia.html"><i class="fas fa-book-open" aria-hidden="true"></i> Nuestra Historia</a></li>
-              <li><a href="html/nuestras-creencias.html"><i class="fas fa-cross" aria-hidden="true"></i> Nuestras Creencias</a></li>
+              <li>
+                <a href="index.html#liderazgo"
+                  ><i class="fas fa-users" aria-hidden="true"></i> Liderazgo</a
+                >
+              </li>
+              <li>
+                <a href="html/nuestra-historia.html"
+                  ><i class="fas fa-book-open" aria-hidden="true"></i> Nuestra
+                  Historia</a
+                >
+              </li>
+              <li>
+                <a href="html/nuestras-creencias.html"
+                  ><i class="fas fa-cross" aria-hidden="true"></i> Nuestras
+                  Creencias</a
+                >
+              </li>
             </ul>
           </div>
           <div class="menu-col">
             <h3 class="menu-col-title">Recursos</h3>
             <ul class="menu-col-links">
-              <li><a href="index.html#biblia"><i class="fas fa-bible" aria-hidden="true"></i> Lectura Bíblica</a></li>
-              <li><a href="html/ultimo-sermon.html"><i class="fas fa-video" aria-hidden="true"></i> Último Sermón</a></li>
-              <li><a href="html/eventos.html"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Ver Eventos</a></li>
+              <li>
+                <a href="index.html#biblia"
+                  ><i class="fas fa-bible" aria-hidden="true"></i> Lectura
+                  Bíblica</a
+                >
+              </li>
+              <li>
+                <a href="html/ultimo-sermon.html"
+                  ><i class="fas fa-video" aria-hidden="true"></i> Último
+                  Sermón</a
+                >
+              </li>
+              <li>
+                <a href="html/eventos.html"
+                  ><i class="fas fa-calendar-alt" aria-hidden="true"></i> Ver
+                  Eventos</a
+                >
+              </li>
             </ul>
           </div>
           <div class="menu-col">
             <h3 class="menu-col-title">Conecta</h3>
             <ul class="menu-col-links">
-              <li><a href="index.html#contacto"><i class="fas fa-envelope" aria-hidden="true"></i> Contacto</a></li>
-              <li><a href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr" target="_blank" rel="noopener noreferrer"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Donaciones</a></li>
+              <li>
+                <a href="index.html#contacto"
+                  ><i class="fas fa-envelope" aria-hidden="true"></i>
+                  Contacto</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://checkout.square.site/merchant/T9JNSZQ254EQE/checkout/TNEE3MU3PWLOR77OKN5VECLM?src=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                  Donaciones</a
+                >
+              </li>
             </ul>
             <div class="menu-social">
               <span class="menu-social-title">Redes Sociales</span>
               <div class="menu-social-icons">
-                <a href="https://www.facebook.com/profile.php?id=100064671460385" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="menu-social-btn fb"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/ia.fuentedevida/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="menu-social-btn ig"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.youtube.com/@fdvmadison7681" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="menu-social-btn yt"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100064671460385"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  class="menu-social-btn fb"
+                  ><i class="fab fa-facebook-f" aria-hidden="true"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/ia.fuentedevida/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  class="menu-social-btn ig"
+                  ><i class="fab fa-instagram" aria-hidden="true"></i
+                ></a>
+                <a
+                  href="https://www.youtube.com/@fdvmadison7681"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  class="menu-social-btn yt"
+                  ><i class="fab fa-youtube" aria-hidden="true"></i
+                ></a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/menu-overlay.js"></script>
+    <script src="js/menu-overlay.js" defer></script>
+    <script src="js/icons.js" defer></script>
 
     <!-- ===== ERROR SECTION ===== -->
+    <main id="main">
     <section class="error-section">
-      <img src="jpg/logo-sin-fondo2.png" alt="Logo Fuente de Vida" class="error-logo" />
+      <img
+        src="jpg/logo-sin-fondo2.png"
+        alt="Logo Fuente de Vida"
+        data-i18n-alt="nav.logoAlt"
+        class="error-logo"
+      />
       <div class="error-code">404</div>
-      <h1 class="error-title">Ups, no encontramos esta página</h1>
-      <p class="error-message">
-        La página que buscas no existe o ha sido movida. Pero no te preocupes, podemos ayudarte a volver al inicio.
+      <h1 class="error-title" data-i18n="404.title">
+        Ups, no encontramos esta página
+      </h1>
+      <p class="error-message" data-i18n="404.message">
+        La página que buscas no existe o ha sido movida. Pero no te preocupes,
+        podemos ayudarte a volver al inicio.
       </p>
-      <a href="index.html" class="btn btn-primary">
-        <i class="fas fa-home" style="margin-right: 8px;"></i>Volver al inicio
+      <a href="index.html" class="btn btn-primary" data-i18n="404.home">
+        <i class="fas fa-home" style="margin-right: 8px"></i>Volver al inicio
       </a>
     </section>
-
-    <!-- ===== FOOTER ===== -->
+    </main>
     <footer>
       <strong>Fuente De Vida</strong>
-      <span>2026 Iglesia Apostólica de la Fe en Cristo Jesús – Madison, WI</span>
+      <span
+        >2026 Iglesia Apostólica de la Fe en Cristo Jesús – Madison, WI</span
+      >
 
-      <div class="footer-contact" role="list">
+      <div class="footer-contact">
         <a href="tel:+16082176835" class="fc-phone">
           <i class="fas fa-phone" aria-hidden="true"></i>
         </a>
@@ -206,15 +332,12 @@
         >
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
-        <a
-          href="mailto:pastorfdvjacobocastillo@gmail.com"
-          class="fc-email"
-        >
+        <a href="mailto:pastorfdvjacobocastillo@gmail.com" class="fc-email">
           <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
       </div>
     </footer>
 
-    <script src="js/scroll-to-top.js"></script>
+    <script src="js/scroll-to-top.js" defer></script>
   </body>
 </html>

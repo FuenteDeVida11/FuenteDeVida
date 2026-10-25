@@ -1,14 +1,18 @@
-"""Add a light circular background behind the transparent favicon logo
-and generate standard favicon sizes. Only touches jpg/logo-sin-fondo2.png
-and derived favicon-*.png files; does not touch logo-sin-fondo.png (nav logo)."""
+"""Añade un fondo circular claro al logotipo del favicon y genera sus tamaños.
+
+Solo modifica el favicon base y los archivos favicon derivados; no altera el
+logotipo usado en la navegación.
+"""
+
 from pathlib import Path
 from PIL import Image, ImageDraw
 
 JPG_DIR = Path(__file__).resolve().parent.parent / "jpg"
 SRC = JPG_DIR / "logo-sin-fondo2.png"
 
-BG_COLOR = (255, 255, 255, 255)  # white circle
+BG_COLOR = (255, 255, 255, 255)  # Color del círculo de fondo.
 
+# Compone el logotipo sobre un círculo blanco conservando la transparencia.
 def build_base_with_background():
     logo = Image.open(SRC).convert("RGBA")
     w, h = logo.size
@@ -26,6 +30,7 @@ def build_base_with_background():
     combined = Image.alpha_composite(circle, logo)
     return combined
 
+# Genera el favicon base y sus versiones en los tamaños estándar.
 def main():
     combined = build_base_with_background()
     combined.save(SRC)

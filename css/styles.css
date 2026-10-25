@@ -1,6 +1,64 @@
-﻿:root {
+﻿/* Font Awesome con font-display: swap para no bloquear el texto mientras carga */
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2")
+    format("woff2");
+}
+
+/* Áreas táctiles de 48 px sin cambiar el tamaño visible de los controles */
+.menu-hamburguesa,
+.menu-overlay-close,
+.side-bar a,
+.side-bar button,
+.footer-contact a,
+.menu-col-links li a {
+  position: relative;
+}
+
+.menu-hamburguesa::after,
+.menu-overlay-close::after,
+.side-bar a::after,
+.side-bar button::after,
+.footer-contact a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+}
+
+.menu-col-links li a::after {
+  content: "";
+  position: absolute;
+  inset: -8px 0;
+}
+
+:root {
   --teal: #1a7a8a;
-  --teal-dark:#0f5060;
+  --teal-dark: #0f5060;
   --teal-light: #fdfdfd;
   --gold: #c9a84c;
   --menu-accent: #1a7a8a;
@@ -13,19 +71,21 @@
   --radius: 12px;
   --shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   --shadowa: 0 4px 24px rgba(26, 122, 138, 0.12);
-  --font-heading: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Karla', sans-serif;
+  --font-heading: "Bricolage Grotesque", sans-serif;
+  --font-body: "Karla", sans-serif;
 }
 
-
-*, *::before,
+*,
+*::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-body);
@@ -35,13 +95,31 @@ body {
   font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6, .heading, .section-heading {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.section-heading {
   font-family: var(--font-heading);
   color: var(--dark);
   line-height: 1.2;
 }
 
-button, input, textarea, select, .btn, .nav-menu li a, .form-group label, .contact-card-link, .footer-contact a, span, li, p {
+button,
+input,
+textarea,
+select,
+.btn,
+.nav-menu li a,
+.form-group label,
+.contact-card-link,
+.footer-contact a,
+span,
+li,
+p {
   font-family: var(--font-body);
 }
 
@@ -58,7 +136,8 @@ h3 {
 }
 
 p {
-  color: var(--text); max-width: 65ch;
+  color: var(--text);
+  max-width: 65ch;
 }
 
 a {
@@ -100,6 +179,9 @@ nav {
 }
 
 .nav-links-horizontal a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
   color: var(--dark);
   font-weight: 600;
   font-size: 0.8rem;
@@ -158,7 +240,9 @@ nav img {
   min-height: 34px;
   padding: 6px 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .lang-btn + .lang-btn {
@@ -197,13 +281,13 @@ html.i18n-pending body {
   visibility: hidden;
 }
 
-/* Nav original (lista de enlaces) reemplazado por el menú overlay; se mantiene oculto en todas las páginas */
+/* La lista de navegación se conserva oculta al usar el menú overlay en todas las páginas. */
 .nav-menu,
 #navMenu {
   display: none !important;
 }
 
-/* Menu hamburguesa */
+/* Menú hamburguesa */
 .menu-hamburguesa {
   display: flex;
   flex-direction: column;
@@ -265,7 +349,6 @@ html.i18n-pending body {
   gap: 14px;
   pointer-events: auto;
 }
-
 
 .side-bar-left {
   left: 20px;
@@ -357,7 +440,9 @@ html.i18n-pending body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
 .menu-backdrop.active {
@@ -379,7 +464,10 @@ html.i18n-pending body {
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-24px);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
+    visibility 0.35s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -436,7 +524,11 @@ html.i18n-pending body {
   font-size: 1.25rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: background-color 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.2s,
+    border-color 0.2s;
 }
 
 .menu-overlay-close:hover {
@@ -490,7 +582,7 @@ html.i18n-pending body {
 }
 
 .menu-col-title::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -518,7 +610,9 @@ html.i18n-pending body {
   font-weight: 700;
   text-decoration: none;
   padding: 4px 0;
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.75);
 }
 
@@ -547,7 +641,9 @@ html.i18n-pending body {
   flex: none;
   display: block;
   color: var(--teal);
-  transition: transform 0.2s, color 0.2s;
+  transition:
+    transform 0.2s,
+    color 0.2s;
 }
 
 .fdv-icon--social {
@@ -748,38 +844,40 @@ header .redes {
   }
 }
 
-  .btn {
-    display: inline-block;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-  }
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  text-align: center;
+}
 
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(26, 122, 138, 0.3);
-  }
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 122, 138, 0.3);
+}
 
-  .btn:focus {
-    outline: 2px solid var(--teal);
-    outline-offset: 2px;
-  }
+.btn:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
 
-  .btn-primary {
-    background: var(--teal);
-    color: var(--white);
-  }
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
 
-  .btn-primary:hover {
-    background: var(--teal-dark);
-    box-shadow: 0 8px 24px rgba(26, 122, 138, 0.3);
-  }
+.btn-primary:hover {
+  background: var(--teal-dark);
+  box-shadow: 0 8px 24px rgba(26, 122, 138, 0.3);
+}
 
 .btn-outline {
   background: var(--teal);
@@ -819,7 +917,7 @@ section.bg-light {
   border-top: none;
 }
 
-section.bg-teal h2, 
+section.bg-teal h2,
 section.bg-teal h3,
 section.bg-light h2,
 section.bg-light h3 {
@@ -867,7 +965,9 @@ section.bg-light p {
   border-radius: 14px;
   border: 1px solid #dbe2e8;
   background: var(--cream);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .form-group input[type="text"]:focus,
@@ -892,7 +992,9 @@ section.bg-light p {
   border-radius: 16px;
   background: var(--white);
   border: 1px solid #dbe2e8;
-  transition: border-color 0.2s, background-color 0.2s;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 
 .horario-opcion:hover {
@@ -1016,8 +1118,14 @@ section.bg-light p {
   border: 4px solid var(--teal-light);
 }
 
-.lider-info h3 { margin-bottom: 6px; }
-.lider-info p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+.lider-info h3 {
+  margin-bottom: 6px;
+}
+.lider-info p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
 
 /* ---- Contacto ---- */
 .contacto-grid {
@@ -1037,12 +1145,14 @@ section.bg-light p {
   box-shadow: var(--shadow);
   text-decoration: none;
   color: var(--text);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .contacto-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(26,122,138,0.18);
+  box-shadow: 0 8px 28px rgba(26, 122, 138, 0.18);
   color: var(--text);
 }
 
@@ -1058,8 +1168,17 @@ section.bg-light p {
   flex-shrink: 0;
 }
 
-.contacto-item strong { display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.contacto-item span { font-weight: 600; font-size: 0.95rem; }
+.contacto-item strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.contacto-item span {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 
 /* ---- Redes sociales ---- */
 .redes {
@@ -1082,7 +1201,10 @@ section.bg-light p {
   font-size: 0.9rem;
   background: var(--teal);
   color: var(--white);
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .red-social:hover {
@@ -1124,7 +1246,7 @@ section.bg-light p {
 /* ---- Footer ---- */
 footer {
   background: var(--dark);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
   padding: 32px 24px;
   font-size: 0.85rem;
@@ -1133,7 +1255,7 @@ footer {
 .footer-cta {
   padding-bottom: 28px;
   margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer-cta h2 {
@@ -1141,7 +1263,7 @@ footer {
 }
 
 .footer-cta .cta-text {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 24px;
 }
 
@@ -1151,12 +1273,12 @@ footer {
 
 .footer-cta .btn-outline {
   background: transparent;
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255, 255, 255, 0.5);
   color: var(--white);
 }
 
 .footer-cta .btn-outline:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-color: var(--white);
   color: var(--white);
 }
@@ -1185,14 +1307,16 @@ footer strong {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--white);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .footer-contact a:hover {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .fc-phone,
@@ -1212,32 +1336,57 @@ footer strong {
 
 /* ---- Animación de entrada ---- */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 header > * {
   animation: fadeUp 0.7s ease both;
 }
-header img     { animation-delay: 0.1s; }
-header h1      { animation-delay: 0.25s; }
-header h3, header p { animation-delay: 0.4s; }
-header a       { animation-delay: 0.55s; }
+header img {
+  animation-delay: 0.1s;
+}
+header h1 {
+  animation-delay: 0.25s;
+}
+header h3,
+header p {
+  animation-delay: 0.4s;
+}
+header a {
+  animation-delay: 0.55s;
+}
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
-  nav { padding: 12px 16px; }
-  nav ul { gap: 14px; }
-  nav ul li a { font-size: 0.8rem; }
+  nav {
+    padding: 12px 16px;
+  }
+  nav ul {
+    gap: 14px;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+  }
 
-  header { padding: 64px 16px 56px; }
+  header {
+    padding: 64px 16px 56px;
+  }
 
   .lider-card {
     flex-direction: column;
     text-align: center;
   }
 
-  section { padding: 48px 16px; }
+  section {
+    padding: 48px 16px;
+  }
 }
 
 /* Espaciado superior para contenido inmediatamente posterior a fotos o headers grandes */
@@ -1281,7 +1430,9 @@ header + .video-section,
   border: 2px solid var(--teal-light);
   border-radius: 999px;
   font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   margin: 0 auto;
   display: block;
 }
@@ -1342,7 +1493,9 @@ header + .video-section,
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadowa);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   height: auto;
@@ -1393,7 +1546,8 @@ header + .video-section,
   color: var(--teal-dark);
 }
 
-.sermon-info span, .sermon-info p {
+.sermon-info span,
+.sermon-info p {
   display: block;
   font-size: 0.85rem;
   color: var(--muted);
@@ -1425,7 +1579,7 @@ header + .video-section,
   }
 }
 
-/* ---- Maps & Forms ---- */
+/* ---- Mapas y formularios ---- */
 .maps-iframe {
   border: 0;
 }
@@ -1453,7 +1607,7 @@ header + .video-section,
   margin-top: 20px;
 }
 
-/* ---- Bible Section ---- */
+/* ---- Sección de lectura bíblica ---- */
 .bible-controls {
   display: flex;
   gap: 16px;
@@ -1502,7 +1656,7 @@ header + .video-section,
   box-shadow: var(--shadow);
 }
 
-/* Redesigned Bible card */
+/* Tarjeta de lectura bíblica */
 .bible-controls {
   display: flex;
   gap: 12px;
@@ -1510,51 +1664,105 @@ header + .video-section,
   margin-top: 8px;
 }
 
-.bible-select, .bible-input, .bible-btn {
+.bible-select,
+.bible-input,
+.bible-btn {
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid #e6edf0;
 }
-.bible-input { flex: 1; min-width: 160px; }
+.bible-input {
+  flex: 1;
+  min-width: 160px;
+}
 
-.bible-container { margin-top: 14px; }
-.bible-result { }
+.bible-container {
+  margin-top: 14px;
+}
+.bible-result {
+}
 
 .bible-card {
   background: var(--white);
   border-radius: 14px;
   padding: 18px 20px;
-  box-shadow: 0 12px 28px rgba(16,24,40,0.06);
-  border: 1px solid rgba(26,122,138,0.06);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.06);
+  border: 1px solid rgba(26, 122, 138, 0.06);
   animation: fadeUp 0.45s ease both;
 }
 .bible-resultado {
   background: var(--white);
   border-radius: 14px;
   padding: 18px 20px;
-  box-shadow: 0 12px 28px rgba(16,24,40,0.06);
-  border: 1px solid rgba(26,122,138,0.06);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.06);
+  border: 1px solid rgba(26, 122, 138, 0.06);
   animation: fadeUp 0.45s ease both;
   font-family: var(--font-body);
   color: var(--dark);
 }
-.bible-card h3 { margin: 0 0 10px 0; font-family: var(--font-heading); color: var(--teal-dark); }
-.bible-text { font-family: var(--font-body); color: var(--dark); font-size: 1.05rem; line-height: 1.8; }
-.bible-text p { margin: 8px 0; }
-.bible-text sup { font-size: 0.75rem; color: var(--muted); margin-right: 8px; }
-
-.bible-actions { display: flex; gap: 10px; margin-top: 14px; align-items: center; }
-.bible-action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; font-weight:700; cursor: pointer; border: 1px solid rgba(0,0,0,0.06); background: transparent; }
-.bible-action-btn.copy { background: rgba(201,168,76,0.08); color: var(--dark); border-color: rgba(201,168,76,0.14); }
-.bible-action-btn.share { background: rgba(26,122,138,0.06); color: var(--teal-dark); border-color: rgba(26,122,138,0.12); }
-.bible-action-btn:active { transform: translateY(1px); }
-
-@media (max-width:640px) {
-  .bible-controls { flex-direction: column; align-items: stretch; }
-  .bible-action-btn { width: 100%; justify-content: center; }
+.bible-card h3 {
+  margin: 0 0 10px 0;
+  font-family: var(--font-heading);
+  color: var(--teal-dark);
+}
+.bible-text {
+  font-family: var(--font-body);
+  color: var(--dark);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.bible-text p {
+  margin: 8px 0;
+}
+.bible-text sup {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-right: 8px;
 }
 
-/* ---- CTA Section ---- */
+.bible-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  align-items: center;
+}
+.bible-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+}
+.bible-action-btn.copy {
+  background: rgba(201, 168, 76, 0.08);
+  color: var(--dark);
+  border-color: rgba(201, 168, 76, 0.14);
+}
+.bible-action-btn.share {
+  background: rgba(26, 122, 138, 0.06);
+  color: var(--teal-dark);
+  border-color: rgba(26, 122, 138, 0.12);
+}
+.bible-action-btn:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .bible-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bible-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---- Invitación principal ---- */
 .cta-container {
   text-align: center;
 }
@@ -1576,7 +1784,7 @@ header + .video-section,
   flex-wrap: wrap;
 }
 
-/* ---- Eventos Page ---- */
+/* ---- Página de eventos ---- */
 #eventos-section {
   padding-bottom: 110px;
 }
@@ -1634,7 +1842,7 @@ header + .video-section,
   opacity: 0.85;
 }
 
-/* ---- SCROLL TO TOP BUTTON ---- */
+/* ---- Botón para volver arriba ---- */
 .scroll-to-top {
   position: fixed;
   bottom: 32px;
@@ -1653,7 +1861,10 @@ header + .video-section,
   box-shadow: var(--shadow);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.2s ease;
   z-index: 999;
 }
 
@@ -1674,8 +1885,8 @@ header + .video-section,
 
 @media (max-width: 640px) {
   .scroll-to-top {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     bottom: 24px;
     right: 24px;
     font-size: 1rem;
@@ -1727,7 +1938,7 @@ header + .video-section,
   margin-bottom: 10px;
 }
 
-/* ---- Creencias Page ---- */
+/* ---- Página de creencias ---- */
 .creencias-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1772,7 +1983,7 @@ header + .video-section,
   display: block;
 }
 
-/* ---- Historia Page ---- */
+/* ---- Página de historia ---- */
 .timeline {
   position: relative;
   margin-top: 40px;
@@ -1780,7 +1991,7 @@ header + .video-section,
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 8px;
   top: 0;
@@ -1796,7 +2007,7 @@ header + .video-section,
 }
 
 .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -28px;
   top: 6px;
@@ -1827,7 +2038,7 @@ header + .video-section,
   margin: 0;
 }
 
-/* ---- Liderazgo Page ---- */
+/* ---- Página de liderazgo ---- */
 .lider-grande {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
@@ -1892,7 +2103,9 @@ header + .video-section,
   font-weight: 700;
   color: white;
   text-decoration: none;
-  transition: transform 0.2s, opacity 0.2s;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
 }
 
 .contact-card-link:hover {
@@ -1921,22 +2134,19 @@ header + .video-section,
   }
 }
 
+.sermon-list li {
+  flex-direction: column;
+  height: auto;
+}
 
+.sermon-thumbnail {
+  width: 100%;
+  min-width: 100%;
+}
 
-  .sermon-list li {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .sermon-thumbnail {
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .sermon-info {
-    padding: 16px;
-  }
-
+.sermon-info {
+  padding: 16px;
+}
 
 @media (max-width: 640px) {
   .sermon-search-box {
@@ -2018,19 +2228,19 @@ header + .video-section,
   margin: 0 auto;
 }
 
-/* use vertical "-telefono" images only on phone-sized screens */
+/* Usa imágenes verticales "-telefono" solo en pantallas de teléfono. */
 @media (max-width: 640px) {
   .header-historia {
-    background-image: url('../jpg/historia-back-telefono.JPG') !important;
+    background-image: url("../jpg/historia-back-telefono.webp") !important;
   }
   .header-creencias {
-    background-image: url('../jpg/back-creencias-telefono.JPG') !important;
+    background-image: url("../jpg/back-creencias-telefono.webp") !important;
   }
   .header-liderazgo {
-    background-image: url('../jpg/liderazgo-fdv-telefono.JPG') !important;
+    background-image: url("../jpg/liderazgo-fdv-telefono.webp") !important;
   }
   .header-sermon {
-    background-image: url('../jpg/jacobo-predicando-telefono.JPG') !important;
+    background-image: url("../jpg/jacobo-predicando-telefono.JPG") !important;
   }
 }
 
@@ -2038,4 +2248,3 @@ header + .video-section,
   background-color: #060105;
   color: #fff;
 }
-

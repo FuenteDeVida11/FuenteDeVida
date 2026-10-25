@@ -1,6 +1,8 @@
-"""Expand favicon <link> tags to include standard sizes for all HTML pages.
-Only touches the two favicon lines (rel="icon" / apple-touch-icon); does not
-touch body/nav <img> logo references."""
+"""Añade tamaños estándar de favicon a las páginas HTML.
+
+Solo modifica los enlaces de icono y no toca los logotipos del contenido.
+"""
+
 import re
 from pathlib import Path
 
@@ -12,6 +14,7 @@ PATTERN = re.compile(
     r'\s*\n\s*<link rel="apple-touch-icon" href="(?P=prefix)logo-sin-fondo2\.png" />'
 )
 
+# Construye el conjunto de enlaces con la ruta e indentación de cada página.
 def build_block(indent, prefix):
     lines = [
         f'{indent}<link rel="icon" href="{prefix}logo-sin-fondo2.png" type="image/png" />',
@@ -22,6 +25,7 @@ def build_block(indent, prefix):
     ]
     return "\n".join(lines)
 
+# Actualiza las páginas que contienen el bloque de favicon esperado.
 def main():
     updated = []
     for path in FILES:
@@ -31,7 +35,7 @@ def main():
             print(f"SKIP (no match): {path}")
             continue
         block = build_block(match.group("indent"), match.group("prefix"))
-        new_text = text[: match.start()] + block + text[match.end():]
+        new_text = text[: match.start()] + block + text[match.end() :]
         path.write_text(new_text, encoding="utf-8")
         updated.append(path)
         print(f"updated {path}")

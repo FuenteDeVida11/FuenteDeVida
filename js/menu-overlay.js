@@ -1,42 +1,45 @@
 // Control compartido del menú overlay desplegable y las barras laterales
-document.addEventListener('DOMContentLoaded', function () {
-  const menuBtn = document.getElementById('menuBtn');
-  const menuCloseBtn = document.getElementById('menuCloseBtn');
-  const menuOverlay = document.getElementById('menuOverlay');
-  const menuBackdrop = document.getElementById('menuBackdrop');
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const menuCloseBtn = document.getElementById("menuCloseBtn");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuBackdrop = document.getElementById("menuBackdrop");
 
+  // Sincroniza el estado visual, accesible y de desplazamiento al abrir.
   function openMenu() {
     if (!menuOverlay) return;
-    menuOverlay.classList.add('active');
-    menuOverlay.setAttribute('aria-hidden', 'false');
+    menuOverlay.classList.add("active");
+    menuOverlay.setAttribute("aria-hidden", "false");
     if (menuBackdrop) {
-      menuBackdrop.classList.add('active');
-      menuBackdrop.setAttribute('aria-hidden', 'false');
+      menuBackdrop.classList.add("active");
+      menuBackdrop.setAttribute("aria-hidden", "false");
     }
     if (menuBtn) {
-      menuBtn.classList.add('active');
-      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.classList.add("active");
+      menuBtn.setAttribute("aria-expanded", "true");
     }
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }
 
+  // Restaura la página y los atributos accesibles al cerrar el menú.
   function closeMenu() {
     if (!menuOverlay) return;
-    menuOverlay.classList.remove('active');
-    menuOverlay.setAttribute('aria-hidden', 'true');
+    menuOverlay.classList.remove("active");
+    menuOverlay.setAttribute("aria-hidden", "true");
     if (menuBackdrop) {
-      menuBackdrop.classList.remove('active');
-      menuBackdrop.setAttribute('aria-hidden', 'true');
+      menuBackdrop.classList.remove("active");
+      menuBackdrop.setAttribute("aria-hidden", "true");
     }
     if (menuBtn) {
-      menuBtn.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
     }
-    document.body.style.overflow = '';
+    document.body.style.overflow = "";
   }
 
+  // Alterna entre los estados abierto y cerrado del panel.
   function toggleMenu() {
-    if (menuOverlay && menuOverlay.classList.contains('active')) {
+    if (menuOverlay && menuOverlay.classList.contains("active")) {
       closeMenu();
     } else {
       openMenu();
@@ -44,35 +47,39 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (menuBtn) {
-    menuBtn.addEventListener('click', toggleMenu);
+    menuBtn.addEventListener("click", toggleMenu);
   }
 
   if (menuCloseBtn) {
-    menuCloseBtn.addEventListener('click', closeMenu);
+    menuCloseBtn.addEventListener("click", closeMenu);
   }
 
   if (menuBackdrop) {
-    menuBackdrop.addEventListener('click', closeMenu);
+    menuBackdrop.addEventListener("click", closeMenu);
   }
 
   if (menuOverlay) {
-    const menuLinks = menuOverlay.querySelectorAll('a');
+    const menuLinks = menuOverlay.querySelectorAll("a");
     menuLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener("click", closeMenu);
     });
   }
 
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && menuOverlay && menuOverlay.classList.contains('active')) {
+  document.addEventListener("keydown", function (event) {
+    if (
+      event.key === "Escape" &&
+      menuOverlay &&
+      menuOverlay.classList.contains("active")
+    ) {
       closeMenu();
     }
   });
 
   // Botón "Descubre" de la barra lateral derecha: baja a la siguiente sección
-  const discoverBtn = document.getElementById('discoverBtn');
+  const discoverBtn = document.getElementById("discoverBtn");
   if (discoverBtn) {
-    discoverBtn.addEventListener('click', function () {
-      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+    discoverBtn.addEventListener("click", function () {
+      window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
     });
   }
 });

@@ -1546,6 +1546,199 @@ header + .video-section,
   color: var(--teal-dark);
 }
 
+.sermon-info .sermon-transcript-link {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+}
+
+.transcript-page {
+  max-width: 900px;
+}
+
+.transcript-page h1 {
+  color: var(--teal-dark);
+}
+
+.transcript-page .transcript-meta {
+  color: var(--muted);
+}
+
+.transcript-page .transcript-body {
+  line-height: 1.8;
+}
+
+.transcript-page .transcript-body p + p {
+  margin-top: 1.25em;
+}
+
+.transcript-dialog {
+  position: fixed;
+  inset: 4vh 4vw;
+  width: 92vw;
+  max-width: 1200px;
+  height: 92vh;
+  max-height: 900px;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  color: var(--dark);
+  background: var(--white);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+}
+
+.transcript-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.transcript-dialog::backdrop {
+  background: rgba(15, 30, 35, 0.68);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.transcript-dialog-header,
+.transcript-dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(26, 122, 138, 0.16);
+}
+
+.transcript-dialog-header h2,
+.transcript-dialog-header p {
+  margin: 0;
+}
+
+.transcript-dialog-header h2 {
+  color: var(--teal-dark);
+}
+
+.transcript-dialog-header p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.transcript-dialog-close {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--teal);
+  border-radius: 50%;
+  color: var(--teal-dark);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.transcript-dialog-close:hover {
+  color: var(--white);
+  background: var(--teal);
+}
+
+.transcript-dialog-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  min-height: 0;
+  flex: 1;
+}
+
+.transcript-dialog-nav {
+  position: static;
+  top: auto;
+  z-index: auto;
+  display: block;
+  align-items: stretch;
+  justify-content: initial;
+  gap: 0;
+  height: auto;
+  overflow-y: auto;
+  padding: 22px 16px;
+  border-right: 1px solid rgba(26, 122, 138, 0.16);
+  border-bottom: 0;
+  background: rgba(26, 122, 138, 0.05);
+  box-shadow: none;
+}
+
+.transcript-dialog-nav h3 {
+  margin: 0 8px 12px;
+  color: var(--teal-dark);
+  font-size: 1rem;
+}
+
+.transcript-dialog-nav ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transcript-dialog-nav button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--dark);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.transcript-dialog-nav button:hover,
+.transcript-dialog-nav button[aria-current="true"] {
+  border-color: rgba(26, 122, 138, 0.24);
+  color: var(--teal-dark);
+  background: var(--white);
+}
+
+.transcript-reader {
+  overflow-y: auto;
+  padding: 28px clamp(20px, 5vw, 64px);
+}
+
+.transcript-reader .transcript-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.transcript-reader .transcript-page > p:first-child {
+  display: none;
+}
+
+.transcript-status:empty {
+  display: none;
+}
+
+.transcript-retry {
+  margin: 0 0 16px;
+  padding: 8px 14px;
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  background: var(--white);
+  cursor: pointer;
+}
+
+.transcript-retry[hidden] {
+  display: none;
+}
+
+.transcript-dialog-footer {
+  justify-content: flex-end;
+  border-top: 1px solid rgba(26, 122, 138, 0.16);
+  border-bottom: 0;
+}
+
+.transcript-dialog-footer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .sermon-info span,
 .sermon-info p {
   display: block;
@@ -1574,6 +1767,44 @@ header + .video-section,
 
 /* Responsive para móviles - Sermones */
 @media (max-width: 640px) {
+  .transcript-dialog {
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+  }
+
+  .transcript-dialog-header,
+  .transcript-dialog-footer {
+    padding: 14px 16px;
+  }
+
+  .transcript-dialog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .transcript-dialog-nav {
+    max-height: 150px;
+    padding: 12px 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(26, 122, 138, 0.16);
+  }
+
+  .transcript-dialog-nav ul {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .transcript-dialog-nav li {
+    flex: 0 0 min(78vw, 280px);
+  }
+
+  .transcript-reader {
+    padding: 20px 16px;
+  }
+
   .sermon-list {
     grid-template-columns: 1fr;
   }
@@ -1833,6 +2064,10 @@ header + .video-section,
   font-size: 2.5rem;
   font-weight: 900;
   line-height: 1;
+}
+
+.evento-fecha--recurrente .dia {
+  font-size: 1.25rem;
 }
 
 .evento-fecha .mes {

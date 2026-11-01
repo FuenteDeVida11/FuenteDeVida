@@ -39,9 +39,6 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="../css/styles.css" />
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="    sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-
   <link rel="preload" as="image" href="../jpg/eventos-back.webp" type="image/webp" fetchpriority="high" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"
     integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS"
@@ -86,7 +83,8 @@
   <nav>
 
     <a href="../index.html" class="nav-brand" aria-label="Inicio - Fuente de Vida">
-
+
+
       <img src="../jpg/logo-sin-fondo2.png" alt="Logo Fuente de Vida" width="48" height="48" />
 
     </a>
@@ -176,7 +174,8 @@
     <div class="menu-overlay-header">
 
       <a href="../index.html" class="menu-overlay-logo" aria-label="Inicio - Fuente de Vida">
-
+
+
         <img src="../jpg/logo-sin-fondo2.png" alt="Logo Fuente de Vida" width="52" height="52" loading="lazy" />
 
       </a>
@@ -313,7 +312,7 @@
   <!-- Calendario de actividades y servicios próximos. -->
   <section id="eventos-section">
 
-    <h2 data-i18n="eventos.title">Próximos Eventos</h2>
+    <h2 data-i18n="eventos.weeklyTitle">Actividades semanales</h2>
 
     <div class="divider"></div>
 
@@ -323,11 +322,11 @@
 
         <div class="evento-card">
 
-          <div class="evento-fecha">
+          <div class="evento-fecha evento-fecha--recurrente">
 
             <div class="dia" data-i18n="eventos.prayer.day">Todos los sábados</div>
 
-            <div class="mes"></div>
+            <div class="mes" data-i18n="eventos.prayer.time">6:00 a. m.</div>
 
           </div>
 
@@ -337,15 +336,8 @@
 
             <h3 data-i18n="eventos.prayer.title">Oración de Intercesión</h3>
 
-            <p data-i18n="eventos.prayer.desc">Todos los sábados a las 6:00 am, con el ministerio de
+            <p data-i18n="eventos.prayer.desc">Con el ministerio de
               intercesión. Todos están invitados a unirse cuando gusten.</p>
-
-            <p class="evento-direccion" data-i18n="eventos.prayer.place">6:00 am · 3939 Lien Rd,
-              Madison WI</p>
-
-            <div id="mapaOracion" class="mapa-ubicacion mapa-ubicacion--small" role="img"
-              data-i18n-aria="eventos.mapAria"
-              aria-label="Mapa de ubicación de Iglesia Fuente de Vida"></div>
 
           </div>
 
@@ -355,67 +347,15 @@
 
     </div>
 
-    <div class="eventos-mes">
+    <h2 data-i18n="eventos.title">Próximos Eventos</h2>
 
-      <h3 class="eventos-mes-titulo" data-i18n-month="10">Octubre</h3>
-
-      <div class="evento-card">
-
-        <div class="evento-fecha">
-
-          <div class="dia">30</div>
-
-          <div class="mes" data-i18n-month="10">Octubre</div>
-
-        </div>
-
-        <div class="evento-info">
-
-          <span class="evento-tag" data-i18n="eventos.juniors.tag">Niños</span>
-
-          <h3 data-i18n="eventos.juniors.title">Actividad de Juniors</h3>
-
-          <p data-i18n="eventos.juniors.desc">Actividad especial para los niños de la iglesia.</p>
-
-          <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-              class="fas fa-clock" aria-hidden="true"></i> 3939 Lien Rd, Madison WI</p>
-        </div>
-
-      </div>
-
-    </div>
-
-    </div>
+    <div class="divider"></div>
 
     <div class="eventos-mes">
 
       <h3 class="eventos-mes-titulo" data-i18n-month="11">Noviembre</h3>
 
       <div class="eventos-grid">
-
-        <div class="evento-card">
-
-          <div class="evento-fecha">
-
-            <div class="dia">6-7</div>
-
-            <div class="mes" data-i18n-month="11">Noviembre</div>
-
-          </div>
-
-          <div class="evento-info">
-
-            <span class="evento-tag" data-i18n="eventos.youth.tag">Juventud</span>
-
-            <h3 data-i18n="eventos.youth.title">Actividad de Jóvenes</h3>
-
-            <p data-i18n="eventos.youth1.desc">Actividad especial para el ministerio de jóvenes.</p>
-
-            <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-                class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
-          </div>
-
-        </div>
 
         <div class="evento-card">
 
@@ -436,8 +376,8 @@
             <p data-i18n="eventos.fill.desc">Un tiempo especial buscando la llenura del Espíritu
               Santo.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-                class="fas fa-clock" aria-hidden="true"></i> 3939 Lien Rd, Madison WI</p>
+            <p class="evento-direccion" data-i18n="eventos.fill.place">3939 Lien Rd,
+              Madison WI</p>
           </div>
 
         </div>
@@ -461,8 +401,8 @@
             <p data-i18n="eventos.rescue.desc">Jornada de renovación y capacitación para los
               líderes.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-                class="fas fa-clock" aria-hidden="true"></i> 3939 Lien Rd, Madison WI</p>
+            <p class="evento-direccion" data-i18n="eventos.fill.place">3939 Lien Rd,
+              Madison WI</p>
           </div>
 
         </div>
@@ -471,7 +411,7 @@
 
           <div class="evento-fecha">
 
-            <div class="dia">18</div>
+            <div class="dia">19</div>
 
             <div class="mes" data-i18n-month="11">Noviembre</div>
 
@@ -479,15 +419,14 @@
 
           <div class="evento-info">
 
-            <span class="evento-tag" data-i18n="eventos.youth.tag">Juventud</span>
+            <span class="evento-tag" data-i18n="eventos.youth.tag">Jovenes</span>
 
-            <h3 data-i18n="eventos.youth.title">Actividad de Jóvenes</h3>
+            <h3 data-i18n="eventos.youth.title">Friends Giving | Jóvenes</h3>
 
-            <p data-i18n="eventos.youth2.desc">Segunda actividad especial para el ministerio de
-              jóvenes.</p>
+            <p data-i18n="eventos.youth2.desc"> una noche de convivencia y agradecimiento entre los jóvenes.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-                class="fas fa-clock" aria-hidden="true"></i> 3939 Lien Rd, Madison WI</p>
+            <p class="evento-direccion" data-i18n="eventos.fill.place">3939 Lien Rd,
+              Madison WI</p>
           </div>
 
         </div>
@@ -521,8 +460,8 @@
             <p data-i18n="eventos.anniv.desc">Celebramos 13 años de la iglesia junto con nuestra
               fiesta de cosecha.</p>
 
-            <p class="evento-direccion evento-direccion--pendiente" data-i18n="eventos.pending"><i
-                class="fas fa-clock" aria-hidden="true"></i> Dirección por confirmar</p>
+            <p class="evento-direccion" data-i18n="eventos.fill.place">3939 Lien Rd,
+              Madison WI</p>
           </div>
 
         </div>
@@ -582,12 +521,6 @@
   <script src="../js/scroll-to-top.js" defer></script>
 
   <script src="../js/video-fallback.js" defer></script>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="     crossorigin="anonymous" defer>
-  </script>
-
-  <script src="../js/location-map.js" defer></script>
 
   <script src="../js/video-mute.js" defer></script>
 

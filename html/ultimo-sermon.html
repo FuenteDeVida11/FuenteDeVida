@@ -170,6 +170,7 @@
         </button>
       </div>
     </nav>
+    
     <!-- ===== BARRAS LATERALES FIJAS ===== -->
     <div class="side-bar side-bar-left">
       <div class="side-bar-icons">
@@ -503,6 +504,27 @@
        -->
 
         <ul class="sermon-list">
+          <li>
+            <div
+              class="sermon-thumbnail"
+              style="
+                background-image: url(&quot;https://img.youtube.com/vi/ANJhLJUeOP0/mqdefault.jpg&quot;);
+              "
+            ></div>
+
+            <div class="sermon-info">
+              <a
+                href="https://youtu.be/ANJhLJUeOP0?si=yBqWyOlIo1weW2sU"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dejo las 99 y fue por ti | Mario Davila</a
+              >
+
+              <span> Español</span>
+            </div>
+          </li>
+          
           <li>
             <div
               class="sermon-thumbnail"
@@ -3780,15 +3802,89 @@
                 href="https://www.youtube.com/live/sru34WGzkmA?si=9wkkIZU683bFa910"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Para que mi pueblo pueda oirme | Eduardo Garcia</a
+                >Para que mi pueblo pueda oírme | Eduardo García</a
               >
 
               <span>Bilingüe</span>
+              <a
+                class="sermon-transcript-link"
+                href="transcripciones/para-que-mi-pueblo-pueda-oirme.html"
+                data-i18n="sermones.transcriptLink"
+                >Leer transcripción (español)</a
+              >
             </div>
           </li>
         </ul>
       </section>
     </main>
+
+    <dialog
+      id="transcriptDialog"
+      class="transcript-dialog"
+      aria-labelledby="transcriptDialogTitle"
+    >
+      <div class="transcript-dialog-header">
+        <div>
+          <h2 id="transcriptDialogTitle" data-i18n="sermones.transcriptTitle">
+            Transcripciones
+          </h2>
+          <p data-i18n="sermones.transcriptHint">
+            Elige una predicación para leer su transcripción.
+          </p>
+        </div>
+        <button
+          type="button"
+          class="transcript-dialog-close"
+          aria-label="Cerrar transcripciones"
+          data-i18n-aria="sermones.transcriptClose"
+        >
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="transcript-dialog-layout">
+        <nav
+          class="transcript-dialog-nav"
+          aria-label="Transcripciones disponibles"
+          data-i18n-aria="sermones.transcriptNav"
+        >
+          <h3 data-i18n="sermones.transcriptAvailable">Disponibles</h3>
+          <ul id="transcriptList"></ul>
+        </nav>
+        <section
+          class="transcript-reader"
+          aria-label="Lectura de transcripción"
+          data-i18n-aria="sermones.transcriptReader"
+        >
+          <p
+            id="transcriptStatus"
+            class="transcript-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <div id="transcriptContent"></div>
+        </section>
+      </div>
+      <div class="transcript-dialog-footer">
+        <button
+          type="button"
+          id="transcriptPrevious"
+          class="btn btn-secondary"
+          data-i18n="sermones.transcriptPrevious"
+          disabled
+        >
+          Anterior
+        </button>
+        <button
+          type="button"
+          id="transcriptNext"
+          class="btn btn-primary"
+          data-i18n="sermones.transcriptNext"
+          disabled
+        >
+          Siguiente
+        </button>
+      </div>
+    </dialog>
 
     <footer>
       <div class="container cta-container footer-cta">
@@ -3832,6 +3928,8 @@
     <script src="../js/sermon-video.js" defer></script>
 
     <script src="../js/sermon-search.js" defer></script>
+
+    <script src="../js/transcript-reader.js" defer></script>
 
     <script src="../js/scroll-to-top.js" defer></script>
 

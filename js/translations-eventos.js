@@ -9,15 +9,15 @@ window.fdvAddTranslations("es", {
     "Mantente al dia con los eventos, actividades y reuniones de la iglesia Fuente de Vida.",
 
   "eventos.title": "Próximos Eventos",
+  "eventos.weeklyTitle": "Actividades semanales",
   "eventos.pending": "Dirección por confirmar",
-  "eventos.mapAria": "Mapa de ubicación de Iglesia Fuente de Vida",
 
   "eventos.prayer.day": "Todos los sábados",
+  "eventos.prayer.time": "6:00 a. m.",
   "eventos.prayer.tag": "Oración",
   "eventos.prayer.title": "Oración de Intercesión",
   "eventos.prayer.desc":
-    "Todos los sábados a las 6:00 am, con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.",
-  "eventos.prayer.place": "6:00 am · 3939 Lien Rd, Madison WI",
+    "Con el ministerio de intercesión. Todos están invitados a unirse cuando gusten.",
 
   "eventos.elders.tag": "Culto especial",
   "eventos.elders.title": "Culto de Sector: Reconocimiento a Ancianos",
@@ -38,6 +38,7 @@ window.fdvAddTranslations("es", {
   "eventos.fill.title": "Llenura del Espíritu Santo",
   "eventos.fill.desc":
     "Un tiempo especial buscando la llenura del Espíritu Santo.",
+  "eventos.fill.place": "3939 Lien Rd, Madison WI",
 
   "eventos.rescue.tag": "Liderazgo",
   "eventos.rescue.title": "Rescate de Líderes",
@@ -64,15 +65,15 @@ window.fdvAddTranslations("en", {
     "Stay up to date with the events, activities and gatherings of Fuente de Vida church.",
 
   "eventos.title": "Upcoming Events",
+  "eventos.weeklyTitle": "Weekly Activities",
   "eventos.pending": "Address to be confirmed",
-  "eventos.mapAria": "Location map of Iglesia Fuente de Vida",
 
   "eventos.prayer.day": "Every Saturday",
+  "eventos.prayer.time": "6:00 AM",
   "eventos.prayer.tag": "Prayer",
   "eventos.prayer.title": "Intercession Prayer",
   "eventos.prayer.desc":
-    "Every Saturday at 6:00 AM with the intercession ministry. Everyone is welcome to join us anytime.",
-  "eventos.prayer.place": "6:00 AM · 3939 Lien Rd, Madison WI",
+    "Join the intercession ministry. Everyone is welcome to come whenever they can.",
 
   "eventos.elders.tag": "Special service",
   "eventos.elders.title": "Sector Service: Honoring Our Elders",
@@ -92,6 +93,7 @@ window.fdvAddTranslations("en", {
   "eventos.fill.title": "Filling of the Holy Spirit",
   "eventos.fill.desc":
     "A special time of seeking the filling of the Holy Spirit.",
+  "eventos.fill.place": "3939 Lien Rd, Madison WI",
 
   "eventos.rescue.tag": "Leadership",
   "eventos.rescue.title": "Leaders Rescue",

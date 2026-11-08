@@ -20,6 +20,7 @@ window.fdvAddTranslations("es", {
   "sermones.langBi": "Bilingüe",
   "sermones.transcriptLink": "Leer transcripción",
   "sermones.transcriptTitle": "Transcripciones",
+  "sermones.transcriptLanguage": "Idioma de la transcripción",
   "sermones.transcriptHint":
     "Elige una predicación para leer su transcripción.",
   "sermones.transcriptClose": "Cerrar transcripciones",
@@ -59,6 +60,7 @@ window.fdvAddTranslations("en", {
   "sermones.langBi": "Bilingual",
   "sermones.transcriptLink": "Read transcript",
   "sermones.transcriptTitle": "Transcripts",
+  "sermones.transcriptLanguage": "Transcript language",
   "sermones.transcriptHint": "Choose a sermon to read its transcript.",
   "sermones.transcriptClose": "Close transcripts",
   "sermones.transcriptNav": "Available transcripts",

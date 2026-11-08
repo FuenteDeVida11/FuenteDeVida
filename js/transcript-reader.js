@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const status = document.getElementById("transcriptStatus");
   const previousButton = document.getElementById("transcriptPrevious");
   const nextButton = document.getElementById("transcriptNext");
+  const languageToggle = document.getElementById("transcriptLanguageToggle");
+  const languageButtons = languageToggle
+    ? Array.from(languageToggle.querySelectorAll("[data-transcript-lang]"))
+    : [];
 
   if (
     !dialog ||
@@ -29,12 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return {
       href: link.href,
+      hrefEn: link.dataset.transcriptEn
+        ? new URL(link.dataset.transcriptEn, document.baseURI).href
+        : "",
       title: title ? title.textContent.trim() : link.textContent.trim(),
     };
   });
   const cache = new Map();
   const retryButton = document.createElement("button");
   let currentIndex = -1;
+  let currentLanguage =
+    window.FDV_I18N && typeof window.FDV_I18N.getLang === "function"
+      ? window.FDV_I18N.getLang()
+      : "es";
   let loadId = 0;
   let previousBodyOverflow = "";
 
@@ -42,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   retryButton.className = "transcript-retry";
   retryButton.hidden = true;
   retryButton.addEventListener("click", function () {
-    if (currentIndex >= 0) loadTranscript(currentIndex);
+    if (currentIndex >= 0) loadTranscript(currentIndex, currentLanguage);
   });
   status.insertAdjacentElement("afterend", retryButton);
 
@@ -66,10 +77,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  async function loadTranscript(index) {
+  function updateLanguageToggle(transcript) {
+    if (!languageToggle) return;
+    languageToggle.hidden = !transcript || !transcript.hrefEn;
+    languageButtons.forEach(function (button) {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.transcriptLang === currentLanguage),
+      );
+    });
+  }
+
+  async function loadTranscript(index, requestedLanguage) {
     const transcript = transcripts[index];
     if (!transcript) return;
 
+    currentLanguage = requestedLanguage || currentLanguage;
+    if (currentLanguage === "en" && !transcript.hrefEn) {
+      currentLanguage = "es";
+    }
+    const transcriptHref =
+      currentLanguage === "en" ? transcript.hrefEn : transcript.href;
     currentIndex = index;
     const thisLoad = ++loadId;
     content.replaceChildren();
@@ -79,11 +107,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     retryButton.hidden = true;
     updateNavigation();
+    updateLanguageToggle(transcript);
 
     try {
-      let transcriptPromise = cache.get(transcript.href);
+      let transcriptPromise = cache.get(transcriptHref);
       if (!transcriptPromise) {
-        transcriptPromise = fetch(transcript.href).then(function (response) {
+        transcriptPromise = fetch(transcriptHref).then(function (response) {
           if (!response.ok) {
             throw new Error(
               "Transcript request failed with status " + response.status,
@@ -91,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           return response.text();
         });
-        cache.set(transcript.href, transcriptPromise);
+        cache.set(transcriptHref, transcriptPromise);
       }
 
       const html = await transcriptPromise;
@@ -107,10 +136,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (thisLoad !== loadId) return;
 
-      content.replaceChildren(document.importNode(article, true));
+      const transcriptArticle = document.importNode(article, true);
+      transcriptArticle.lang = currentLanguage;
+      transcriptArticle.dataset.transcriptLanguage = currentLanguage;
+      if (typeof window.FDV_FORMAT_TRANSCRIPT === "function") {
+        window.FDV_FORMAT_TRANSCRIPT(transcriptArticle);
+      }
+      content.replaceChildren(transcriptArticle);
       status.textContent = "";
     } catch (error) {
-      cache.delete(transcript.href);
+      cache.delete(transcriptHref);
       if (thisLoad !== loadId) return;
 
       console.error("Unable to load sermon transcript:", error);
@@ -174,14 +209,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   nextButton.addEventListener("click", function () {
-    if (currentIndex < transcripts.length - 1) loadTranscript(currentIndex + 1);
+    if (currentIndex < transcripts.length - 1) {
+      loadTranscript(currentIndex + 1, currentLanguage);
+    }
   });
 
-  document.addEventListener("fdv:languagechange", function () {
-    if (retryButton.hidden) return;
-    retryButton.textContent = translate(
-      "sermones.transcriptRetry",
-      "Intentar de nuevo",
-    );
+  languageButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (currentIndex >= 0) {
+        loadTranscript(currentIndex, button.dataset.transcriptLang);
+      }
+    });
+  });
+
+  document.addEventListener("fdv:languagechange", function (event) {
+    const language = event.detail && event.detail.lang;
+    if (language === "es" || language === "en") {
+      currentLanguage = language;
+      if (dialog.open && currentIndex >= 0) {
+        loadTranscript(currentIndex, currentLanguage);
+      }
+    }
+    if (!retryButton.hidden) {
+      retryButton.textContent = translate(
+        "sermones.transcriptRetry",
+        "Intentar de nuevo",
+      );
+    }
   });
 });
